@@ -19,13 +19,13 @@
                 <Button
                     id="_IDGenButton2"
                     icon="sap-icon://add"
-                    text="Opprett varsel"
+                    text="{i18n>ButtonToNotice}"
                     press="onPressNavToVarsel"
                 />
                 <Button
                     id="_IDGenButton1"
                     icon="sap-icon://add"
-                    text="Opprett sak"
+                    text="{i18n>ButtonToCase}"
                     press="onPressNavToForm"
                 />
             </Toolbar>
