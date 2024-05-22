@@ -10,6 +10,8 @@
     <Page
         id="page"
         title="Si ifra!"
+        showNavButton="true"
+        navButtonPress="onPressNavToHome"
     >
         <content>
             <Toolbar id="_IDGenToolbar1">
