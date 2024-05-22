@@ -109,6 +109,13 @@
           ]
         },
         {
+          "name": "Varsel",
+          "pattern": "Varsel",
+          "target": [
+            "Varsel"
+          ]
+        },
+        {
           "name": "Feed",
           "pattern": "Feed/{ID}",
           "target": [
@@ -129,7 +136,11 @@
          "Feed": {
            "viewName": "Feed",
            "controlAggregation": "midColumnPages"
-        }
+        },
+        "Varsel": {
+          "viewName": "Varsel",
+          "controlAggregation": "beginColumnPages"
+       }
 
       }
     },

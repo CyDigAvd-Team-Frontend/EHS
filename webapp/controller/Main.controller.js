@@ -22,6 +22,10 @@ sap.ui.define([
                 var oObject = oEvent.getSource().getBindingContext("ListModel").getObject();
                 this.getOwnerComponent().getRouter().navTo("Feed", {ID: oObject.ID});
             },
+            onPressNavToVarsel: function(oEvent) {
+                this.getOwnerComponent().getModel("layoutModel").setProperty("/layout", "OneColumn");
+                this.getOwnerComponent().getRouter().navTo("Varsel");
+            },
             onSearch: function(oEvent){
                 var items = this.getView().byId("_IDGenTable1").getBinding("items");
                 var sStatus = oEvent.getParameter("selectionSet")[1].getSelectedItem().getText();
