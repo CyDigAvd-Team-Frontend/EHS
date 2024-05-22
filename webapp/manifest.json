@@ -58,6 +58,12 @@
           "bundleName": "no.mil.zehs.i18n.i18n"
         }
       },
+      "initModel":{
+        "type": "sap.ui.model.json.JSONModel",
+        "settings": {},
+        "uri": "model/initModel.json",
+        "preload": true
+      },
       "ListModel": {
         "type": "sap.ui.model.json.JSONModel",
         "settings": {},
