@@ -16,11 +16,11 @@ sap.ui.define([
             },
 
             onRouteMatched: function (evt) {
-                this.getOwnerComponent().getModel("layoutModel").setProperty("/layout", "OneColumn");
+                this.getModel("layoutModel").setProperty("/layout", "OneColumn");
             },
 
             handleClose: function () {
-                this.getOwnerComponent().getRouter().navTo("RouteMain");
+                this.getRouter().navTo("RouteMain");
 
             }
         });
