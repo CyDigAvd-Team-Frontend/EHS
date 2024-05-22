@@ -20,6 +20,10 @@ sap.ui.define(
                     }
                 }
                 return this._sContentDensityClass;
+            },
+
+            getRouter: function() {
+                return this.getOwnerComponent().getRouter();
             }
         });
     }

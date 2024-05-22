@@ -9,14 +9,18 @@ sap.ui.define([
 
         return Controller.extend("no.mil.zehs.controller.Form", {
             
-            onIni: function () {
+            onInit: function () {
                 this.getView().addStyleClass(this.getContentDensityClass());
+                this.oRouter = this.getRouter().getRoute("Varsel");
+                this.oRouter.attachPatternMatched(this.onRouteMatched, this);
+            },
+
+            onRouteMatched: function (evt) {
+                this.getOwnerComponent().getModel("layoutModel").setProperty("/layout", "OneColumn");
             },
 
             handleClose: function(){
                 this.getOwnerComponent().getRouter().navTo("RouteMain");
-                this.getOwnerComponent().getModel("layoutModel").setProperty("/layout", "OneColumn");
-                
             }
         });
     }
