@@ -6,12 +6,14 @@
     xmlns="sap.m"
     xmlns:f="sap.f"
 >
-    <App>
-        <pages>
-            <f:FlexibleColumnLayout
-                id="app"
-                layout="{layoutModel>/layout}"
-            />
-        </pages>
-    </App>
+    <Shell appWidthLimited="true">
+        <App>
+            <pages>
+                <f:FlexibleColumnLayout
+                    id="app"
+                    layout="{layoutModel>/layout}"
+                />
+            </pages>
+        </App>
+    </Shell>
 </mvc:View>
