@@ -11,7 +11,7 @@
 >
     <Page
         id="page"
-        title="{i18n>title}Test"
+        title="{i18n>createIncident}"
         showFooter="true"
         showNavButton="true"
         navButtonPress="handleClose"
@@ -45,7 +45,7 @@
                             style="Clear"
                             design="Solid"
                             ariaLabelledBy="titleHeader,butGDPR"
-                            class="sapUiLargeMarginBottom borderBottom"
+                            class="sapUiLargeMarginBottom borderBottom sapUiLargeMarginEnd"
                         >
                             <Title
                                 id="titleHeader"
@@ -237,7 +237,7 @@
                             style="Clear"
                             design="Solid"
                             ariaLabelledBy="titleLocation,butGDPR"
-                            class="sapUiLargeMarginBottom borderBottom"
+                            class="sapUiLargeMarginBottom borderBottom sapUiLargeMarginEnd"
                         >
                             <Title
                                 id="titleLocation"
@@ -312,7 +312,7 @@
                             style="Clear"
                             design="Solid"
                             ariaLabelledBy="titleAttachment"
-                            class="borderBottom"
+                            class="borderBottom sapUiLargeMarginEnd"
                         >
                             <Title
                                 id="titleAttachment"
@@ -345,6 +345,7 @@
 
                     <toolbar>
                         <OverflowToolbar>
+                        <ToolbarSpacer  />
                             <unified:FileUploader
                                 id="btnFileUpload"
                                 buttonOnly="true"
@@ -370,6 +371,11 @@
         <footer>
             <Toolbar>
                 <ToolbarSpacer />
+                <Button
+                    type="Ghost"
+                    text="{i18n>Abort}"
+                    class="sapUiTinyMarginEnd"
+                />
                 <Button
                     type="Emphasized"
                     text="{i18n>Send}"
