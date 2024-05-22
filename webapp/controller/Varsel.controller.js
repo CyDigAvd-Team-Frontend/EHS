@@ -1,5 +1,5 @@
 sap.ui.define([
-    "sap/ui/core/mvc/Controller"
+    "no/mil/zehs/controller/Base"
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
@@ -8,7 +8,6 @@ sap.ui.define([
         "use strict";
 
         return Controller.extend("no.mil.zehs.controller.Form", {
-
 
             handleClose: function(){
                 this.getOwnerComponent().getRouter().navTo("RouteMain");

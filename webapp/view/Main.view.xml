@@ -13,22 +13,7 @@
         showNavButton="true"
         navButtonPress="onPressNavToHome"
     >
-        <content>
-            <Toolbar id="_IDGenToolbar1">
-                <ToolbarSpacer id="_IDGenToolbarSpacer1" />
-                <Button
-                    id="_IDGenButton2"
-                    icon="sap-icon://add"
-                    text="{i18n>ButtonToNotice}"
-                    press="onPressNavToVarsel"
-                />
-                <Button
-                    id="_IDGenButton1"
-                    icon="sap-icon://add"
-                    text="{i18n>ButtonToCase}"
-                    press="onPressNavToForm"
-                />
-            </Toolbar>
+        <content>            
             <fb:FilterBar
                 id="_IDGenFilterBar1"
                 reset="onReset"
@@ -82,6 +67,22 @@
                     </fb:FilterGroupItem>
                 </fb:filterGroupItems>
             </fb:FilterBar>
+            <Toolbar id="_IDGenToolbar1" class="sapUiTinyMarginEnd">
+                <ToolbarSpacer id="_IDGenToolbarSpacer1"  />
+                <Button
+                    id="_IDGenButton2"
+                    icon="sap-icon://add"
+                    text="{i18n>ButtonToNotice}"
+                    press="onPressNavToVarsel"
+                />
+                <ToolbarSeparator  />
+                <Button
+                    id="_IDGenButton1"
+                    icon="sap-icon://add"
+                    text="{i18n>ButtonToCase}"
+                    press="onPressNavToForm"                
+                />
+            </Toolbar>
             <Table
                 id="_IDGenTable1"
                 items="{ListModel>/}"

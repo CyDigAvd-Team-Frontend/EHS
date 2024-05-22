@@ -1,5 +1,5 @@
 sap.ui.define([
-    "sap/ui/core/mvc/Controller"
+    "no/mil/zehs/controller/Base"
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
