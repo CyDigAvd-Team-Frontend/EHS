@@ -1,0 +1,381 @@
+<mvc:View
+    controllerName="no.mil.zehs.controller.Form"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:layout="sap.ui.layout"
+    xmlns:unified="sap.ui.unified"
+    xmlns:common="sap.ui.commons"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m"
+>
+    <Page
+        id="page"
+        title="{i18n>title}Test"
+        showFooter="true"
+        showNavButton="true"
+        navButtonPress="handleClose"
+    >
+        <content>
+            <VBox
+                class="sapUiResponsiveMargin"
+                renderType="Div"
+            >
+                <f:SimpleForm
+                    id="SimpleFormChange471"
+                    editable="true"
+                    layout="ResponsiveGridLayout"
+                    labelSpanXL="4"
+                    labelSpanL="4"
+                    labelSpanM="4"
+                    labelSpanS="12"
+                    adjustLabelSpan="false"
+                    emptySpanXL="1"
+                    emptySpanL="2"
+                    emptySpanM="1"
+                    emptySpanS="0"
+                    columnsXL="1"
+                    columnsL="1"
+                    columnsM="1"
+                    singleContainerFullSize="false"
+                    class="sapUiResponsiveMargin"
+                >
+                    <f:content>
+                        <Toolbar
+                            style="Clear"
+                            design="Solid"
+                            ariaLabelledBy="titleHeader,butGDPR"
+                            class="sapUiLargeMarginBottom borderBottom"
+                        >
+                            <Title
+                                id="titleHeader"
+                                text="{i18n>InformationTitle}"
+                                class="sapUiSmallMarginBottom"
+                            />
+                            <ToolbarSpacer />
+                            <Link
+                                href="{i18n>LinkToDataPrivacy}"
+                                id="butGDPR"
+                                text="{i18n>LinkToDataPrivacyText}"
+                                target="_blank"
+                                class="sapUiSmallMarginBottom"
+                            />
+                            <ToolbarSpacer width="17%" />
+                        </Toolbar>
+                        <!-- Header for Section: Information -->
+                        <!-- Title -->
+                        <Label
+                            id="labelTitle"
+                            labelFor="inputTitle"
+                            fieldGroupIds="incidentHeader,requiresValidation"
+                            text="{i18n>Title}"
+                            required="true"
+                        />
+                        <Input
+                            id="inputTitle"
+                            fieldGroupIds="incidentHeader"
+                            value="{Title}"
+                            maxLength="80"
+                        >
+                            <!-- <layoutData>
+									<layout:GridData span="XL7 L7 M7 S12"/>
+								</layoutData> -->
+                        </Input>
+                        <!-- Description of Events -->
+                        <Label
+                            id="labelDescription"
+                            labelFor="inputDescription"
+                            fieldGroupIds="incidentHeader,requiresValidation"
+                            text="{i18n>DescriptionOfEvents}"
+                            required="true"
+                        />
+                        <TextArea
+                            id="inputDescription"
+                            fieldGroupIds="incidentHeader"
+                            value="{DescText}"
+                            growingMaxLines="30"
+                            rows="6"
+                            cols="50"
+                            growing="true"
+                            width="100%"
+                            placeholder="{i18n>DescriptionOfEventsHelpDescription}"
+                        >
+                            <layoutData>
+                                <layout:GridData span="XL6 L6 M6 S11" />
+                            </layoutData>
+                        </TextArea>
+                        <Button
+                            type="Transparent"
+                            icon="sap-icon://sys-help-2"
+                            text="{i18n>Help}"
+                            press="onBtnHintPressed"
+                            ariaLabelledBy="defaultHint"
+                            ariaDescribedBy="defaultHint"
+                        >
+                            <layoutData>
+                                <layout:GridData span="XL1 L1 M1 S1" />
+                            </layoutData>
+                            <customData>
+                                <!-- Custom Data which controls the texts and element the popover help shall be displayed for -->
+                                <core:CustomData
+                                    key="elmentIdForPopoverHelp"
+                                    value="inputDescription"
+                                />
+                                <core:CustomData
+                                    key="i18nAliasForHintHeader"
+                                    value="DescriptionOfEventsHelpTitle"
+                                />
+                                <core:CustomData
+                                    key="i18nAliasForHintTextHtml"
+                                    value="DescriptionOfEventsHelpHtml"
+                                />
+                            </customData>
+                        </Button>
+                        <core:InvisibleText
+                            id="defaultHint"
+                            text="{i18n>Help}"
+                        />
+                        <!-- Strakstiltak  -->
+                        <Label
+                            id="labelImDesc"
+                            labelFor="inputImDesc"
+                            fieldGroupIds="incidentHeader,requiresValidation"
+                            text="{i18n>ImDescOfEvents}"
+                            required="false"
+                        />
+                        <TextArea
+                            id="inputImDesc"
+                            fieldGroupIds="incidentHeader"
+                            value="{DescText}"
+                            growingMaxLines="30"
+                            rows="2"
+                            cols="50"
+                            growing="true"
+                            width="100%"
+                            placeholder=""
+                        >
+                            <layoutData>
+                                <layout:GridData span="XL6 L6 M6 S11" />
+                            </layoutData>
+                        </TextArea>
+                        <Button
+                            type="Transparent"
+                            icon="sap-icon://sys-help-2"
+                            text="{i18n>Help}"
+                            press="onBtnHintPressed"
+                            ariaLabelledBy="defaultHint"
+                            ariaDescribedBy="defaultHint"
+                        >
+                            <layoutData>
+                                <layout:GridData span="XL1 L1 M1 S1" />
+                            </layoutData>
+                            <customData>
+                                <!-- Custom Data which controls the texts and element the popover help shall be displayed for -->
+                                <core:CustomData
+                                    key="elmentIdForPopoverHelp"
+                                    value="inputDescription"
+                                />
+                                <core:CustomData
+                                    key="i18nAliasForHintHeader"
+                                    value="DescriptionOfEventsHelpTitle"
+                                />
+                                <core:CustomData
+                                    key="i18nAliasForHintTextHtml"
+                                    value="DescriptionOfEventsHelpHtml"
+                                />
+                            </customData>
+                        </Button>
+                        <core:InvisibleText
+                            id="defaultHintImd"
+                            text="{i18n>Help}"
+                        />
+                        <!-- ENd Strakstiltak  -->
+                        <!-- When did it happen ? -->
+                        <Label
+                            id="labelDateOrPeriod"
+                            labelFor="inputDateOrPeriod"
+                            text="{i18n>DateOrPeriod}"
+                            required="true"
+                        />
+
+                        <!-- Date -->
+                        <VBox>
+                            <DatePicker
+                                id="inputDate"
+                                fieldGroupIds="incidentHeader"
+                                value="{ path: 'StartDate', type: 'sap.ui.model.type.Date', formatOptions: { strictParsing: true, UTC: true } }"
+                                visible="{= ${initModel>/sDateOrPeriod} === 'date' ? true : false }"
+                            />
+                            <DateRangeSelection
+                                id="inputPeriod"
+                                fieldGroupIds="incidentHeader"
+                                dateValue="{ path: 'StartDate', formatOptions: { strictParsing: true, UTC: false } }"
+                                secondDateValue="{ path: 'EndDate', formatOptions: { strictParsing: true, UTC: false } }"
+                                visible="{= ${initModel>/sDateOrPeriod} === 'period' ? true : false }"
+                            />
+                        </VBox>
+                        <SegmentedButton
+                            id="inputDateOrPeriod"
+                            width="100%"
+                            selectedKey="{initModel>/sDateOrPeriod}"
+                        >
+                            <items>
+                                <SegmentedButtonItem
+                                    text="{i18n>Date}"
+                                    key="date"
+                                />
+                                <SegmentedButtonItem
+                                    text="{i18n>Period}"
+                                    key="period"
+                                />
+                            </items>
+                            <layoutData>
+                                <layout:GridData span="XL1 L2 M1 S1" />
+                            </layoutData>
+                        </SegmentedButton>
+                        <Toolbar
+                            style="Clear"
+                            design="Solid"
+                            ariaLabelledBy="titleLocation,butGDPR"
+                            class="sapUiLargeMarginBottom borderBottom"
+                        >
+                            <Title
+                                id="titleLocation"
+                                text="{i18n>ResponsiblePartyTitle}"
+                                class="sapUiSmallMarginBottom"
+                            />
+                        </Toolbar>
+
+                        <!-- On behalf of: No/Yes -->
+                        <Label
+                            id="labelIsOnBehalfOf"
+                            labelFor="inputIsOnBehalfOf"
+                            text="{i18n>OnBehalfOf}"
+                        />
+                        <Switch
+                            id="inputIsOnBehalfOf"
+                            state="{appView>/bIsOnBehalfOf}"
+                            customTextOn="{i18n>Yes}"
+                            customTextOff="{i18n>No}"
+                        />
+
+                        <List
+                            items="{appView>/aIncidentPersonOnBehalfOf}"
+                            mode="Delete"
+                            backgroundDesign="Transparent"
+                            class="sapUiTinyMarginTop sapUiSmallMarginBottom"
+                            showNoData="false"
+                            visible="{= (${initModel>/bIsOnBehalfOf})  &amp;&amp; !(${initModel>/bIsAnonymous}) }"
+                            delete="onBtnDeleteIncidentPersonOnBehalfOfPressed"
+                        >
+                            <DisplayListItem label="{appView>FullName}" />
+                            <layoutData>
+                                <layout:GridData
+                                    indent="L2 M3 S0"
+                                    linebreak="true"
+                                    span="XL7 L7 M7 S12"
+                                />
+                            </layoutData>
+                        </List>
+
+                        <Label
+                            id="labelOnBehalfOf"
+                            labelFor="inputOnBehalfOf"
+                            text="{i18n>OnBehalfOfPerson}"
+                            visible="{= (${appView>/bIsOnBehalfOf})  &amp;&amp; !(${appView>/bIsAnonymous}) }"
+                        />
+                        <Input
+                            id="inputOnBehalfOf2"
+                            value="{appView>/sIncidentPersonOnBehalfOfIdCombined}"
+                            valueHelpOnly="true"
+                            showValueHelp="true"
+                            valueHelpRequest="onValueHelpRequestForPersonOnBehalfOf"
+                            placeholder="{i18n>SelectPerson}"
+                            visible="{= (${appView>/bIsOnBehalfOf})  &amp;&amp; !(${appView>/bIsAnonymous}) }"
+                        >
+                            <layoutData>
+                                <layout:GridData span="XL4 L4 M4 S12" />
+                            </layoutData>
+                        </Input>
+                        <Button
+                            id="btnCreatePersonOnBehalfOf"
+                            press="onBtnCreatePersonOnBehalfOf"
+                            type="Transparent"
+                            text="{i18n>OnBehalfOfPersonCreate}"
+                            visible="{= (${appView>/bIsOnBehalfOf})  &amp;&amp; !(${appView>/bIsAnonymous}) }"
+                        >
+                            <layoutData>
+                                <layout:GridData span="XL3 L3 M3 S12" />
+                            </layoutData>
+                        </Button>
+                        <Toolbar
+                            style="Clear"
+                            design="Solid"
+                            ariaLabelledBy="titleAttachment"
+                            class="borderBottom"
+                        >
+                            <Title
+                                id="titleAttachment"
+                                text="{i18n>Attachment}"
+                            />
+                        </Toolbar>
+                    </f:content>
+                </f:SimpleForm>
+                <!-- Attachment Documents -->
+                <!--&nbsp;
+							We have to be a little creative in here. the incident is submitted and we can't add any documents after this happened. the
+							reason is that the workflow, etc., may have already started and exclusively lock the incident/whistleblowing case created.
+							so we have to send the attachment documents with the original payload of the incident data.
+						-->
+                <UploadCollection
+                    noDataText="{i18n>AttachmentsNotUploadedYet}"
+                    class="sapUiResponsiveMargin"
+                    instantUpload="true"
+                    items="{ path: 'appView>/aAttachmentDocument' }"
+                    fileDeleted="onFileUploaderFileDeleted"
+                    change="onFileUploaderChanged"
+                    beforeUploadStarts="onBeforeUploadStarts"
+                >
+                    <layoutData>
+                        <layout:GridData
+                            indent="L3 M3 S0"
+                            span="L12 M7 S12"
+                        />
+                    </layoutData>
+
+                    <toolbar>
+                        <OverflowToolbar>
+                            <unified:FileUploader
+                                id="btnFileUpload"
+                                buttonOnly="true"
+                                iconOnly="true"
+                                icon="sap-icon://add"
+                                change="onFileUploaderChanged"
+                                typeMissmatch="onFileUploaderTypeMissmatch"
+                                fileType="jpeg,png,jpg,pdf,msg"
+                            />
+                        </OverflowToolbar>
+                    </toolbar>
+                    <items>
+                        <UploadCollectionItem
+                            documentId="{appView>}"
+                            fileName="{appView>sFileName}"
+                            mimeType="{appView>sMimeType}"
+                            visibleEdit="false"
+                        />
+                    </items>
+                </UploadCollection>
+            </VBox>
+        </content>
+        <footer>
+            <Toolbar>
+                <ToolbarSpacer />
+                <Button
+                    type="Emphasized"
+                    text="{i18n>Send}"
+                    class="sapUiTinyMarginEnd"
+                />
+            </Toolbar>
+        </footer>
+    </Page>
+</mvc:View>

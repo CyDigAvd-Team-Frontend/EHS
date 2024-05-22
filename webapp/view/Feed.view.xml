@@ -1,0 +1,67 @@
+<mvc:View
+    controllerName="no.mil.zehs.controller.Feed"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:tnt="sap.tnt"
+    xmlns:com="sap.suite.ui.commons"
+    xmlns:f="sap.f"
+>
+    <Page
+        id="page"
+        title="Si ifra!"
+    >
+        <Toolbar id="_IDGenToolbar1">
+            <ToolbarSpacer id="_IDGenToolbarSpacer1" />
+            <OverflowToolbarButton
+                id="_IDGenOverflowToolbarButton1"
+                type="Transparent"
+                icon="sap-icon://decline"
+                press="handleClose"
+                tooltip="Exit Full Screen Mode"
+                visible="{= ${/actionButtonsInfo/endColumn/exitFullScreen} !== null }"
+            />
+        </Toolbar>
+        <FeedInput
+            id="_IDGenFeedInput1"
+            post="onPostFeed"
+            class="sapUiSmallMarginTopBottom"
+            placeholder="Skriv en kommentar"
+        />
+        <!-- <List
+            id="List"
+            showSeparators="Inner"
+            items="{FeedModel>/}"
+        >
+            <FeedListItem
+                timestamp="{FeedModel>timestamp}"
+                sender="{FeedModel>Author}"
+                id="Feed"
+                text="{FeedModel>text}"
+                convertLinksToAnchorTags="All"
+            />
+        </List> -->
+
+        <com:Timeline
+            id="idTimeline"
+            enableDoubleSided="true"
+            groupBy="HireDate"
+            growingThreshold="0"
+            filterTitle="Job Title"
+            sortOldestFirst="true"
+            content="{FeedModel>/}"
+            showHeaderBar="false"
+            noDataText="Ingen kommentar"
+        >
+            <com:content>
+                <com:TimelineItem
+                    id="idTemplateItem"
+                    text="{FeedModel>text}"
+                    userName="{FeedModel>Author}"
+                    icon="{FeedModel>icon}"
+                />
+            </com:content>
+        </com:Timeline>
+        <content />
+    </Page>
+</mvc:View>

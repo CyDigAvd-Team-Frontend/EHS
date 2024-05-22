@@ -1,0 +1,17 @@
+<mvc:View
+    controllerName="no.mil.zehs.controller.App"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:f="sap.f"
+>
+    <App>
+        <pages>
+            <f:FlexibleColumnLayout
+                id="app"
+                layout="{layoutModel>/layout}"
+            />
+        </pages>
+    </App>
+</mvc:View>

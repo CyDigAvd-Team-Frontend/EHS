@@ -1,0 +1,24 @@
+[
+    {
+        "ID" : 1234,
+        "Name" : "Frank",
+        "Status": "Under behandling",
+        "Kommentar": [
+            {
+            "Author" : "Frank",
+            "text" : "Trenger mer informasjon"
+        }]
+    },
+    {
+        "ID" : 34,
+        "Name" : "Hans",
+        "Status": "Ferdig",
+        "Kommentar": []
+    },
+    {
+        "ID" : 12,
+        "Name" : "Frank",
+        "Status": "Mottatt",
+        "Kommentar": []
+    }
+]
