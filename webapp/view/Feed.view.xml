@@ -18,15 +18,13 @@
                 type="Transparent"
                 icon="sap-icon://decline"
                 press="handleClose"
-                tooltip="Exit Full Screen Mode"
-                visible="{= ${/actionButtonsInfo/endColumn/exitFullScreen} !== null }"
             />
         </Toolbar>
         <FeedInput
             id="_IDGenFeedInput1"
             post="onPostFeed"
             class="sapUiSmallMarginTopBottom"
-            placeholder="Skriv en kommentar"
+            placeholder="{i18n>InputPlaceholder}"
         />
         <!-- <List
             id="List"
@@ -51,7 +49,7 @@
             sortOldestFirst="true"
             content="{FeedModel>/}"
             showHeaderBar="false"
-            noDataText="Ingen kommentar"
+            noDataText="{i18n>TimelineNoData}"
         >
             <com:content>
                 <com:TimelineItem
