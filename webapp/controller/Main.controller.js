@@ -20,7 +20,6 @@ sap.ui.define([
             },
             onPressNavToFeed: function(oEvent) {
                 var oObject = oEvent.getSource().getBindingContext("ListModel").getObject();
-                this.getOwnerComponent().getModel("layoutModel").setProperty("/layout", "TwoColumnsMidExpanded");
                 this.getOwnerComponent().getRouter().navTo("Feed", {ID: oObject.ID});
             },
             onSearch: function(oEvent){

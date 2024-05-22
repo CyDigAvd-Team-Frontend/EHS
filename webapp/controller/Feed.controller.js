@@ -12,7 +12,7 @@ sap.ui.define([
                 this.oOwnerComponent = this.getOwnerComponent();
 			    this.oRouter = this.oOwnerComponent.getRouter().getRoute("Feed");
 			    this.oRouter.attachPatternMatched(this.onRouteMatched, this);  
-                this.getOwnerComponent().getModel("layoutModel").setProperty("/layout", "TwoColumnsMidExpanded"); 
+                //this.getOwnerComponent().getModel("layoutModel").setProperty("/layout", "TwoColumnsBeginExpanded"); 
             },
 
             onRouteMatched: function(evt) {
@@ -20,6 +20,7 @@ sap.ui.define([
                 var oObject = this.getOwnerComponent().getModel("ListModel").getData().find((object) => object.ID === iId)
                 this.getOwnerComponent().getModel("FeedModel").setData(oObject.Kommentar);
                 this.getOwnerComponent().getModel("FeedModel").refresh();
+                this.getOwnerComponent().getModel("layoutModel").setProperty("/layout", "TwoColumnsBeginExpanded"); 
             },
 
             onPostFeed: function(evt) {
