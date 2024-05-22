@@ -26,6 +26,9 @@ sap.ui.define([
                 this.getOwnerComponent().getModel("layoutModel").setProperty("/layout", "OneColumn");
                 this.getOwnerComponent().getRouter().navTo("Varsel");
             },
+            onPressNavToHome: function(oEvent){
+                window.location.href = "https://cydigavd-team-frontend.github.io/FLP/";
+            },
             onSearch: function(oEvent){
                 var items = this.getView().byId("_IDGenTable1").getBinding("items");
                 var sStatus = oEvent.getParameter("selectionSet")[1].getSelectedItem().getText();
