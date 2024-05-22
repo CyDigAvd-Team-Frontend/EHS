@@ -1,0 +1,20 @@
+<mvc:View
+    controllerName="no.mil.zehs.controller.Varsel"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:tnt="sap.tnt"
+    xmlns:com="sap.suite.ui.commons"
+    xmlns:f="sap.f"
+>
+    <Page
+        id="page"
+        title="Si ifra!"
+        showNavButton="true"
+        navButtonPress="handleClose"
+    >
+        <content>
+            <Title text="Test" />
+        </content>
+    </Page>
+</mvc:View>
