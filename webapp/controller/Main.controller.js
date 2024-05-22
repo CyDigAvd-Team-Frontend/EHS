@@ -16,7 +16,7 @@ sap.ui.define([
             },
 
             onRouteMatched: function (evt) {
-                this.getOwnerComponent().getModel("layoutModel").setProperty("/layout", "OneColumn");
+                this.getModel("layoutModel").setProperty("/layout", "OneColumn");
             },
             onPressNavToForm: function (oEvent) {
                 this.getRouter().navTo("Form");

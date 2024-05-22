@@ -10,30 +10,28 @@ sap.ui.define([
         return Controller.extend("no.mil.zehs.controller.Feed", {
             onInit: function (evt) {
                 this.getView().addStyleClass(this.getContentDensityClass());
-                this.oOwnerComponent = this.getOwnerComponent();
-                this.oRouter = this.oOwnerComponent.getRouter().getRoute("Feed");
+                this.oRouter = this.getRouter().getRoute("Feed");
                 this.oRouter.attachPatternMatched(this.onRouteMatched, this);
                 //this.getOwnerComponent().getModel("layoutModel").setProperty("/layout", "TwoColumnsBeginExpanded"); 
             },
 
             onRouteMatched: function (evt) {
                 var iId = Number(evt.getParameter("arguments").ID);
-                var oObject = this.getOwnerComponent().getModel("ListModel").getData().find((object) => object.ID === iId)
-                this.getOwnerComponent().getModel("FeedModel").setData(oObject.Kommentar);
-                this.getOwnerComponent().getModel("FeedModel").refresh();
-                this.getOwnerComponent().getModel("layoutModel").setProperty("/layout", "TwoColumnsBeginExpanded");
+                var oObject = this.getModel("ListModel").getData().find((object) => object.ID === iId)
+                this.getModel("FeedModel").setData(oObject.Kommentar);
+                this.getModel("FeedModel").refresh();
+                this.getModel("layoutModel").setProperty("/layout", "TwoColumnsBeginExpanded");
             },
 
             onPostFeed: function (evt) {
-                var aFeed = this.getOwnerComponent().getModel("FeedModel").getData();
+                var aFeed = this.getModel("FeedModel").getData();
                 aFeed.unshift({ text: evt.getSource().getValue(), Author: "Lars", icon: "sap-icon://employee" });
-                this.getOwnerComponent().getModel("FeedModel").refresh();
-                this.getOwnerComponent().getModel("ListModel").setProperty("/Kommentar", aFeed)
+                this.getModel("FeedModel").refresh();
+                this.getModel("ListModel").setProperty("/Kommentar", aFeed)
             },
 
             handleClose: function () {
-                this.getOwnerComponent().getRouter().navTo("RouteMain");
-
+                this.getRouter().navTo("RouteMain");
             }
         });
     });
