@@ -9,17 +9,21 @@
 >
     <Page
         id="page"
-        title="Si ifra!"
+        title="{i18n>Communication}"
     >
-        <Toolbar id="_IDGenToolbar1">
-            <ToolbarSpacer id="_IDGenToolbarSpacer1" />
-            <OverflowToolbarButton
-                id="_IDGenOverflowToolbarButton1"
-                type="Transparent"
-                icon="sap-icon://decline"
-                press="handleClose"
-            />
-        </Toolbar>
+        <headerContent>
+            <Toolbar id="_IDGenToolbar1">
+                <ToolbarSpacer id="_IDGenToolbarSpacer1" />
+                <OverflowToolbarButton
+                    id="_IDGenOverflowToolbarButton1"
+                    type="Transparent"
+                    icon="sap-icon://decline"
+                    press="handleClose"
+                    class="sapUiTinyMarginBottom"
+                />
+            </Toolbar>
+        </headerContent>
+
         <FeedInput
             id="_IDGenFeedInput1"
             post="onPostFeed"
