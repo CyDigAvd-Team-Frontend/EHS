@@ -9,21 +9,24 @@ sap.ui.define([
 
         return Controller.extend("no.mil.zehs.controller.Main", {
 
-            onIni: function () {
+            onInit: function () {
                 this.getView().addStyleClass(this.getContentDensityClass());
+                this.oRouter = this.getRouter().getRoute("RouteMain");
+                this.oRouter.attachPatternMatched(this.onRouteMatched, this);
             },
 
-            onPressNavToForm: function (oEvent) {
+            onRouteMatched: function (evt) {
                 this.getOwnerComponent().getModel("layoutModel").setProperty("/layout", "OneColumn");
-                this.getOwnerComponent().getRouter().navTo("Form");
+            },
+            onPressNavToForm: function (oEvent) {
+                this.getRouter().navTo("Form");
             },
             onPressNavToFeed: function (oEvent) {
                 var oObject = oEvent.getSource().getBindingContext("ListModel").getObject();
-                this.getOwnerComponent().getRouter().navTo("Feed", { ID: oObject.ID });
+                this.getRouter().navTo("Feed", { ID: oObject.ID });
             },
             onPressNavToVarsel: function (oEvent) {
-                this.getOwnerComponent().getModel("layoutModel").setProperty("/layout", "OneColumn");
-                this.getOwnerComponent().getRouter().navTo("Varsel");
+                this.getRouter().navTo("Varsel");
             },
             onPressNavToHome: function (oEvent) {
                 window.location.href = "https://cydigavd-team-frontend.github.io/FLP/";

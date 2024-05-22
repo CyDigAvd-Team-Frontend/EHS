@@ -33,7 +33,6 @@ sap.ui.define([
 
             handleClose: function () {
                 this.getOwnerComponent().getRouter().navTo("RouteMain");
-                this.getOwnerComponent().getModel("layoutModel").setProperty("/layout", "OneColumn");
 
             }
         });
