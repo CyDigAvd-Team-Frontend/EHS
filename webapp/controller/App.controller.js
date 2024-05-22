@@ -6,8 +6,7 @@ sap.ui.define(
       "use strict";
   
       return Controller.extend("no.mil.zehs.controller.App", {
-        onInit: function() {
-        }
+
       });
     }
   );

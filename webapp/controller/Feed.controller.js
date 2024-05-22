@@ -9,6 +9,7 @@ sap.ui.define([
 
         return Controller.extend("no.mil.zehs.controller.Feed", {
             onInit: function (evt) {
+                this.getView().addStyleClass(this.getContentDensityClass());
                 this.oOwnerComponent = this.getOwnerComponent();
                 this.oRouter = this.oOwnerComponent.getRouter().getRoute("Feed");
                 this.oRouter.attachPatternMatched(this.onRouteMatched, this);

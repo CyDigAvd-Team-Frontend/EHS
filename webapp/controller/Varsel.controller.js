@@ -8,6 +8,10 @@ sap.ui.define([
         "use strict";
 
         return Controller.extend("no.mil.zehs.controller.Form", {
+            
+            onIni: function () {
+                this.getView().addStyleClass(this.getContentDensityClass());
+            },
 
             handleClose: function(){
                 this.getOwnerComponent().getRouter().navTo("RouteMain");

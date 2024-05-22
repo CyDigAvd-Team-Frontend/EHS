@@ -9,11 +9,14 @@ sap.ui.define([
 
         return Controller.extend("no.mil.zehs.controller.Form", {
 
+            onIni: function () {
+                this.getView().addStyleClass(this.getContentDensityClass());
+            },
 
-            handleClose: function(){
+            handleClose: function () {
                 this.getOwnerComponent().getRouter().navTo("RouteMain");
                 this.getOwnerComponent().getModel("layoutModel").setProperty("/layout", "OneColumn");
-                
+
             }
         });
     });
