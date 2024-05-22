@@ -34,7 +34,4 @@ EHHS Incident Cockpit
 1. Active NodeJS LTS (Long Term Support) version and associated supported NPM version.  (See https://nodejs.org)
 
 
-#### URL
-
-https://goeivinda.github.io/EHS/
 
