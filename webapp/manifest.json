@@ -133,18 +133,22 @@
       "targets": {
         "TargetMain": {
           "viewName": "Main",
+          "viewId": "Main",
           "controlAggregation": "beginColumnPages"
         },
         "Form": {
           "viewName": "Form",
+          "viewId": "Form",
           "controlAggregation": "beginColumnPages"
         },
          "Feed": {
            "viewName": "Feed",
+           "viewId": "Feed",
            "controlAggregation": "midColumnPages"
         },
         "Varsel": {
           "viewName": "Varsel",
+          "viewId": "Varsel",
           "controlAggregation": "beginColumnPages"
        }
 
