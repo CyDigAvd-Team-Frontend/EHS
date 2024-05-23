@@ -22,6 +22,10 @@ sap.ui.define([
             handleClose: function () {
                 this.getRouter().navTo("RouteMain");
 
+            },
+
+            onPressAbort:function(){
+                this.handleClose();
             }
         });
     });
