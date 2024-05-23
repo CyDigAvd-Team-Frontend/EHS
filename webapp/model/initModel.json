@@ -1,5 +1,8 @@
 {
     "sHelpHeader": "",
     "sHelpTextHtml": "",
-    "sDateOrPeriod": "date"
+    "sDateOrPeriod": "date",
+    "bIsOnBehalfOf": false,
+    "bIsAnonymous": false,
+    "bIsInvolved": false
 }

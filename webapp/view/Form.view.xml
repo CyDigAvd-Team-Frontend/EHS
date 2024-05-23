@@ -32,7 +32,7 @@
                     adjustLabelSpan="false"
                     emptySpanXL="1"
                     emptySpanL="2"
-                    emptySpanM="1"
+                    emptySpanM="2"
                     emptySpanS="0"
                     columnsXL="1"
                     columnsL="1"
@@ -60,7 +60,7 @@
                                 target="_blank"
                                 class="sapUiSmallMarginBottom"
                             />
-                            <ToolbarSpacer width="17%" />
+                            <ToolbarSpacer width="0%" />
                         </Toolbar>
                         <!-- Header for Section: Information -->
                         <!-- Title -->
@@ -81,6 +81,29 @@
 									<layout:GridData span="XL7 L7 M7 S12"/>
 								</layoutData> -->
                         </Input>
+                        <!-- What do you want to register_ -->
+                        <Label
+                            id="labType"
+                            labelFor="mCBType"
+                            fieldGroupIds="incidentHeader,requiresValidation"
+                            text="{i18n>Type}"
+                            required="true"
+                        />
+                        <MultiComboBox id="mCBType">
+                            <core:Item text="Personskade" />
+                            <core:Item text="Forurensning/miljøskade" />
+                            <core:Item text="Materiellskade" />
+                            <core:Item
+                                text="Skade på eiendom, bygg eller anlegg"
+                            />
+                            <core:Item text="Nestenulykke" />
+                            <core:Item text="Observasjon" />
+                            <core:Item
+                                text="Avvik (liv,helse,miljø,materielle verdier)"
+                            />
+                            <core:Item text="Personopplysningsikkerhet" />
+                        </MultiComboBox>
+
                         <!-- Description of Events -->
                         <Label
                             id="labelDescription"
@@ -230,21 +253,9 @@
                                 />
                             </items>
                             <layoutData>
-                                <layout:GridData span="XL1 L2 M1 S1" />
+                                <layout:GridData span="XL2 L2 M2 S12" />
                             </layoutData>
                         </SegmentedButton>
-                        <Toolbar
-                            style="Clear"
-                            design="Solid"
-                            ariaLabelledBy="titleLocation,butGDPR"
-                            class="sapUiLargeMarginBottom borderBottom sapUiLargeMarginEnd"
-                        >
-                            <Title
-                                id="titleLocation"
-                                text="{i18n>ResponsiblePartyTitle}"
-                                class="sapUiSmallMarginBottom"
-                            />
-                        </Toolbar>
 
                         <!-- On behalf of: No/Yes -->
                         <Label
@@ -254,16 +265,71 @@
                         />
                         <Switch
                             id="inputIsOnBehalfOf"
-                            state="{appView>/bIsOnBehalfOf}"
+                            state="{initModel>/bIsOnBehalfOf}"
                             customTextOn="{i18n>Yes}"
                             customTextOff="{i18n>No}"
                         />
 
+                        <Label
+                            id="labelIsInvolved"
+                            labelFor="inputIsInvolved"
+                            text="{i18n>OnInvolved}"
+                        />
+                        <Switch
+                            id="inputIsInvolved"
+                            state="{initModel>/bIsInvolved}"
+                            customTextOn="{i18n>Yes}"
+                            customTextOff="{i18n>No}"
+                        />
+
+                        <Toolbar
+                            style="Clear"
+                            design="Solid"
+                            ariaLabelledBy="titleLocation,butGDPR"
+                            class="sapUiLargeMarginBottom borderBottom sapUiLargeMarginEnd"
+                            visible="{initModel>/bIsOnBehalfOf}"
+                        >
+                            <Title
+                                id="titleLocation"
+                                text="{i18n>OnBehalfOfTitle}"
+                                class="sapUiSmallMarginBottom"
+                            />
+                        </Toolbar>
+
+                        <Label
+                            id="labelOnBehalfOf"
+                            labelFor="inputOnBehalfOf"
+                            text="{i18n>OnBehalfOfPerson}"
+                            visible="{= (${initModel>/bIsOnBehalfOf})  &amp;&amp; !(${initModel>/bIsAnonymous}) }"
+                        />
+                        <Input
+                            id="inputOnBehalfOf2"
+                            value="{initModel>/sIncidentPersonOnBehalfOfIdCombined}"
+                            valueHelpOnly="true"
+                            showValueHelp="true"
+                            valueHelpRequest="onValueHelpRequestForPersonOnBehalfOf"
+                            placeholder="{i18n>SelectPerson}"
+                            visible="{= (${initModel>/bIsOnBehalfOf})  &amp;&amp; !(${initModel>/bIsAnonymous}) }"
+                        >
+                            <layoutData>
+                                <layout:GridData span="XL4 L4 M4 S12" />
+                            </layoutData>
+                        </Input>
+                        <Button
+                            id="btnCreatePersonOnBehalfOf"
+                            press="onBtnCreatePersonOnBehalfOf"
+                            type="Transparent"
+                            text="{i18n>OnBehalfOfPersonCreate}"
+                            visible="{= (${initModel>/bIsOnBehalfOf})  &amp;&amp; !(${initModel>/bIsAnonymous}) }"
+                        >
+                            <layoutData>
+                                <layout:GridData span="XL3 L3 M3 S12" />
+                            </layoutData>
+                        </Button>
                         <List
                             items="{appView>/aIncidentPersonOnBehalfOf}"
                             mode="Delete"
                             backgroundDesign="Transparent"
-                            class="sapUiTinyMarginTop sapUiSmallMarginBottom"
                             showNoData="false"
                             visible="{= (${initModel>/bIsOnBehalfOf})  &amp;&amp; !(${initModel>/bIsAnonymous}) }"
                             delete="onBtnDeleteIncidentPersonOnBehalfOfPressed"
@@ -277,37 +343,88 @@
                                 />
                             </layoutData>
                         </List>
+                        <!-- Andre involverte , vitner mv -->
+                        <Toolbar
+                            style="Clear"
+                            design="Solid"
+                            ariaLabelledBy="titleInvolved,butGDPR"
+                            class="sapUiLargeMarginBottom borderBottom sapUiLargeMarginEnd"
+                            visible="{initModel>/bIsInvolved}"
+                        >
+                            <Title
+                                id="titleInvolved"
+                                text="{i18n>InvolvedTitle}"
+                                class="sapUiSmallMarginBottom"
+                            />
+                        </Toolbar>
 
                         <Label
-                            id="labelOnBehalfOf"
-                            labelFor="inputOnBehalfOf"
+                            id="labelInvolved"
+                            labelFor="inputInvolved"
                             text="{i18n>OnBehalfOfPerson}"
-                            visible="{= (${appView>/bIsOnBehalfOf})  &amp;&amp; !(${appView>/bIsAnonymous}) }"
+                            visible="{= (${initModel>/bIsInvolved})  &amp;&amp; !(${initModel>/bIsAnonymous}) }"
                         />
                         <Input
-                            id="inputOnBehalfOf2"
-                            value="{appView>/sIncidentPersonOnBehalfOfIdCombined}"
+                            id="inputInvolved"
+                            value="{initModel>/sIncidentPersonOnBehalfOfIdCombined}"
                             valueHelpOnly="true"
                             showValueHelp="true"
                             valueHelpRequest="onValueHelpRequestForPersonOnBehalfOf"
                             placeholder="{i18n>SelectPerson}"
-                            visible="{= (${appView>/bIsOnBehalfOf})  &amp;&amp; !(${appView>/bIsAnonymous}) }"
+                            visible="{= (${initModel>/bIsInvolved})  &amp;&amp; !(${initModel>/bIsAnonymous}) }"
                         >
                             <layoutData>
                                 <layout:GridData span="XL4 L4 M4 S12" />
                             </layoutData>
                         </Input>
                         <Button
-                            id="btnCreatePersonOnBehalfOf"
+                            id="btnCreatePersonInvolved"
                             press="onBtnCreatePersonOnBehalfOf"
                             type="Transparent"
                             text="{i18n>OnBehalfOfPersonCreate}"
-                            visible="{= (${appView>/bIsOnBehalfOf})  &amp;&amp; !(${appView>/bIsAnonymous}) }"
+                            visible="{= (${initModel>/bIsInvolved})  &amp;&amp; !(${initModel>/bIsAnonymous}) }"
                         >
                             <layoutData>
                                 <layout:GridData span="XL3 L3 M3 S12" />
                             </layoutData>
                         </Button>
+                        <Label
+                            id="labelInvolvedRole"
+                            labelFor="selInvolvedRole"
+                            text="{i18n>InvolvedRole}"
+                            visible="{initModel>/bIsInvolved}"
+                        />
+
+                        <Select
+                            id="selInvolvedRole"
+                            visible="{initModel>/bIsInvolved}"
+                        >
+                            <core:Item text="Involvert" />
+                            <core:Item text="Vitne" />                            
+                            <core:Item text="Sjåfør" />
+                            <core:Item text="Eier" />
+                            <layoutData>
+                                <layout:GridData span="XL4 L4 M4 S12" />
+                            </layoutData>
+                        </Select>
+                        <List
+                            items="{appView>/aIncidentPersonOnBehalfOf}"
+                            mode="Delete"
+                            backgroundDesign="Transparent"
+                            showNoData="false"
+                            visible="{= (${initModel>/bIsInvolved})  &amp;&amp; !(${initModel>/bIsAnonymous}) }"
+                            delete="onBtnDeleteIncidentPersonOnBehalfOfPressed"
+                        >
+                            <DisplayListItem label="{appView>FullName}" />
+                            <layoutData>
+                                <layout:GridData
+                                    indent="L2 M3 S0"
+                                    linebreak="true"
+                                    span="XL7 L7 M7 S12"
+                                />
+                            </layoutData>
+                        </List>
+
                         <Toolbar
                             style="Clear"
                             design="Solid"
@@ -327,45 +444,47 @@
 							reason is that the workflow, etc., may have already started and exclusively lock the incident/whistleblowing case created.
 							so we have to send the attachment documents with the original payload of the incident data.
 						-->
-                <UploadCollection
-                    noDataText="{i18n>AttachmentsNotUploadedYet}"
-                    class="sapUiResponsiveMargin"
-                    instantUpload="true"
-                    items="{ path: 'appView>/aAttachmentDocument' }"
-                    fileDeleted="onFileUploaderFileDeleted"
-                    change="onFileUploaderChanged"
-                    beforeUploadStarts="onBeforeUploadStarts"
-                >
-                    <layoutData>
-                        <layout:GridData
-                            indent="L3 M3 S0"
-                            span="L12 M7 S12"
-                        />
-                    </layoutData>
-
-                    <toolbar>
-                        <OverflowToolbar>
-                        <ToolbarSpacer  />
-                            <unified:FileUploader
-                                id="btnFileUpload"
-                                buttonOnly="true"
-                                iconOnly="true"
-                                icon="sap-icon://add"
-                                change="onFileUploaderChanged"
-                                typeMissmatch="onFileUploaderTypeMissmatch"
-                                fileType="jpeg,png,jpg,pdf,msg"
+                <VBox class="sapUiSmallMarginBeginEnd">
+                    <UploadCollection
+                        noDataText="{i18n>AttachmentsNotUploadedYet}"
+                        class="sapUiResponsiveMargin"
+                        instantUpload="true"
+                        items="{ path: 'appView>/aAttachmentDocument' }"
+                        fileDeleted="onFileUploaderFileDeleted"
+                        change="onFileUploaderChanged"
+                        beforeUploadStarts="onBeforeUploadStarts"
+                    >
+                        <layoutData>
+                            <layout:GridData
+                                indent="L3 M3 S0"
+                                span="L12 M7 S12"
                             />
-                        </OverflowToolbar>
-                    </toolbar>
-                    <items>
-                        <UploadCollectionItem
-                            documentId="{appView>}"
-                            fileName="{appView>sFileName}"
-                            mimeType="{appView>sMimeType}"
-                            visibleEdit="false"
-                        />
-                    </items>
-                </UploadCollection>
+                        </layoutData>
+
+                        <toolbar>
+                            <OverflowToolbar>
+                                <ToolbarSpacer />
+                                <unified:FileUploader
+                                    id="btnFileUpload"
+                                    buttonOnly="true"
+                                    iconOnly="true"
+                                    icon="sap-icon://add"
+                                    change="onFileUploaderChanged"
+                                    typeMissmatch="onFileUploaderTypeMissmatch"
+                                    fileType="jpeg,png,jpg,pdf,msg"
+                                />
+                            </OverflowToolbar>
+                        </toolbar>
+                        <items>
+                            <UploadCollectionItem
+                                documentId="{appView>}"
+                                fileName="{appView>sFileName}"
+                                mimeType="{appView>sMimeType}"
+                                visibleEdit="false"
+                            />
+                        </items>
+                    </UploadCollection>
+                </VBox>
             </VBox>
         </content>
         <footer>
