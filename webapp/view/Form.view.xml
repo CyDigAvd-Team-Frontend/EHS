@@ -494,6 +494,7 @@
                     type="Ghost"
                     text="{i18n>Abort}"
                     class="sapUiTinyMarginEnd"
+                    press="onPressAbort"
                 />
                 <Button
                     type="Emphasized"
