@@ -6,6 +6,7 @@
     xmlns="sap.m"
     xmlns:tnt="sap.tnt"
     xmlns:fb="sap.ui.comp.filterbar"
+    xmlns:mc="sap.suite.ui.microchart"
 >
     <Page
         id="page"
@@ -89,6 +90,7 @@
             <Table
                 id="_IDGenTable1"
                 items="{ListModel>/}"
+                fixedLayout="false"
             >
                 <columns>
                     <Column id="_IDGenColumn3">
@@ -132,6 +134,34 @@
                                 id="_IDGenText7"
                                 text="{ListModel>Status}"
                             />
+                            <!-- <mc:BulletMicroChart
+                                size="XS"
+                                scale="M"
+                                forecastValue="2"
+                                class="sapUiSmallMargin"
+                                press="press"
+                            >
+                                <mc:actual>
+                                    <mc:BulletMicroChartData
+                                        value="2"
+                                        color="Good"
+                                    />
+                                </mc:actual>
+                                <mc:thresholds>
+                                    <mc:BulletMicroChartData
+                                        value="1"
+                                        color="Error"
+                                    />
+                                    <mc:BulletMicroChartData
+                                        value="2"
+                                        color="Critical"
+                                    />
+                                    <mc:BulletMicroChartData
+                                        value="3"
+                                        color="Good"
+                                    />
+                                </mc:thresholds>
+                            </mc:BulletMicroChart> -->
                             <Text
                                 id="_IDGenText5"
                                 text="{ListModel>ID}"
