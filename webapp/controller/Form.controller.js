@@ -7,7 +7,7 @@ sap.ui.define([
     function (Controller) {
         "use strict";
 
-        return Controller.extend("no.mil.zehs.controller.Varsel", {
+        return Controller.extend("no.mil.zehs.controller.Form", {
 
             onInit: function () {
                 this.getView().addStyleClass(this.getContentDensityClass());
