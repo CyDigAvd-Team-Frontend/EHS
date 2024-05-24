@@ -13,7 +13,7 @@
         showNavButton="true"
         navButtonPress="onPressNavToHome"
     >
-        <content>            
+        <content>
             <fb:FilterBar
                 id="_IDGenFilterBar1"
                 reset="onReset"
@@ -67,20 +67,23 @@
                     </fb:FilterGroupItem>
                 </fb:filterGroupItems>
             </fb:FilterBar>
-            <Toolbar id="_IDGenToolbar1" class="sapUiTinyMarginEnd">
-                <ToolbarSpacer id="_IDGenToolbarSpacer1"  />
+            <Toolbar
+                id="_IDGenToolbar1"
+                class="sapUiTinyMarginEnd"
+            >
+                <ToolbarSpacer id="_IDGenToolbarSpacer1" />
                 <Button
                     id="_IDGenButton2"
                     icon="sap-icon://add"
                     text="{i18n>ButtonToNotice}"
                     press="onPressNavToVarsel"
                 />
-                <ToolbarSeparator  />
+                <ToolbarSeparator />
                 <Button
                     id="_IDGenButton1"
                     icon="sap-icon://add"
                     text="{i18n>ButtonToCase}"
-                    press="onPressNavToForm"                
+                    press="onPressNavToForm"
                 />
             </Toolbar>
             <Table
@@ -107,10 +110,13 @@
                         />
                     </Column>
 
-                    <Column id="_IDGenColumn4">
+                    <Column
+                        id="_IDGenColumn4"
+                        width="5em"
+                    >
                         <Text
                             id="_IDGenText4"
-                            text="{i18n>ColumnComment}"
+                            text=""
                         />
                     </Column>
                 </columns>
@@ -134,15 +140,16 @@
                                 id="_IDGenText6"
                                 text="{ListModel>Name}"
                             />
-
-                            <tnt:InfoLabel
-                                id="il1"
-                                text="Ny Melding"
-                                visible="{= ${ListModel>Kommentar/0/Author} !== 'Lars'  &amp;&amp; ${ListModel>Kommentar}.length > 0 ? true :false }"
-                                renderMode="Narrow"
-                                colorScheme="1"
-                                displayOnly="true"
-                            />
+                            <FlexBox justifyContent="End">
+                                <tnt:InfoLabel
+                                    id="il1"
+                                    text="1"
+                                    visible="{= ${ListModel>Kommentar/0/Author} !== 'Lars'  &amp;&amp; ${ListModel>Kommentar}.length > 0 ? true :false }"
+                                    renderMode="Narrow"
+                                    colorScheme="2"
+                                    displayOnly="true"
+                                />
+                            </FlexBox>
                         </cells>
                     </ColumnListItem>
                 </items>
