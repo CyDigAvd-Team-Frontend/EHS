@@ -89,7 +89,7 @@
                             text="{i18n>Type}"
                             required="true"
                         />
-                        <MultiComboBox id="mCBType">
+                        <MultiComboBox id="mCBType" selectionChange="onSelectionChangeType">
                             <core:Item text="Personskade" />
                             <core:Item text="Forurensning/miljøskade" />
                             <core:Item text="Materiellskade" />
@@ -231,12 +231,40 @@
                             />
                             <DateRangeSelection
                                 id="inputPeriod"
-                                fieldGroupIds="incidentHeader"
+                                fieldGroupIds="incidentHeader"                                
                                 dateValue="{ path: 'StartDate', formatOptions: { strictParsing: true, UTC: false } }"
                                 secondDateValue="{ path: 'EndDate', formatOptions: { strictParsing: true, UTC: false } }"
                                 visible="{= ${initModel>/sDateOrPeriod} === 'period' ? true : false }"
                             />
                         </VBox>
+                        <Button
+                            type="Ghost"
+                            icon="sap-icon://fob-watch"
+                            text="{i18n>Today}"
+                            press="onBtnTodayPressed"
+                            ariaLabelledBy="defaultHint"
+                            ariaDescribedBy="defaultHint"
+
+                        >
+                            <layoutData>
+                                <layout:GridData span="XL1 L1 M1 S1" />
+                            </layoutData>
+                            <customData>
+                                <!-- Custom Data which controls the texts and element the popover help shall be displayed for -->
+                                <core:CustomData
+                                    key="elmentIdForPopoverHelp"
+                                    value="inputDescription"
+                                />
+                                <core:CustomData
+                                    key="i18nAliasForHintHeader"
+                                    value="DescriptionOfEventsHelpTitle"
+                                />
+                                <core:CustomData
+                                    key="i18nAliasForHintTextHtml"
+                                    value="DescriptionOfEventsHelpHtml"
+                                />
+                            </customData>
+                        </Button>
                         <SegmentedButton
                             id="inputDateOrPeriod"
                             width="100%"
@@ -254,8 +282,24 @@
                             </items>
                             <layoutData>
                                 <layout:GridData span="XL2 L2 M2 S12" />
-                            </layoutData>
+                            </layoutData>                            
+                            <customData>
+                                <!-- Custom Data which controls the texts and element the popover help shall be displayed for -->
+                                <core:CustomData
+                                    key="elmentIdForPopoverHelp"
+                                    value="inputDescription"
+                                />
+                                <core:CustomData
+                                    key="i18nAliasForHintHeader"
+                                    value="DescriptionOfEventsHelpTitle"
+                                />
+                                <core:CustomData
+                                    key="i18nAliasForHintTextHtml"
+                                    value="DescriptionOfEventsHelpHtml"
+                                />
+                            </customData>
                         </SegmentedButton>
+                        
 
                         <!-- On behalf of: No/Yes -->
                         <Label
@@ -424,7 +468,18 @@
                                 />
                             </layoutData>
                         </List>
-
+                        <Toolbar
+                            style="Clear"
+                            design="Solid"
+                            ariaLabelledBy="titlePersonInjurie"
+                            class="borderBottom sapUiLargeMarginEnd"
+                            visible="{initModel>/Personskade}"
+                        >
+                            <Title
+                                id="titlePersonInjurie"
+                                text="{i18n>PersonInjurie}"
+                            />
+                        </Toolbar>
                         <Toolbar
                             style="Clear"
                             design="Solid"
@@ -493,7 +548,6 @@
                 <Button
                     type="Ghost"
                     text="{i18n>Abort}"
-                    class="sapUiTinyMarginEnd"
                     press="onPressAbort"
                 />
                 <Button

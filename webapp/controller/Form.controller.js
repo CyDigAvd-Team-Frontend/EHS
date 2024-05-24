@@ -26,6 +26,19 @@ sap.ui.define([
 
             onPressAbort:function(){
                 this.handleClose();
+            },
+
+            onSelectionChangeType:function(evt){
+                let sKey = evt.getParameter("changedItem").getText(),
+                    bSelected = evt.getParameter("selected");
+                if(sKey === "Personskade"){
+                    this.getModel("initModel").setProperty("/Personskade", bSelected);
+                }
+            },
+
+            onBtnTodayPressed:function(evt){
+                this.byId("inputPeriod").setDateValue(new Date());
+                this.byId("inputDate").setDateValue(new Date());
             }
         });
     });
