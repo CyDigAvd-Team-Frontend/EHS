@@ -146,7 +146,7 @@
                                     text="1"
                                     visible="{= ${ListModel>Kommentar/0/Author} !== 'Lars'  &amp;&amp; ${ListModel>Kommentar}.length > 0 ? true :false }"
                                     renderMode="Narrow"
-                                    colorScheme="1"
+                                    colorScheme="2"
                                     displayOnly="true"
                                 />
                             </FlexBox>
