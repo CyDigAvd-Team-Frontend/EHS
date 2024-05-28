@@ -5,5 +5,7 @@
     "bIsOnBehalfOf": false,
     "bIsAnonymous": false,
     "bIsInvolved": false, 
-    "Personskade": false
+    "Personskade": false,
+    "Path": 0,
+    "UrlID": ""
 }

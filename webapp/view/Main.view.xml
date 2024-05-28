@@ -125,8 +125,6 @@
                 <items>
                     <ColumnListItem
                         id="_IDGenColumnListItem1"
-                        type="Navigation"
-                        press="onPressNavToFeed"
                         highlight="{path: 'ListModel>Status', formatter: '.formatter.status'}"
                     >
                         <cells>
@@ -171,13 +169,17 @@
                                 text="{ListModel>Name}"
                             />
                             <FlexBox justifyContent="End">
-                                <tnt:InfoLabel
+                                <!-- <tnt:InfoLabel
                                     id="il1"
                                     text="1"
-                                    visible="{= ${ListModel>Kommentar/0/Author} !== 'Lars'  &amp;&amp; ${ListModel>Kommentar}.length > 0 ? true :false }"
+                                    visible="{= ${ListModel>Personer/Kommentar/0/Author} !== 'Lars'  &amp;&amp; ${ListModel>Kommentar}.length > 0 ? true :false }"
                                     renderMode="Narrow"
                                     colorScheme="2"
                                     displayOnly="true"
+                                /> -->
+                                <Button
+                                    text="Melding til saksbehandler"
+                                    press="onPressNavToFeed"
                                 />
                             </FlexBox>
                         </cells>

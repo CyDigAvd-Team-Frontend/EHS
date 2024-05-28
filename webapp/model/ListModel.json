@@ -3,22 +3,55 @@
         "ID" : 1234,
         "Name" : "Frank",
         "Status": "Under behandling",
-        "Kommentar": [
+        "Personer": [
             {
-            "Author" : "Frank",
-            "text" : "Trenger mer informasjon"
-        }]
+                "ID": 0,
+                "Navn": "Lars",
+                "Kommentar": [
+                {
+                "Author" : "Frank",
+                "text" : "Trenger mer informasjon"
+                }]
+            }
+
+        ]
+        
     },
     {
         "ID" : 34,
         "Name" : "Hans",
         "Status": "Ferdig",
-        "Kommentar": []
+        "Personer": [{
+            "Navn": "Lars",
+            "Kommentar": []
+        }]
+        
     },
     {
         "ID" : 12,
         "Name" : "Frank",
         "Status": "Mottatt",
-        "Kommentar": []
+        "Personer": [{
+            "ID": 0,
+            "Navn": "Lars",
+            "Kommentar": [{
+                "Author" : "Frank",
+                "text" : "Trenger mer informasjon"
+                }
+            ]
+        },{
+            "ID": 1,
+            "Navn": "Lasse",
+            "Kommentar": [{
+                
+                "Author" : "Lasse",
+                "text" : "Test"
+                },
+                {
+                    "Author": "Lars",
+                    "text": "Jaja"
+                }
+            ]
+        }]
     }
 ]

@@ -1,4 +1,5 @@
 <mvc:View
+    xmlns:core="sap.ui.core"
     controllerName="no.mil.zehs.controller.Feed"
     xmlns:mvc="sap.ui.core.mvc"
     displayBlock="true"
@@ -7,63 +8,97 @@
     xmlns:com="sap.suite.ui.commons"
     xmlns:f="sap.f"
 >
-    <Page
-        id="page"
-        title="{i18n>Communication}"
-    >
-        <headerContent>
-            <Toolbar id="_IDGenToolbar1">
-                <ToolbarSpacer id="_IDGenToolbarSpacer1" />
-                <OverflowToolbarButton
-                    id="_IDGenOverflowToolbarButton1"
-                    type="Transparent"
-                    icon="sap-icon://decline"
-                    press="handleClose"
-                    class="sapUiTinyMarginBottom"
-                />
-            </Toolbar>
-        </headerContent>
-
-        <FeedInput
-            id="_IDGenFeedInput1"
-            post="onPostFeed"
-            class="sapUiSmallMarginTopBottom"
-            placeholder="{i18n>InputPlaceholder}"
-        />
-        <!-- <List
-            id="List"
-            showSeparators="Inner"
-            items="{FeedModel>/}"
+    <NavContainer id="navCon">
+        <Page
+            id="page2"
+            title="Personer i saken"
         >
-            <FeedListItem
-                timestamp="{FeedModel>timestamp}"
-                sender="{FeedModel>Author}"
-                id="Feed"
-                text="{FeedModel>text}"
-                convertLinksToAnchorTags="All"
+            <headerContent>
+                <Toolbar id="_IDGenToolbar2">
+                    <ToolbarSpacer id="_IDGenToolbarSpacer2" />
+                    <OverflowToolbarButton
+                        id="_IDGenOverflowToolbarButton2"
+                        type="Transparent"
+                        icon="sap-icon://decline"
+                        press="handleClose"
+                        class="sapUiTinyMarginBottom"
+                    />
+                </Toolbar>
+            </headerContent>
+            <Table
+                id="List"
+                items="{FeedModel>/}"
+            >
+                <columns>
+                    <Column>
+                        <Text text="Navn" />
+                    </Column>
+                    <Column>
+                        <Text text="" />
+                    </Column>
+                </columns>
+                <ColumnListItem>
+                    <cells>
+                        <Text text="{FeedModel>Navn}" />
+                        <Button
+                            text="Til komunikasjon"
+                            press="navPage"
+                        >
+                            <customData>
+                                <core:CustomData value="{FeedModel>ID}" />
+                            </customData>
+                        </Button>
+                    </cells>
+                </ColumnListItem>
+            </Table>
+        </Page>
+        <Page
+            id="page"
+            title="{i18n>Communication}"
+            showNavButton="{= ${FeedModel>/}.length > 1 ? true :  false}"
+            navButtonPress="navToList"
+        >
+            <headerContent>
+                <Toolbar id="_IDGenToolbar1">
+                    <ToolbarSpacer id="_IDGenToolbarSpacer1" />
+                    <OverflowToolbarButton
+                        id="_IDGenOverflowToolbarButton1"
+                        type="Transparent"
+                        icon="sap-icon://decline"
+                        press="handleClose"
+                        class="sapUiTinyMarginBottom"
+                    />
+                </Toolbar>
+            </headerContent>
+
+            <FeedInput
+                id="_IDGenFeedInput1"
+                post="onPostFeed"
+                class="sapUiSmallMarginTopBottom"
+                placeholder="{i18n>InputPlaceholder}"
             />
-        </List> -->
 
-        <com:Timeline
-            id="idTimeline"
-            enableDoubleSided="true"
-            groupBy="HireDate"
-            growingThreshold="0"
-            filterTitle="Job Title"
-            sortOldestFirst="true"
-            content="{FeedModel>/}"
-            showHeaderBar="false"
-            noDataText="{i18n>TimelineNoData}"
-        >
-            <com:content>
-                <com:TimelineItem
-                    id="idTemplateItem"
-                    text="{FeedModel>text}"
-                    userName="{FeedModel>Author}"
-                    icon="{FeedModel>icon}"
-                />
-            </com:content>
-        </com:Timeline>
-        <content />
-    </Page>
+            <com:Timeline
+                id="idTimeline"
+                enableDoubleSided="true"
+                groupBy="HireDate"
+                growingThreshold="0"
+                filterTitle="Job Title"
+                sortOldestFirst="true"
+                content="{TimelineModel>/Kommentar}"
+                showHeaderBar="false"
+                noDataText="{i18n>TimelineNoData}"
+            >
+                <com:content>
+                    <com:TimelineItem
+                        id="idTemplateItem"
+                        text="{TimelineModel>text}"
+                        userName="{TimelineModel>Author}"
+                        icon="{TimelineModel>icon}"
+                    />
+                </com:content>
+            </com:Timeline>
+            <content />
+        </Page>
+    </NavContainer>
 </mvc:View>

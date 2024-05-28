@@ -81,6 +81,12 @@
         "settings": {},
         "uri": "model/FeedModel.json",
         "preload": true
+      },
+      "TimelineModel": {
+        "type": "sap.ui.model.json.JSONModel",
+        "settings": {},
+        "uri": "model/TimelineModel.json",
+        "preload": true
       }
     },
     "resources": {
