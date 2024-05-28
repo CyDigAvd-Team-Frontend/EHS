@@ -93,17 +93,24 @@
                 fixedLayout="false"
             >
                 <columns>
-                    <Column id="_IDGenColumn3">
-                        <Text
-                            id="_IDGenText3"
-                            text="{i18n>ColumnStatus}"
-                        />
+                    <Column>
+                        <Text text="{i18n>ColumnId}" />
                     </Column>
+
                     <Column id="_IDGenColumn1">
                         <Text
                             id="_IDGenText1"
-                            text="{i18n>ColumnCase}"
+                            text="{i18n>ColumnType}"
                         />
+                    </Column>
+                    <Column>
+                        <Text text="{i18n>ColumnDate}" />
+                    </Column>
+                    <Column>
+                        <Text text="{i18n>ColumnTitle}" />
+                    </Column>
+                    <Column>
+                        <Text text="{i18n>ColumnRole}" />
                     </Column>
                     <Column id="_IDGenColumn2">
                         <Text
@@ -111,7 +118,12 @@
                             text="{i18n>ColumnPerson}"
                         />
                     </Column>
-
+                    <Column id="_IDGenColumn3">
+                        <Text
+                            id="_IDGenText3"
+                            text="{i18n>ColumnStatus}"
+                        />
+                    </Column>
                     <Column
                         id="_IDGenColumn4"
                         width="5em"
@@ -130,44 +142,24 @@
                         <cells>
                             <Text
                                 id="_IDGenText7"
-                                text="{ListModel>Status}"
+                                text="{ListModel>ID}"
                             />
-                            <!-- <mc:BulletMicroChart
-                                size="XS"
-                                scale="M"
-                                forecastValue="2"
-                                class="sapUiSmallMargin"
-                                press="press"
-                            >
-                                <mc:actual>
-                                    <mc:BulletMicroChartData
-                                        value="2"
-                                        color="Good"
-                                    />
-                                </mc:actual>
-                                <mc:thresholds>
-                                    <mc:BulletMicroChartData
-                                        value="1"
-                                        color="Error"
-                                    />
-                                    <mc:BulletMicroChartData
-                                        value="2"
-                                        color="Critical"
-                                    />
-                                    <mc:BulletMicroChartData
-                                        value="3"
-                                        color="Good"
-                                    />
-                                </mc:thresholds>
-                            </mc:BulletMicroChart> -->
+
                             <Text
                                 id="_IDGenText5"
-                                text="{ListModel>ID}"
+                                text="{ListModel>Type}"
                             />
                             <Text
                                 id="_IDGenText6"
-                                text="{ListModel>Name}"
+                                text="{ListModel>Dato}"
                             />
+                            <Text text="{ListModel>Tittel}" />
+                            <VBox items="{ListModel>Rolle}">
+                                <Text text="{ListModel>}" />
+                            </VBox>
+
+                            <Text text="{ListModel>Name}" />
+                            <Text text="{ListModel>Status}" />
                             <FlexBox justifyContent="End">
                                 <!-- <tnt:InfoLabel
                                     id="il1"
