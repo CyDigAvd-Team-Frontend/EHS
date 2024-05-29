@@ -1,0 +1,2 @@
+sap.ui.define(["sap/ui/core/mvc/Controller","sap/ui/Device","no/mil/zehs/model/Formatter"],function(t,e,n){"use strict";return t.extend("no.mil.zehs.controller.Base",{formatter:n,getContentDensityClass:function(){if(!this._sContentDensityClass){if(e.support.touch){this._sContentDensityClass="sapUiSizeCozy"}else{this._sContentDensityClass="sapUiSizeCompact"}}return this._sContentDensityClass},getRouter:function(){return this.getOwnerComponent().getRouter()},getModel:function(t){return this.getOwnerComponent().getModel(t)}})});
+//# sourceMappingURL=Base.js.map

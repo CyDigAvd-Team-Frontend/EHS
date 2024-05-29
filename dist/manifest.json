@@ -1,0 +1,170 @@
+{
+  "_version": "1.59.0",
+  "sap.app": {
+    "id": "no.mil.zehs",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.13.4",
+      "toolsId": "8e453928-6196-439f-aa95-b0f7dd36e9e2"
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.71.28",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.f": {},
+        "sap.suite.ui.generic.template": {},
+        "sap.ui.comp": {},
+        "sap.ui.generic.app": {},
+        "sap.ui.table": {},
+        "sap.ushell": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "no.mil.zehs.i18n.i18n"
+        }
+      },
+      "initModel":{
+        "type": "sap.ui.model.json.JSONModel",
+        "settings": {},
+        "uri": "model/initModel.json",
+        "preload": true
+      },
+      "ListModel": {
+        "type": "sap.ui.model.json.JSONModel",
+        "settings": {},
+        "uri": "model/ListModel.json",
+        "preload": true
+      },
+      "layoutModel": {
+        "type": "sap.ui.model.json.JSONModel",
+        "settings": {},
+        "uri": "model/layoutModel.json",
+        "preload": true
+      },
+      "FeedModel": {
+        "type": "sap.ui.model.json.JSONModel",
+        "settings": {},
+        "uri": "model/FeedModel.json",
+        "preload": true
+      },
+      "TimelineModel": {
+        "type": "sap.ui.model.json.JSONModel",
+        "settings": {},
+        "uri": "model/TimelineModel.json",
+        "preload": true
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.f.routing.Router",
+        "viewType": "XML",
+        "async": true,
+        "viewPath": "no.mil.zehs.view",
+        "controlId": "app",
+        "clearControlAggregation": false
+      },
+      "routes": [
+        {
+          "name": "RouteMain",
+          "pattern": "",
+          "target": [
+            "TargetMain"
+          ]
+        },
+        {
+          "name": "Form",
+          "pattern": "Form",
+          "target": [
+            "Form"
+          ]
+        },
+        {
+          "name": "Varsel",
+          "pattern": "Varsel",
+          "target": [
+            "Varsel"
+          ]
+        },
+        {
+          "name": "Feed",
+          "pattern": "Feed/{ID}",
+          "target": [
+            "TargetMain",
+            "Feed"
+          ]
+        }
+      ],
+      "targets": {
+        "TargetMain": {
+          "viewName": "Main",
+          "viewId": "Main",
+          "controlAggregation": "beginColumnPages"
+        },
+        "Form": {
+          "viewName": "Form",
+          "viewId": "Form",
+          "controlAggregation": "beginColumnPages"
+        },
+         "Feed": {
+           "viewName": "Feed",
+           "viewId": "Feed",
+           "controlAggregation": "midColumnPages"
+        },
+        "Varsel": {
+          "viewName": "Varsel",
+          "viewId": "Varsel",
+          "controlAggregation": "beginColumnPages"
+       }
+
+      }
+    },
+    "rootView": {
+      "viewName": "no.mil.zehs.view.App",
+      "type": "XML",
+      "async": true,
+      "id": "App"
+    }
+  }
+}
