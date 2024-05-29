@@ -119,13 +119,13 @@
                 class="sapUiTinyMarginEnd"
             >
                 <ToolbarSpacer id="_IDGenToolbarSpacer1" />
-                <Button
+                <!-- <Button
                     id="_IDGenButton2"
                     icon="sap-icon://add"
                     text="{i18n>ButtonToNotice}"
                     press="onPressNavToVarsel"
                 />
-                <ToolbarSeparator id="_IDGenToolbarSeparator1" />
+                <ToolbarSeparator id="_IDGenToolbarSeparator1" /> -->
                 <Button
                     id="_IDGenButton1"
                     icon="sap-icon://add"
@@ -245,10 +245,15 @@
                                     colorScheme="2"
                                     displayOnly="true"
                                 /> -->
-                                <Button
+                                <!-- <Button
                                     id="_IDGenButton3"
                                     text="Melding til saksbehandler"
                                     press="onPressNavToFeed"
+                                /> -->
+                                <core:Icon
+                                    src="sap-icon://discussion"
+                                    press="onPressNavToFeed"
+                                    class="iconDis"
                                 />
                             </FlexBox>
                         </cells>
