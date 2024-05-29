@@ -49,15 +49,15 @@
                             id="_IDGenText3"
                             text="{FeedModel>Navn}"
                         />
-                        <core:Icon
-                            src="sap-icon://discussion"
+                        <Button
+                            icon="sap-icon://discussion"
                             press="navPage"
-                            class="iconDis"
+                            type="Ghost"
                         >
-                            <core:customData>
+                            <customData>
                                 <core:CustomData value="{FeedModel>ID}" />
-                            </core:customData>
-                        </core:Icon>
+                            </customData>
+                        </Button>
                     </cells>
                 </ColumnListItem>
             </Table>
