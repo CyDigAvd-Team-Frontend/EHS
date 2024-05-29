@@ -6,7 +6,7 @@
         "Tittel": "Skade på person",
         "Rolle": ["Registrerende person", "Skadet person"],
         "Name" : "Frank",
-        "Status": "Under behandling",
+        "Status": "Under arbeid",
         "Personer": [
             {
                 "ID": 0,
@@ -22,7 +22,7 @@
         
     },
     {
-        "ID" : 1234,
+        "ID" : 3,
         "Type": "Varsel",
         "Dato": "02.02.2024",
         "Tittel": "Ikke grei oppførsel",
@@ -36,7 +36,7 @@
         
     },
     {
-        "ID" : 1234,
+        "ID" : 5,
         "Type": "Hendelse",
         "Dato": "01.01.2024",
         "Tittel": "Ulykke",

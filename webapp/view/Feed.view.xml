@@ -30,17 +30,27 @@
                 items="{FeedModel>/}"
             >
                 <columns>
-                    <Column>
-                        <Text text="Navn" />
+                    <Column id="_IDGenColumn1">
+                        <Text
+                            id="_IDGenText1"
+                            text="Navn"
+                        />
                     </Column>
-                    <Column>
-                        <Text text="" />
+                    <Column id="_IDGenColumn2">
+                        <Text
+                            id="_IDGenText2"
+                            text=""
+                        />
                     </Column>
                 </columns>
-                <ColumnListItem>
+                <ColumnListItem id="_IDGenColumnListItem1">
                     <cells>
-                        <Text text="{FeedModel>Navn}" />
+                        <Text
+                            id="_IDGenText3"
+                            text="{FeedModel>Navn}"
+                        />
                         <Button
+                            id="_IDGenButton1"
                             text="Til komunikasjon"
                             press="navPage"
                         >
