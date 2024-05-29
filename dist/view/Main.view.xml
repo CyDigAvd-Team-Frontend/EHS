@@ -250,10 +250,10 @@
                                     text="Melding til saksbehandler"
                                     press="onPressNavToFeed"
                                 /> -->
-                                <core:Icon
-                                    src="sap-icon://discussion"
+                                <Button
+                                    icon="sap-icon://discussion"
                                     press="onPressNavToFeed"
-                                    class="iconDis"
+                                    type="Ghost"
                                 />
                             </FlexBox>
                         </cells>
