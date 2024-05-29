@@ -4,5 +4,8 @@
     "sDateOrPeriod": "date",
     "bIsOnBehalfOf": false,
     "bIsAnonymous": false,
-    "bIsInvolved": false
+    "bIsInvolved": false, 
+    "Personskade": false,
+    "Path": 0,
+    "UrlID": ""
 }

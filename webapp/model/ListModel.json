@@ -1,24 +1,69 @@
 [
     {
         "ID" : 1234,
+        "Type": "Hendelse",
+        "Dato": "05.05.2024",
+        "Tittel": "Skade på person",
+        "Rolle": ["Registrerende person", "Skadet person"],
         "Name" : "Frank",
-        "Status": "Under behandling",
-        "Kommentar": [
+        "Status": "Under arbeid",
+        "Personer": [
             {
-            "Author" : "Frank",
-            "text" : "Trenger mer informasjon"
-        }]
+                "ID": 0,
+                "Navn": "Lars",
+                "Kommentar": [
+                {
+                "Author" : "Frank",
+                "text" : "Trenger mer informasjon"
+                }]
+            }
+
+        ]
+        
     },
     {
-        "ID" : 34,
-        "Name" : "Hans",
-        "Status": "Ferdig",
-        "Kommentar": []
-    },
-    {
-        "ID" : 12,
+        "ID" : 3,
+        "Type": "Varsel",
+        "Dato": "02.02.2024",
+        "Tittel": "Ikke grei oppførsel",
+        "Rolle": ["Registrerende person", "Varsel"],
         "Name" : "Frank",
-        "Status": "Mottatt",
-        "Kommentar": []
+        "Status": "Avsluttet",
+        "Personer": [{
+            "Navn": "Lars",
+            "Kommentar": []
+        }]
+        
+    },
+    {
+        "ID" : 5,
+        "Type": "Hendelse",
+        "Dato": "01.01.2024",
+        "Tittel": "Ulykke",
+        "Rolle": ["Saksbehandler"],
+        "Name" : "Lars",
+        "Status": "Under arbeid",
+        "Personer": [{
+            "ID": 0,
+            "Navn": "Lars",
+            "Kommentar": [{
+                "Author" : "Frank",
+                "text" : "Trenger mer informasjon"
+                }
+            ]
+        },{
+            "ID": 1,
+            "Navn": "Lasse",
+            "Kommentar": [{
+                
+                "Author" : "Lasse",
+                "text" : "Test"
+                },
+                {
+                    "Author": "Lars",
+                    "text": "Jaja"
+                }
+            ]
+        }]
     }
 ]
