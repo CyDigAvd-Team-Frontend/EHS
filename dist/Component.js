@@ -1,0 +1,2 @@
+sap.ui.define(["sap/ui/core/UIComponent","sap/ui/Device","no/mil/zehs/model/models"],function(e,i,t,n){"use strict";return e.extend("no.mil.zehs.Component",{metadata:{manifest:"json"},init:function(){e.prototype.init.apply(this,arguments);this.getRouter().initialize();this.setModel(t.createDeviceModel(),"device")}})});
+//# sourceMappingURL=Component.js.map

@@ -1,0 +1,2 @@
+sap.ui.define(["no/mil/zehs/controller/Base"],function(t){"use strict";return t.extend("no.mil.zehs.controller.Varsel",{onInit:function(){this.getView().addStyleClass(this.getContentDensityClass());this.oRouter=this.getRouter().getRoute("Varsel");this.oRouter.attachPatternMatched(this.onRouteMatched,this)},onRouteMatched:function(t){this.getModel("layoutModel").setProperty("/layout","OneColumn")},handleClose:function(){this.getRouter().navTo("RouteMain")}})});
+//# sourceMappingURL=Varsel.controller.js.map

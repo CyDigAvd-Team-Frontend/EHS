@@ -1,0 +1,31 @@
+<mvc:View
+    controllerName="no.mil.zehs.controller.Varsel"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+>
+    <Page
+        id="page"
+        title="Varsel av kritikkverdig forhold"
+        showNavButton="true"
+        navButtonPress="handleClose"
+    >
+        <content>
+            <VBox
+                alignContent="Center"
+                alignItems="Center"
+                justifyContent="Center"
+                fitContainer="true"
+            >
+                <Title level="H1"
+                    text="Integrate existing application by M F" titleStyle="H1"
+                />
+                <Title level="H1"
+                    text="from SAP as componentContainer" titleStyle="H1"
+                />
+                <Title level="H1" titleStyle="H3" text="End user will not notice there will be two applications being run in the background" class="sapUiSmallMarginTop" />
+            </VBox>
+        </content>
+    </Page>
+</mvc:View>
