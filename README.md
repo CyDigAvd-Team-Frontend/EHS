@@ -36,4 +36,4 @@ EHHS Incident Cockpit
 
 #### URL
 
-https://cydigavd-team-frontend.github.io/EHS/webapp/
+https://cydigavd-team-frontend.github.io/EHS
