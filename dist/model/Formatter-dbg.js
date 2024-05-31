@@ -2,9 +2,9 @@ sap.ui.define([], function () {
 	"use strict";
 	return {
 		status: function (sStatus) {
-			if(sStatus === "Ferdig"){
+			if(sStatus === "Avsluttet"){
                 return "Success"
-            }else if(sStatus === "Mottatt"){
+            }else if(sStatus === "Ny"){
                 return "Error"
             }
             return "Warning"

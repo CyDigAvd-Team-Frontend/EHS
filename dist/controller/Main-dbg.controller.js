@@ -1,10 +1,11 @@
 sap.ui.define([
-    "no/mil/zehs/controller/Base"    
+    "no/mil/zehs/controller/Base",
+    "sap/ui/core/routing/History"    
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller) {
+    function (Controller, History) {
         "use strict";
 
         return Controller.extend("no.mil.zehs.controller.Main", {
@@ -29,7 +30,15 @@ sap.ui.define([
                 this.getRouter().navTo("Varsel");
             },
             onPressNavToHome: function (oEvent) {
-                window.location.href = "https://cydigavd-team-frontend.github.io/FLP/";
+                    var oHistory = History.getInstance();
+                    var sPreviousHash = oHistory.getPreviousHash();
+        
+                    if (sPreviousHash !== undefined) {
+                        window.history.go(-1);
+                    } else {
+                        window.location.href = "https://cydigavd-team-frontend.github.io/FLP/";
+                    }
+                
             },
             onSearch: function (oEvent) {
                 var items = this.getView().byId("_IDGenTable1").getBinding("items");
