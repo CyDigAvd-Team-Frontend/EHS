@@ -42,7 +42,7 @@
         "Tittel": "Ulykke",
         "Rolle": ["Saksbehandler"],
         "Name" : "Lars",
-        "Status": "Under arbeid",
+        "Status": "Ny",
         "Personer": [{
             "ID": 0,
             "Navn": "Lars",
