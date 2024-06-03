@@ -20,7 +20,7 @@ sap.ui.define([
                 this.getModel("layoutModel").setProperty("/layout", "OneColumn");
             },
             onPressNavToForm: function (oEvent) {
-                this.getRouter().navTo("Form");
+                this.getRouter().navTo("Form", null, true);
             },
             onPressNavToFeed: function (oEvent) {
                 var oObject = oEvent.getSource().getBindingContext("ListModel").getObject();
