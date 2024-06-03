@@ -63,7 +63,7 @@ sap.ui.define([
             },
 
             handleClose: function () {
-                this.getRouter().navTo("RouteMain", null, true);
+                this.getRouter().navTo("RouteMain");
             },            
         });
     });
