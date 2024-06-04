@@ -25,6 +25,7 @@
                     />
                 </Toolbar>
             </headerContent>
+
             <Table
                 id="List"
                 items="{FeedModel>/}"
@@ -80,7 +81,6 @@
                     />
                 </Toolbar>
             </headerContent>
-
             <FeedInput
                 id="_IDGenFeedInput1"
                 post="onPostFeed"
@@ -104,7 +104,9 @@
                         id="idTemplateItem"
                         text="{TimelineModel>text}"
                         userName="{TimelineModel>Author}"
+                        title="{TimelineModel>Title}"
                         icon="{TimelineModel>icon}"
+                        dateTime="{TimelineModel>Date}"
                     />
                 </com:content>
             </com:Timeline>
