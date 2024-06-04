@@ -36,7 +36,7 @@ sap.ui.define([
 
             onPostFeed: function (evt) {
                 var aTimeline = this.getModel("TimelineModel").getProperty("/Kommentar");
-                aTimeline.unshift({ text: evt.getSource().getValue(), Author: "Lars", icon: "sap-icon://employee" });
+                aTimeline.unshift({ text: evt.getSource().getValue(), Author: "Lars", icon: "sap-icon://employee" , Title: "Varsler", Date: new Date()});
                 this.getModel("TimelineModel").refresh();
                 var iIdCom = this.getModel("initModel").getProperty("/Path")
                 var oFeed = this.getModel("FeedModel").getData().find((object) => object.ID === iIdCom);
