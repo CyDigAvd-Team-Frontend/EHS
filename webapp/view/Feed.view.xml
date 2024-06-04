@@ -94,7 +94,7 @@
                 groupBy="HireDate"
                 growingThreshold="0"
                 filterTitle="Job Title"
-                sortOldestFirst="true"
+                sortOldestFirst="false"
                 content="{TimelineModel>/Kommentar}"
                 showHeaderBar="false"
                 noDataText="{i18n>TimelineNoData}"
