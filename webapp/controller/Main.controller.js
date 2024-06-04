@@ -1,11 +1,12 @@
 sap.ui.define([
     "no/mil/zehs/controller/Base",
-    "sap/ui/core/routing/History"    
+    "sap/ui/core/routing/History",
+    'sap/ui/core/Fragment',    
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller, History) {
+    function (Controller, History, Fragment) {
         "use strict";
 
         return Controller.extend("no.mil.zehs.controller.Main", {
@@ -54,6 +55,30 @@ sap.ui.define([
                 //     aFilter.push(new sap.ui.model.Filter("Rolle", sap.ui.model.FilterOperator.Contains, token.getText()));
                 // });
                 items.filter(aFilter);
+            },
+
+            onPressOpenInfo: function(oEvent){
+                var oButton = oEvent.getSource();
+                var oContext = oEvent.getSource().getBindingContext("ListModel");
+                
+                // create popover
+                if (!this._oPopover) {
+                    Fragment.load({
+                        name: "no.mil.zehs.view.fragments.InfoPopover",
+                        controller: this
+                    }).then(function(pPopover) {
+                        this._oPopover = pPopover;
+                        this.getView().addDependent(this._oPopover);
+                        this._oPopover.setBindingContext(oContext)
+                        this._oPopover.openBy(oButton);
+                        this._oPopover.setModel(this.getModel("ListModel"))
+                    }.bind(this));
+                } else {
+                    this._oPopover.setBindingContext(oContext)
+                    this._oPopover.openBy(oButton);
+                    this._oPopover.setModel(this.getModel("ListModel"))
+                }
+                
             }
 
         });
