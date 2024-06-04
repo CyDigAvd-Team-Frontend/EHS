@@ -264,11 +264,13 @@
                                         icon="sap-icon://hint"
                                         press="onPressOpenInfo"
                                         class="sapUiTinyMarginEnd"
+                                        tooltip="Informasjon"
                                     />
                                     <Button
                                         icon="sap-icon://discussion"
                                         press="onPressNavToFeed"
                                         type="Ghost"
+                                        tooltip="Melding til saksbehandler"
                                     />
                                 </FlexBox>
                             </cells>
