@@ -83,27 +83,141 @@
                         </Input>
                         <!-- What do you want to register_ -->
                         <Label
-                            id="labType"
-                            labelFor="mCBType"
-                            fieldGroupIds="incidentHeader,requiresValidation"
-                            text="{i18n>Type}"
-                            required="true"
+                            labelFor="inputIsCriticalRel"
+                            text="Si fra om kritikkverdig forhold (varsle)?"
                         />
-                        <MultiComboBox id="mCBType" selectionChange="onSelectionChangeType">
-                            <core:Item text="Personskade" />
-                            <core:Item text="Forurensning/miljøskade" />
-                            <core:Item text="Materiellskade" />
-                            <core:Item
-                                text="Skade på eiendom, bygg eller anlegg"
-                            />
-                            <core:Item text="Nestenulykke" />
-                            <core:Item text="Observasjon" />
-                            <core:Item
-                                text="Avvik (liv,helse,miljø,materielle verdier)"
-                            />
-                            <core:Item text="Personopplysningsikkerhet" />
-                        </MultiComboBox>
+                        <Switch
+                            id="inputIsCriticalRel"
+                            state="{initModel>/bIsCriticalRel}"
+                            customTextOn="{i18n>Yes}"
+                            customTextOff="{i18n>No}"
+                        >
+                            <layoutData>
+                                <layout:GridData span="XL6 L6 M6 S11" />
+                            </layoutData>
+                        </Switch>
+                        <Button
+                            type="Transparent"
+                            icon="sap-icon://sys-help-2"
+                            text="{i18n>Help}"
+                            press="onBtnHintPressed"
+                            ariaLabelledBy="defaultHint"
+                            ariaDescribedBy="defaultHint"
+                        >
+                            <layoutData>
+                                <layout:GridData span="XL1 L1 M1 S1" />
+                            </layoutData>
+                        </Button>
+                        <!-- Si fra om personskade? -->
+                        <Label
+                            labelFor="inputIsPersonWound"
+                            text="Si fra om personskade?"
+                        />
+                        <Switch
+                            id="inputIsPersonWound"
+                            state="{initModel>/bIsPersonWound}"
+                            customTextOn="{i18n>Yes}"
+                            customTextOff="{i18n>No}"
+                        >
+                            <layoutData>
+                                <layout:GridData span="XL6 L6 M6 S11" />
+                            </layoutData>
+                        </Switch>
+                        <Button
+                            type="Transparent"
+                            icon="sap-icon://sys-help-2"
+                            text="{i18n>Help}"
+                            press="onBtnHintPressed"
+                            ariaLabelledBy="defaultHint"
+                            ariaDescribedBy="defaultHint"
+                        >
+                            <layoutData>
+                                <layout:GridData span="XL1 L1 M1 S1" />
+                            </layoutData>
+                        </Button>
+                        <!-- Si fra om skade på miljø eller eiendom? -->
+                        <Label
+                            labelFor="inputIsMateriel"
+                            text="Si fra om skade på miljø eller eiendom?"
+                        />
+                        <Switch
+                            id="inputIsMateriel"
+                            state="{initModel>/bIsMateriel}"
+                            customTextOn="{i18n>Yes}"
+                            customTextOff="{i18n>No}"
+                        >
+                            <layoutData>
+                                <layout:GridData span="XL6 L6 M6 S11" />
+                            </layoutData>
+                        </Switch>
+                        <Button
+                            type="Transparent"
+                            icon="sap-icon://sys-help-2"
+                            text="{i18n>Help}"
+                            press="onBtnHintPressed"
+                            ariaLabelledBy="defaultHint"
+                            ariaDescribedBy="defaultHint"
+                        >
+                            <layoutData>
+                                <layout:GridData span="XL1 L1 M1 S1" />
+                            </layoutData>
+                        </Button>
+                        <!-- Si fra om skade på  materiell
+ -->
+                        <Label
+                            labelFor="inputIsEnvironmentEstate"
+                            text="Si fra om skade på  materiell?"
+                        />
+                        <Switch
+                            id="inputIsEnvironmentEstate"
+                            state="{initModel>/bIsEnvironmentEstate}"
+                            customTextOn="{i18n>Yes}"
+                            customTextOff="{i18n>No}"
+                        >
+                            <layoutData>
+                                <layout:GridData span="XL6 L6 M6 S11" />
+                            </layoutData>
+                        </Switch>
+                        <Button
+                            type="Transparent"
+                            icon="sap-icon://sys-help-2"
+                            text="{i18n>Help}"
+                            press="onBtnHintPressed"
+                            ariaLabelledBy="defaultHint"
+                            ariaDescribedBy="defaultHint"
+                        >
+                            <layoutData>
+                                <layout:GridData span="XL1 L1 M1 S1" />
+                            </layoutData>
+                        </Button>
 
+                        <!-- Si fra om nestenulykke? -->
+                        <Label
+                            labelFor="inputIsAllmostAccident"
+                            text="Si fra om nestenulykke?"
+                        />
+                        <Switch
+                            id="inputIsAllmostAccident"
+                            state="{initModel>/bIsAllmostAccident}"
+                            customTextOn="{i18n>Yes}"
+                            customTextOff="{i18n>No}"
+                        >
+                            <layoutData>
+                                <layout:GridData span="XL6 L6 M6 S11" />
+                            </layoutData>
+                        </Switch>
+                        <Button
+                            type="Transparent"
+                            icon="sap-icon://sys-help-2"
+                            text="{i18n>Help}"
+                            press="onBtnHintPressed"
+                            ariaLabelledBy="defaultHint"
+                            ariaDescribedBy="defaultHint"
+                        >
+                            <layoutData>
+                                <layout:GridData span="XL1 L1 M1 S1" />
+                            </layoutData>
+                        </Button>
                         <!-- Description of Events -->
                         <Label
                             id="labelDescription"
@@ -231,7 +345,7 @@
                             />
                             <DateRangeSelection
                                 id="inputPeriod"
-                                fieldGroupIds="incidentHeader"                                
+                                fieldGroupIds="incidentHeader"
                                 dateValue="{ path: 'StartDate', formatOptions: { strictParsing: true, UTC: false } }"
                                 secondDateValue="{ path: 'EndDate', formatOptions: { strictParsing: true, UTC: false } }"
                                 visible="{= ${initModel>/sDateOrPeriod} === 'period' ? true : false }"
@@ -244,7 +358,6 @@
                             press="onBtnTodayPressed"
                             ariaLabelledBy="defaultHint"
                             ariaDescribedBy="defaultHint"
-
                         >
                             <layoutData>
                                 <layout:GridData span="XL1 L1 M1 S1" />
@@ -282,7 +395,7 @@
                             </items>
                             <layoutData>
                                 <layout:GridData span="XL2 L2 M2 S12" />
-                            </layoutData>                            
+                            </layoutData>
                             <customData>
                                 <!-- Custom Data which controls the texts and element the popover help shall be displayed for -->
                                 <core:CustomData
@@ -299,7 +412,6 @@
                                 />
                             </customData>
                         </SegmentedButton>
-                        
 
                         <!-- On behalf of: No/Yes -->
                         <Label
@@ -444,7 +556,7 @@
                             visible="{initModel>/bIsInvolved}"
                         >
                             <core:Item text="Involvert" />
-                            <core:Item text="Vitne" />                            
+                            <core:Item text="Vitne" />
                             <core:Item text="Sjåfør" />
                             <core:Item text="Eier" />
                             <layoutData>
