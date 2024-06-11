@@ -112,12 +112,14 @@
                         <Label
                             labelFor="inputIsPersonWound"
                             text="Si fra om personskade?"
+                            visible="{= ${initModel>/bIsCriticalRel} ? false : true }"
                         />
                         <Switch
                             id="inputIsPersonWound"
                             state="{initModel>/bIsPersonWound}"
                             customTextOn="{i18n>Yes}"
                             customTextOff="{i18n>No}"
+                            visible="{= ${initModel>/bIsCriticalRel} ? false : true }"
                         >
                             <layoutData>
                                 <layout:GridData span="XL6 L6 M6 S11" />
@@ -130,6 +132,7 @@
                             press="onBtnHintPressed"
                             ariaLabelledBy="defaultHint"
                             ariaDescribedBy="defaultHint"
+                            visible="{= ${initModel>/bIsCriticalRel} ? false : true }"
                         >
                             <layoutData>
                                 <layout:GridData span="XL1 L1 M1 S1" />
@@ -139,12 +142,14 @@
                         <Label
                             labelFor="inputIsMateriel"
                             text="Si fra om skade på miljø eller eiendom?"
+                            visible="{= ${initModel>/bIsCriticalRel} ? false : true }"
                         />
                         <Switch
                             id="inputIsMateriel"
                             state="{initModel>/bIsEnvironmentEstate}"
                             customTextOn="{i18n>Yes}"
                             customTextOff="{i18n>No}"
+                            visible="{= ${initModel>/bIsCriticalRel} ? false : true }"
                         >
                             <layoutData>
                                 <layout:GridData span="XL6 L6 M6 S11" />
@@ -157,6 +162,7 @@
                             press="onBtnHintPressed"
                             ariaLabelledBy="defaultHint"
                             ariaDescribedBy="defaultHint"
+                            visible="{= ${initModel>/bIsCriticalRel} ? false : true }"
                         >
                             <layoutData>
                                 <layout:GridData span="XL1 L1 M1 S1" />
@@ -167,12 +173,14 @@
                         <Label
                             labelFor="inputIsEnvironmentEstate"
                             text="Si fra om skade på  materiell?"
+                            visible="{= ${initModel>/bIsCriticalRel} ? false : true }"
                         />
                         <Switch
                             id="inputIsEnvironmentEstate"
                             state="{initModel>/bIsMateriel}"
                             customTextOn="{i18n>Yes}"
                             customTextOff="{i18n>No}"
+                            visible="{= ${initModel>/bIsCriticalRel} ? false : true }"
                         >
                             <layoutData>
                                 <layout:GridData span="XL6 L6 M6 S11" />
@@ -185,50 +193,22 @@
                             press="onBtnHintPressed"
                             ariaLabelledBy="defaultHint"
                             ariaDescribedBy="defaultHint"
+                            visible="{= ${initModel>/bIsCriticalRel} ? false : true }"
                         >
                             <layoutData>
                                 <layout:GridData span="XL1 L1 M1 S1" />
                             </layoutData>
                         </Button>
 
-                        <!-- Si fra om nestenulykke? -->
-                        <Label
-                            labelFor="inputIsAllmostAccident"
-                            text="Si fra om nestenulykke?"
-                        />
-                        <Switch
-                            id="inputIsAllmostAccident"
-                            state="{initModel>/bIsAllmostAccident}"
-                            customTextOn="{i18n>Yes}"
-                            customTextOff="{i18n>No}"
-                        >
-                            <layoutData>
-                                <layout:GridData span="XL6 L6 M6 S11" />
-                            </layoutData>
-                        </Switch>
-                        <Button
-                            type="Transparent"
-                            icon="sap-icon://sys-help-2"
-                            text="{i18n>Help}"
-                            press="onBtnHintPressed"
-                            ariaLabelledBy="defaultHint"
-                            ariaDescribedBy="defaultHint"
-                        >
-                            <layoutData>
-                                <layout:GridData span="XL1 L1 M1 S1" />
-                            </layoutData>
-                        </Button>
                         <!-- Segmented button different  -->
                         <Label text="Si ifra om" />
                         <SegmentedButton
                             selectedKey="satellite"
-                            class="sapUiSmallMarginBottom"
+                            visible="{= ${initModel>/bIsCriticalRel} ? false : true }"
                         >
                             <items>
                                 <SegmentedButtonItem text="Nestenulykke" />
-                                <SegmentedButtonItem
-                                    text="Avvik"
-                                />
+                                <SegmentedButtonItem text="Avvik" />
                                 <SegmentedButtonItem text="Observasjon " />
                             </items>
                         </SegmentedButton>
@@ -570,7 +550,7 @@
                             id="selInvolvedRole"
                             visible="{initModel>/bIsInvolved}"
                         >
-                            <core:Item text="Involvert" />
+                            <core:Item text="Involvert" /> 
                             <core:Item text="Vitne" />
                             <core:Item text="Sjåfør" />
                             <core:Item text="Eier" />
@@ -600,13 +580,42 @@
                             design="Solid"
                             ariaLabelledBy="titlePersonInjurie"
                             class="borderBottom sapUiLargeMarginEnd"
-                            visible="{initModel>/Personskade}"
+                            visible="{initModel>/bIsPersonWound}"
                         >
                             <Title
                                 id="titlePersonInjurie"
                                 text="{i18n>PersonInjurie}"
                             />
                         </Toolbar>
+                        <Label text="Klassifisering" />
+                        <SegmentedButton visible="{initModel>/bIsPersonWound}">
+                            <items>
+                                <SegmentedButtonItem text="Eksponering" />
+                                <SegmentedButtonItem text="Sykdom" />
+                                <SegmentedButtonItem text="Skade " />
+                            </items>
+                        </SegmentedButton>
+                        <Label
+                            text="Skadens-/sykdommens art"
+                            visible="{initModel>/bIsPersonWound}"
+                        />
+                        <Input
+                            showValueHelp="true"
+                            visible="{initModel>/bIsPersonWound}"
+                        />
+                        <Label
+                            text="Kroppsdel"
+                            visible="{initModel>/bIsPersonWound}"
+                        />
+                        <Input
+                            showValueHelp="true"
+                            visible="{initModel>/bIsPersonWound}"
+                        />
+                        <Label
+                            text="Beskriv skaden/sykdommen"
+                            visible="{initModel>/bIsPersonWound}"
+                        />
+                        <TextArea visible="{initModel>/bIsPersonWound}" />
 
                         <Toolbar
                             style="Clear"
@@ -669,7 +678,6 @@
                             rows="3"
                             visible="{initModel>/bIsMateriel}"
                         />
-
                         <Toolbar
                             style="Clear"
                             design="Solid"
