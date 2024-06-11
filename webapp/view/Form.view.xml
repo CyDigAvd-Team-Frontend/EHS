@@ -204,10 +204,15 @@
                         <!-- Segmented button different  -->
                         <Label text="Si ifra om" />
                         <SegmentedButton
-                            selectedKey="satellite"
+                            selectedKey="1"
                             visible="{= ${initModel>/bIsCriticalRel} ? false : true }"
                         >
                             <items>
+                                <SegmentedButtonItem
+                                    key="1"
+                                    text=""
+                                    visible="false"
+                                />
                                 <SegmentedButtonItem text="Nestenulykke" />
                                 <SegmentedButtonItem text="Avvik" />
                                 <SegmentedButtonItem text="Observasjon " />
@@ -414,24 +419,28 @@
                             id="labelIsOnBehalfOf"
                             labelFor="inputIsOnBehalfOf"
                             text="{i18n>OnBehalfOf}"
+                            visible="{initModel>/bIsCriticalRel}"
                         />
                         <Switch
                             id="inputIsOnBehalfOf"
                             state="{initModel>/bIsOnBehalfOf}"
                             customTextOn="{i18n>Yes}"
                             customTextOff="{i18n>No}"
+                            visible="{initModel>/bIsCriticalRel}"
                         />
 
                         <Label
                             id="labelIsInvolved"
                             labelFor="inputIsInvolved"
                             text="{i18n>OnInvolved}"
+                            visible="{initModel>/bIsCriticalRel}"
                         />
                         <Switch
                             id="inputIsInvolved"
                             state="{initModel>/bIsInvolved}"
                             customTextOn="{i18n>Yes}"
                             customTextOff="{i18n>No}"
+                            visible="{initModel>/bIsCriticalRel}"
                         />
 
                         <Toolbar
@@ -580,14 +589,26 @@
                             style="Clear"
                             design="Solid"
                             ariaLabelledBy="titlePersonInjurie"
-                            class="borderBottom sapUiLargeMarginEnd"
+                            class="borderBottom sapUiLargeMarginEnd sapUiLargeMarginBottom"
                             visible="{initModel>/bIsPersonWound}"
                         >
                             <Title
                                 id="titlePersonInjurie"
                                 text="{i18n>PersonInjurie}"
                             />
+                            <ToolbarSpacer />
+                            <Button
+                                press="onBtnCreatePersonOnBehalfOf"
+                                type="Transparent"
+                                text="{i18n>AddPerson}"
+                                visible="{initModel>/bIsPersonWound}"
+                            >
+                                <layoutData>
+                                    <layout:GridData span="XL3 L12 M3 S12" />
+                                </layoutData>
+                            </Button>
                         </Toolbar>
+
                         <Label text="Klassifisering" />
                         <SegmentedButton visible="{initModel>/bIsPersonWound}">
                             <items>
@@ -618,6 +639,51 @@
                         />
                         <TextArea visible="{initModel>/bIsPersonWound}" />
 
+                        <!-- Si fra om skade på miljø eller eiendom -->
+
+                        <Toolbar
+                            style="Clear"
+                            design="Solid"
+                            ariaLabelledBy="titlePersonInjurie"
+                            class="borderBottom sapUiLargeMarginEnd"
+                            visible="{initModel>/bIsEnvironmentEstate}"
+                        >
+                            <Title text="{i18n>environmentAndProperty}" />
+                        </Toolbar>
+                        <Label
+                            text="Utslipp til"
+                            visible="{initModel>/bIsEnvironmentEstate}"
+                        />
+                        <Select
+                            forceSelection="false"
+                            visible="{initModel>/bIsEnvironmentEstate}"
+                        >
+                            <core:Item text="Annet" />
+                            <core:Item text="Drikkevann" />
+                            <core:Item text="Mange flere..." />
+                        </Select>
+                        <Label
+                            text="Utslippsbeskrivelse"
+                            visible="{initModel>/bIsEnvironmentEstate}"
+                        />
+                        <TextArea visible="{initModel>/bIsEnvironmentEstate}" />
+                        <Label
+                            text="Materialbeskrivelse"
+                            visible="{initModel>/bIsEnvironmentEstate}"
+                        />
+                        <TextArea visible="{initModel>/bIsEnvironmentEstate}" />
+                        <!-- Sammen med den over -->
+                        <Toolbar
+                            style="Clear"
+                            design="Solid"
+                            ariaLabelledBy="titlePersonInjurie"
+                            class="borderBottom sapUiLargeMarginEnd"
+                            visible="{initModel>/bIsEnvironmentEstate}"
+                        >
+                            <Title text="{i18n>property}" />
+                        </Toolbar>
+
+                        <!-- Si fra om skade på materiell -->
                         <Toolbar
                             style="Clear"
                             design="Solid"
@@ -626,6 +692,17 @@
                             visible="{initModel>/bIsMateriel}"
                         >
                             <Title text="{i18n>equipTitle}" />
+                            <ToolbarSpacer />
+                            <Button
+                                press="onBtnCreatePersonOnBehalfOf"
+                                type="Transparent"
+                                text="{i18n>AddMaterial}"
+                                visible="{initModel>/bIsPersonWound}"
+                            >
+                                <layoutData>
+                                    <layout:GridData span="XL3 L12 M3 S12" />
+                                </layoutData>
+                            </Button>
                         </Toolbar>
                         <Label
                             text="{i18n>equip}"
