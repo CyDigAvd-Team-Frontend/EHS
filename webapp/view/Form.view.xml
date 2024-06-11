@@ -142,7 +142,7 @@
                         />
                         <Switch
                             id="inputIsMateriel"
-                            state="{initModel>/bIsMateriel}"
+                            state="{initModel>/bIsEnvironmentEstate}"
                             customTextOn="{i18n>Yes}"
                             customTextOff="{i18n>No}"
                         >
@@ -170,7 +170,7 @@
                         />
                         <Switch
                             id="inputIsEnvironmentEstate"
-                            state="{initModel>/bIsEnvironmentEstate}"
+                            state="{initModel>/bIsMateriel}"
                             customTextOn="{i18n>Yes}"
                             customTextOff="{i18n>No}"
                         >
@@ -592,6 +592,69 @@
                                 text="{i18n>PersonInjurie}"
                             />
                         </Toolbar>
+
+                        <Toolbar
+                            style="Clear"
+                            design="Solid"
+                            ariaLabelledBy="titlePersonInjurie"
+                            class="borderBottom sapUiLargeMarginEnd"
+                            visible="{initModel>/bIsMateriel}"
+                        >
+                            <Title text="{i18n>equipTitle}" />
+                        </Toolbar>
+                        <Label
+                            text="{i18n>equip}"
+                            visible="{initModel>/bIsMateriel}"
+                        />
+                        <Input
+                            showValueHelp="true"
+                            visible="{initModel>/bIsMateriel}"
+                        />
+                        <Button
+                            visible="{initModel>/bIsMateriel}"
+                            press="onBtnCreatePersonOnBehalfOf"
+                            type="Ghost"
+                            text="{i18n>equipSearch}"
+                        >
+                            <layoutData>
+                                <layout:GridData span="XL3 L3 M3 S12" />
+                            </layoutData>
+                        </Button>
+                        <Label
+                            text="{i18n>equipDescrip}"
+                            required="true"
+                            visible="{initModel>/bIsMateriel}"
+                        />
+                        <Input visible="{initModel>/bIsMateriel}" />
+                        <Label
+                            text="{i18n>equipSerialNumber}"
+                            visible="{initModel>/bIsMateriel}"
+                        />
+                        <Text visible="{initModel>/bIsMateriel}" />
+                        <Label
+                            text="{i18n>equipTechnical}"
+                            visible="{initModel>/bIsMateriel}"
+                        />
+                        <Text visible="{initModel>/bIsMateriel}" />
+                        <Label
+                            text="{i18n>equipType}"
+                            visible="{initModel>/bIsMateriel}"
+                        />
+                        <Text visible="{initModel>/bIsMateriel}" />
+                        <Label
+                            text="{i18n>equipMaterialNumber}"
+                            visible="{initModel>/bIsMateriel}"
+                        />
+                        <Text visible="{initModel>/bIsMateriel}" />
+                        <Label
+                            text="{i18n>equipAdditionalInfo}"
+                            visible="{initModel>/bIsMateriel}"
+                        />
+                        <TextArea
+                            rows="3"
+                            visible="{initModel>/bIsMateriel}"
+                        />
+
                         <Toolbar
                             style="Clear"
                             design="Solid"
