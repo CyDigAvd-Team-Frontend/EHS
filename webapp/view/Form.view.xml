@@ -218,6 +218,21 @@
                                 <layout:GridData span="XL1 L1 M1 S1" />
                             </layoutData>
                         </Button>
+                        <!-- Segmented button different  -->
+                        <Label text="Si ifra om" />
+                        <SegmentedButton
+                            selectedKey="satellite"
+                            class="sapUiSmallMarginBottom"
+                        >
+                            <items>
+                                <SegmentedButtonItem text="Nestenulykke" />
+                                <SegmentedButtonItem
+                                    text="Avvik"
+                                />
+                                <SegmentedButtonItem text="Observasjon " />
+                            </items>
+                        </SegmentedButton>
+
                         <!-- Description of Events -->
                         <Label
                             id="labelDescription"
