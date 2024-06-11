@@ -91,6 +91,7 @@
                             state="{initModel>/bIsCriticalRel}"
                             customTextOn="{i18n>Yes}"
                             customTextOff="{i18n>No}"
+                            change="onChangeCrtical"
                         >
                             <layoutData>
                                 <layout:GridData span="XL6 L6 M6 S11" />
@@ -208,9 +209,7 @@
                         >
                             <items>
                                 <SegmentedButtonItem text="Nestenulykke" />
-                                <SegmentedButtonItem
-                                    text="Avvik"
-                                />
+                                <SegmentedButtonItem text="Avvik" />
                                 <SegmentedButtonItem text="Observasjon " />
                             </items>
                         </SegmentedButton>
@@ -552,7 +551,7 @@
                             id="selInvolvedRole"
                             visible="{initModel>/bIsInvolved}"
                         >
-                            <core:Item text="Involvert" /> 
+                            <core:Item text="Involvert" />
                             <core:Item text="Vitne" />
                             <core:Item text="Sjåfør" />
                             <core:Item text="Eier" />
@@ -618,7 +617,6 @@
                             visible="{initModel>/bIsPersonWound}"
                         />
                         <TextArea visible="{initModel>/bIsPersonWound}" />
-
 
                         <Toolbar
                             style="Clear"

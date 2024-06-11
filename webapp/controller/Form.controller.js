@@ -36,6 +36,18 @@ sap.ui.define([
                 }
             },
 
+            onChangeCrtical: function(evt){
+                var bState = evt.getSource().getState();
+                var oModel = this.getModel("initModel");
+                if(!bState){
+                  return;
+                }
+                oModel.setProperty("/bIsMateriel", false);
+                oModel.setProperty("/bIsPersonWound", false);
+                oModel.setProperty("/bIsEnvironmentEstate", false)
+                
+            },
+
             onBtnTodayPressed:function(evt){
                 this.byId("inputPeriod").setDateValue(new Date());
                 this.byId("inputDate").setDateValue(new Date());
