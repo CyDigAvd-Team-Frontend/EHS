@@ -8,7 +8,7 @@
     "Personskade": false,
     "bIsCriticalRel": false,
     "bIsPersonWound": false,
-    "bIsEnvironmentEstate": true,
+    "bIsEnvironmentEstate": false,
     "bIsMateriel": false,
     "bIsAllmostAccident": false,
     "Path": 0,

@@ -6,6 +6,11 @@
     "bIsAnonymous": false,
     "bIsInvolved": false, 
     "Personskade": false,
+    "bIsCriticalRel": false,
+    "bIsPersonWound": false,
+    "bIsEnvironmentEstate": false,
+    "bIsMateriel": false,
+    "bIsAllmostAccident": false,
     "Path": 0,
     "UrlID": ""
 }

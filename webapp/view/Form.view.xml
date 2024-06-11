@@ -645,7 +645,7 @@
                             style="Clear"
                             design="Solid"
                             ariaLabelledBy="titlePersonInjurie"
-                            class="borderBottom sapUiLargeMarginEnd"
+                            class="borderBottom sapUiLargeMarginEnd sapUiLargeMarginBottom"
                             visible="{initModel>/bIsEnvironmentEstate}"
                         >
                             <Title text="{i18n>environmentAndProperty}" />
@@ -677,18 +677,44 @@
                             style="Clear"
                             design="Solid"
                             ariaLabelledBy="titlePersonInjurie"
-                            class="borderBottom sapUiLargeMarginEnd"
+                            class="borderBottom sapUiLargeMarginEnd sapUiLargeMarginBottom"
                             visible="{initModel>/bIsEnvironmentEstate}"
                         >
                             <Title text="{i18n>property}" />
+                            <ToolbarSpacer />
+                            <Button
+                                press="onBtnCreatePersonOnBehalfOf"
+                                type="Transparent"
+                                text="{i18n>AddProperty}"
+                                visible="{initModel>/bIsEnvironmentEstate}"
+                            >
+                                <layoutData>
+                                    <layout:GridData span="XL3 L12 M3 S12" />
+                                </layoutData>
+                            </Button>
                         </Toolbar>
+                        <Label
+                            text="Eiendom"            
+                            visible="{initModel>/bIsEnvironmentEstate}"
+                        />
+                        <Input showValueHelp="true" visible="{initModel>/bIsEnvironmentEstate}" />
+                        <Label
+                            text="Eiendomsbeskrivelse"
+                            visible="{initModel>/bIsEnvironmentEstate}"
+                        />
+                        <Input visible="{initModel>/bIsEnvironmentEstate}" />
+                        <Label
+                            text="Beskrivelse av skade"
+                            visible="{initModel>/bIsEnvironmentEstate}"
+                        />
+                        <Input visible="{initModel>/bIsEnvironmentEstate}" />
 
                         <!-- Si fra om skade på materiell -->
                         <Toolbar
                             style="Clear"
                             design="Solid"
                             ariaLabelledBy="titlePersonInjurie"
-                            class="borderBottom sapUiLargeMarginEnd"
+                            class="borderBottom sapUiLargeMarginEnd sapUiLargeMarginBottom"
                             visible="{initModel>/bIsMateriel}"
                         >
                             <Title text="{i18n>equipTitle}" />
