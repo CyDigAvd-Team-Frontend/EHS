@@ -724,7 +724,6 @@
                         </Button>
                         <Label
                             text="{i18n>equipDescrip}"
-                            required="true"
                             visible="{initModel>/bIsMateriel}"
                         />
                         <Input visible="{initModel>/bIsMateriel}" />
