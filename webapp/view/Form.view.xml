@@ -208,7 +208,9 @@
                         >
                             <items>
                                 <SegmentedButtonItem text="Nestenulykke" />
-                                <SegmentedButtonItem text="Avvik" />
+                                <SegmentedButtonItem
+                                    text="Avvik"
+                                />
                                 <SegmentedButtonItem text="Observasjon " />
                             </items>
                         </SegmentedButton>
@@ -616,6 +618,7 @@
                             visible="{initModel>/bIsPersonWound}"
                         />
                         <TextArea visible="{initModel>/bIsPersonWound}" />
+
 
                         <Toolbar
                             style="Clear"
