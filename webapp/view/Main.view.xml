@@ -269,8 +269,10 @@
                                     <Button
                                         icon="sap-icon://discussion"
                                         press="onPressNavToFeed"
-                                        type="Ghost"
+                                        type="{= ${ListModel>ID} === 1234 ? 'Emphasized' : 'Ghost'}"
                                         tooltip="Melding til saksbehandler"
+                                        text="{= ${ListModel>ID} === 1234 ? 'Ny' : ''}"
+                                        iconFirst="false"
                                     />
                                 </FlexBox>
                             </cells>
