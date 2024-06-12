@@ -11,7 +11,7 @@
 >
     <Page
         id="page"
-        title="{i18n>createIncident}"
+        title="{i18n>title}"
         showFooter="true"
         showNavButton="true"
         navButtonPress="handleClose"
@@ -694,10 +694,13 @@
                             </Button>
                         </Toolbar>
                         <Label
-                            text="Eiendom"            
+                            text="Eiendom"
                             visible="{initModel>/bIsEnvironmentEstate}"
                         />
-                        <Input showValueHelp="true" visible="{initModel>/bIsEnvironmentEstate}" />
+                        <Input
+                            showValueHelp="true"
+                            visible="{initModel>/bIsEnvironmentEstate}"
+                        />
                         <Label
                             text="Eiendomsbeskrivelse"
                             visible="{initModel>/bIsEnvironmentEstate}"

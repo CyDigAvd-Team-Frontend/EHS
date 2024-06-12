@@ -11,7 +11,7 @@
 >
     <Page
         id="page"
-        title="Si ifra!"
+        title="Status på mine saker"
         showNavButton="true"
         navButtonPress="onPressNavToHome"
     >
