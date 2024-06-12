@@ -195,6 +195,7 @@
                                 text="{i18n>ColumnStatus}"
                             />
                         </Column>
+
                         <Column
                             id="_IDGenColumn4"
                             width="5em"
@@ -244,7 +245,7 @@
 
                                 <FlexBox
                                     id="_IDGenFlexBox1"
-                                    justifyContent="End"
+                                    justifyContent="SpaceBetween"
                                 >
                                     <!-- <tnt:InfoLabel
                                     id="il1"
