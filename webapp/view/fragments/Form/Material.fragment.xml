@@ -1,0 +1,77 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:layout="sap.ui.layout"
+>
+    <Toolbar
+        style="Clear"
+        design="Solid"
+        ariaLabelledBy="titlePersonInjurie"
+        class="borderBottom sapUiLargeMarginEnd sapUiLargeMarginBottom"
+        visible="{initModel>/bIsMateriel}"
+    >
+        <Title text="{i18n>equipTitle}" />
+        <ToolbarSpacer />
+        <Button
+            press="onBtnCreatePersonOnBehalfOf"
+            type="Transparent"
+            text="{i18n>AddMaterial}"
+            visible="{initModel>/bIsPersonWound}"
+        >
+            <layoutData>
+                <layout:GridData span="XL3 L12 M3 S12" />
+            </layoutData>
+        </Button>
+    </Toolbar>
+    <Label
+        text="{i18n>equip}"
+        visible="{initModel>/bIsMateriel}"
+    />
+    <Input
+        showValueHelp="true"
+        visible="{initModel>/bIsMateriel}"
+    />
+    <Button
+        visible="{initModel>/bIsMateriel}"
+        press="onBtnCreatePersonOnBehalfOf"
+        type="Ghost"
+        text="{i18n>equipSearch}"
+    >
+        <layoutData>
+            <layout:GridData span="XL3 L3 M3 S12" />
+        </layoutData>
+    </Button>
+    <Label
+        text="{i18n>equipDescrip}"
+        visible="{initModel>/bIsMateriel}"
+    />
+    <Input visible="{initModel>/bIsMateriel}" />
+    <Label
+        text="{i18n>equipSerialNumber}"
+        visible="{initModel>/bIsMateriel}"
+    />
+    <Text visible="{initModel>/bIsMateriel}" />
+    <Label
+        text="{i18n>equipTechnical}"
+        visible="{initModel>/bIsMateriel}"
+    />
+    <Text visible="{initModel>/bIsMateriel}" />
+    <Label
+        text="{i18n>equipType}"
+        visible="{initModel>/bIsMateriel}"
+    />
+    <Text visible="{initModel>/bIsMateriel}" />
+    <Label
+        text="{i18n>equipMaterialNumber}"
+        visible="{initModel>/bIsMateriel}"
+    />
+    <Text visible="{initModel>/bIsMateriel}" />
+    <Label
+        text="{i18n>equipAdditionalInfo}"
+        visible="{initModel>/bIsMateriel}"
+    />
+    <TextArea
+        rows="3"
+        visible="{initModel>/bIsMateriel}"
+    />
+</core:FragmentDefinition>

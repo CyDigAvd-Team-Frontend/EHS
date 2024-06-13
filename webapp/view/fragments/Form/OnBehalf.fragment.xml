@@ -1,0 +1,67 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:layout="sap.ui.layout"
+>
+    <Toolbar
+        style="Clear"
+        design="Solid"
+        ariaLabelledBy="titleLocation,butGDPR"
+        class="sapUiLargeMarginBottom borderBottom sapUiLargeMarginEnd"
+        visible="{initModel>/bIsOnBehalfOf}"
+    >
+        <Title
+            id="titleLocation"
+            text="{i18n>OnBehalfOfTitle}"
+            class="sapUiSmallMarginBottom"
+        />
+    </Toolbar>
+
+    <Label
+        id="labelOnBehalfOf"
+        labelFor="inputOnBehalfOf"
+        text="{i18n>OnBehalfOfPerson}"
+        visible="{= (${initModel>/bIsOnBehalfOf})  &amp;&amp; !(${initModel>/bIsAnonymous}) }"
+    />
+    <Input
+        id="inputOnBehalfOf2"
+        value="{initModel>/sIncidentPersonOnBehalfOfIdCombined}"
+        valueHelpOnly="true"
+        showValueHelp="true"
+        valueHelpRequest="onValueHelpRequestForPersonOnBehalfOf"
+        placeholder="{i18n>SelectPerson}"
+        visible="{= (${initModel>/bIsOnBehalfOf})  &amp;&amp; !(${initModel>/bIsAnonymous}) }"
+    >
+        <layoutData>
+            <layout:GridData span="XL4 L4 M4 S12" />
+        </layoutData>
+    </Input>
+    <Button
+        id="btnCreatePersonOnBehalfOf"
+        press="onBtnCreatePersonOnBehalfOf"
+        type="Transparent"
+        text="{i18n>OnBehalfOfPersonCreate}"
+        visible="{= (${initModel>/bIsOnBehalfOf})  &amp;&amp; !(${initModel>/bIsAnonymous}) }"
+    >
+        <layoutData>
+            <layout:GridData span="XL3 L3 M3 S12" />
+        </layoutData>
+    </Button>
+    <List
+        items="{appView>/aIncidentPersonOnBehalfOf}"
+        mode="Delete"
+        backgroundDesign="Transparent"
+        showNoData="false"
+        visible="{= (${initModel>/bIsOnBehalfOf})  &amp;&amp; !(${initModel>/bIsAnonymous}) }"
+        delete="onBtnDeleteIncidentPersonOnBehalfOfPressed"
+    >
+        <DisplayListItem label="{appView>FullName}" />
+        <layoutData>
+            <layout:GridData
+                indent="L2 M3 S0"
+                linebreak="true"
+                span="XL7 L7 M7 S12"
+            />
+        </layoutData>
+    </List>
+</core:FragmentDefinition>

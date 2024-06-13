@@ -1,0 +1,42 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:layout="sap.ui.layout">
+    <Toolbar style="Clear" design="Solid" ariaLabelledBy="titleInvolved,butGDPR" class="sapUiLargeMarginBottom borderBottom sapUiLargeMarginEnd" visible="{initModel>/bIsInvolved}">
+        <Title id="titleInvolved" text="{i18n>InvolvedTitle}" class="sapUiSmallMarginBottom" />
+    </Toolbar>
+
+    <Label id="labelInvolved" labelFor="inputInvolved" text="{i18n>OnBehalfOfPerson}" visible="{= (${initModel>/bIsInvolved})  &amp;&amp; !(${initModel>/bIsAnonymous}) }" />
+    <Input
+        id="inputInvolved"
+        value="{initModel>/sIncidentPersonOnBehalfOfIdCombined}"
+        valueHelpOnly="true"
+        showValueHelp="true"
+        valueHelpRequest="onValueHelpRequestForPersonOnBehalfOf"
+        placeholder="{i18n>SelectPerson}"
+        visible="{= (${initModel>/bIsInvolved})  &amp;&amp; !(${initModel>/bIsAnonymous}) }"
+    >
+        <layoutData>
+            <layout:GridData span="XL4 L4 M4 S12" />
+        </layoutData>
+    </Input>
+    <Button id="btnCreatePersonInvolved" press="onBtnCreatePersonOnBehalfOf" type="Transparent" text="{i18n>OnBehalfOfPersonCreate}" visible="{= (${initModel>/bIsInvolved})  &amp;&amp; !(${initModel>/bIsAnonymous}) }">
+        <layoutData>
+            <layout:GridData span="XL3 L3 M3 S12" />
+        </layoutData>
+    </Button>
+    <Label id="labelInvolvedRole" labelFor="selInvolvedRole" text="{i18n>InvolvedRole}" visible="{initModel>/bIsInvolved}" />
+
+    <Select id="selInvolvedRole" visible="{initModel>/bIsInvolved}">
+        <core:Item text="Involvert" />
+        <core:Item text="Vitne" />
+        <core:Item text="Sjåfør" />
+        <core:Item text="Eier" />
+        <layoutData>
+            <layout:GridData span="XL4 L4 M4 S12" />
+        </layoutData>
+    </Select>
+    <List items="{appView>/aIncidentPersonOnBehalfOf}" mode="Delete" backgroundDesign="Transparent" showNoData="false" visible="{= (${initModel>/bIsInvolved})  &amp;&amp; !(${initModel>/bIsAnonymous}) }" delete="onBtnDeleteIncidentPersonOnBehalfOfPressed">
+        <DisplayListItem label="{appView>FullName}" />
+        <layoutData>
+            <layout:GridData indent="L2 M3 S0" linebreak="true" span="XL7 L7 M7 S12" />
+        </layoutData>
+    </List>
+</core:FragmentDefinition>
