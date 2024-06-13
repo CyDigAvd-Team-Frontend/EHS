@@ -1,0 +1,76 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:layout="sap.ui.layout"
+>
+    <Toolbar
+        style="Clear"
+        design="Solid"
+        ariaLabelledBy="titlePersonInjurie"
+        class="borderBottom sapUiLargeMarginEnd sapUiLargeMarginBottom"
+        visible="{initModel>/bIsEnvironmentEstate}"
+    >
+        <Title text="{i18n>environmentAndProperty}" />
+    </Toolbar>
+    <Label
+        text="Utslipp til"
+        visible="{initModel>/bIsEnvironmentEstate}"
+    />
+    <Select
+        forceSelection="false"
+        visible="{initModel>/bIsEnvironmentEstate}"
+    >
+        <core:Item text="Annet" />
+        <core:Item text="Drikkevann" />
+        <core:Item text="Mange flere..." />
+    </Select>
+    <Label
+        text="Utslippsbeskrivelse"
+        visible="{initModel>/bIsEnvironmentEstate}"
+    />
+    <TextArea visible="{initModel>/bIsEnvironmentEstate}" />
+    <Label
+        text="Materialbeskrivelse"
+        visible="{initModel>/bIsEnvironmentEstate}"
+    />
+    <TextArea visible="{initModel>/bIsEnvironmentEstate}" />
+    <!-- Sammen med den over -->
+    <Toolbar
+        style="Clear"
+        design="Solid"
+        ariaLabelledBy="titlePersonInjurie"
+        class="borderBottom sapUiLargeMarginEnd sapUiLargeMarginBottom"
+        visible="{initModel>/bIsEnvironmentEstate}"
+    >
+        <Title text="{i18n>property}" />
+        <ToolbarSpacer />
+        <Button
+            press="onBtnCreatePersonOnBehalfOf"
+            type="Transparent"
+            text="{i18n>AddProperty}"
+            visible="{initModel>/bIsEnvironmentEstate}"
+        >
+            <layoutData>
+                <layout:GridData span="XL3 L12 M3 S12" />
+            </layoutData>
+        </Button>
+    </Toolbar>
+    <Label
+        text="Eiendom"
+        visible="{initModel>/bIsEnvironmentEstate}"
+    />
+    <Input
+        showValueHelp="true"
+        visible="{initModel>/bIsEnvironmentEstate}"
+    />
+    <Label
+        text="Eiendomsbeskrivelse"
+        visible="{initModel>/bIsEnvironmentEstate}"
+    />
+    <Input visible="{initModel>/bIsEnvironmentEstate}" />
+    <Label
+        text="Beskrivelse av skade"
+        visible="{initModel>/bIsEnvironmentEstate}"
+    />
+    <Input visible="{initModel>/bIsEnvironmentEstate}" />
+</core:FragmentDefinition>

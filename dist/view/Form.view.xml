@@ -1,26 +1,7 @@
-<mvc:View
-    controllerName="no.mil.zehs.controller.Form"
-    xmlns:f="sap.ui.layout.form"
-    xmlns:layout="sap.ui.layout"
-    xmlns:unified="sap.ui.unified"
-    xmlns:common="sap.ui.commons"
-    xmlns:mvc="sap.ui.core.mvc"
-    displayBlock="true"
-    xmlns:core="sap.ui.core"
-    xmlns="sap.m"
->
-    <Page
-        id="page"
-        title="{i18n>title}"
-        showFooter="true"
-        showNavButton="true"
-        navButtonPress="handleClose"
-    >
+<mvc:View controllerName="no.mil.zehs.controller.Form" xmlns:f="sap.ui.layout.form" xmlns:layout="sap.ui.layout" xmlns:common="sap.ui.commons" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns:core="sap.ui.core" xmlns="sap.m">
+    <Page id="page" title="{i18n>title}" showFooter="true" showNavButton="true" navButtonPress="handleClose">
         <content>
-            <VBox
-                class="sapUiResponsiveMargin"
-                renderType="Div"
-            >
+            <VBox class="sapUiResponsiveMargin" renderType="Div">
                 <f:SimpleForm
                     id="SimpleFormChange471"
                     editable="true"
@@ -41,161 +22,75 @@
                     class="sapUiResponsiveMargin"
                 >
                     <f:content>
-                        <Toolbar
-                            style="Clear"
-                            design="Solid"
-                            ariaLabelledBy="titleHeader,butGDPR"
-                            class="sapUiLargeMarginBottom borderBottom sapUiLargeMarginEnd"
-                        >
-                            <Title
-                                id="titleHeader"
-                                text="{i18n>InformationTitle}"
-                                class="sapUiSmallMarginBottom"
-                            />
+                        <Toolbar style="Clear" design="Solid" ariaLabelledBy="titleHeader,butGDPR" class="sapUiLargeMarginBottom borderBottom sapUiLargeMarginEnd">
+                            <Title id="titleHeader" text="{i18n>InformationTitle}" class="sapUiSmallMarginBottom" />
                             <ToolbarSpacer />
-                            <Link
-                                href="{i18n>LinkToDataPrivacy}"
-                                id="butGDPR"
-                                text="{i18n>LinkToDataPrivacyText}"
-                                target="_blank"
-                                class="sapUiSmallMarginBottom"
-                            />
+                            <Link href="{i18n>LinkToDataPrivacy}" id="butGDPR" text="{i18n>LinkToDataPrivacyText}" target="_blank" class="sapUiSmallMarginBottom" />
                             <ToolbarSpacer width="0%" />
                         </Toolbar>
                         <!-- Header for Section: Information -->
                         <!-- Title -->
-                        <Label
-                            id="labelTitle"
-                            labelFor="inputTitle"
-                            fieldGroupIds="incidentHeader,requiresValidation"
-                            text="{i18n>Title}"
-                            required="true"
-                        />
-                        <Input
-                            id="inputTitle"
-                            fieldGroupIds="incidentHeader"
-                            value="{Title}"
-                            maxLength="80"
-                        >
+                        <Label id="labelTitle" labelFor="inputTitle" fieldGroupIds="incidentHeader,requiresValidation" text="{i18n>Title}" required="true" />
+                        <Input id="inputTitle" fieldGroupIds="incidentHeader" value="{Title}" maxLength="80">
                             <!-- <layoutData>
 									<layout:GridData span="XL7 L7 M7 S12"/>
 								</layoutData> -->
                         </Input>
+                        <Label text="Jeg vil si ifra om" labelFor="segRegA" />
+                        <SegmentedButton id="segRegA" >
+                            <items>
+                            <SegmentedButtonItem icon="sap-icon://home" width="40px"/>
+                                <SegmentedButtonItem icon="sap-icon://wounds-doc" text="Skade på liv/person/miljø/materiell" tooltip="Skade på liv/person/miljø/materiell" />
+                                <SegmentedButtonItem icon="sap-icon://accidental-leave" text="Hendelse/forhold uten skade" tooltip="Hendelse/forhold uten skade" />
+                                <SegmentedButtonItem icon="sap-icon://hide" text="Kritikkverdig forhold" tooltip="Kritikkverdig forhold" />
+                                <!--  -->
+                            </items>
+                        </SegmentedButton>
                         <!-- What do you want to register_ -->
-                        <Label
-                            labelFor="inputIsCriticalRel"
-                            text="Si fra om kritikkverdig forhold (varsle)?"
-                        />
-                        <Switch
-                            id="inputIsCriticalRel"
-                            state="{initModel>/bIsCriticalRel}"
-                            customTextOn="{i18n>Yes}"
-                            customTextOff="{i18n>No}"
-                            change="onChangeCrtical"
-                        >
+                        <Label labelFor="inputIsCriticalRel" text="Si fra om kritikkverdig forhold (varsle)?" />
+                        <Switch id="inputIsCriticalRel" state="{initModel>/bIsCriticalRel}" customTextOn="{i18n>Yes}" customTextOff="{i18n>No}" change="onChangeCrtical">
                             <layoutData>
                                 <layout:GridData span="XL6 L6 M6 S11" />
                             </layoutData>
                         </Switch>
-                        <Button
-                            type="Transparent"
-                            icon="sap-icon://sys-help-2"
-                            text="{i18n>Help}"
-                            press="onBtnHintPressed"
-                            ariaLabelledBy="defaultHint"
-                            ariaDescribedBy="defaultHint"
-                        >
+                        <Button type="Transparent" icon="sap-icon://sys-help-2" text="{i18n>Help}" press="onBtnHintPressed" ariaLabelledBy="defaultHint" ariaDescribedBy="defaultHint">
                             <layoutData>
                                 <layout:GridData span="XL1 L1 M1 S1" />
                             </layoutData>
                         </Button>
                         <!-- Si fra om personskade? -->
-                        <Label
-                            labelFor="inputIsPersonWound"
-                            text="Si fra om personskade?"
-                            visible="{= ${initModel>/bIsCriticalRel} ? false : true }"
-                        />
-                        <Switch
-                            id="inputIsPersonWound"
-                            state="{initModel>/bIsPersonWound}"
-                            customTextOn="{i18n>Yes}"
-                            customTextOff="{i18n>No}"
-                            visible="{= ${initModel>/bIsCriticalRel} ? false : true }"
-                        >
+                        <Label labelFor="inputIsPersonWound" text="Si fra om personskade?" visible="{= ${initModel>/bIsCriticalRel} ? false : true }" />
+                        <Switch id="inputIsPersonWound" state="{initModel>/bIsPersonWound}" customTextOn="{i18n>Yes}" customTextOff="{i18n>No}" visible="{= ${initModel>/bIsCriticalRel} ? false : true }">
                             <layoutData>
                                 <layout:GridData span="XL6 L6 M6 S11" />
                             </layoutData>
                         </Switch>
-                        <Button
-                            type="Transparent"
-                            icon="sap-icon://sys-help-2"
-                            text="{i18n>Help}"
-                            press="onBtnHintPressed"
-                            ariaLabelledBy="defaultHint"
-                            ariaDescribedBy="defaultHint"
-                            visible="{= ${initModel>/bIsCriticalRel} ? false : true }"
-                        >
+                        <Button type="Transparent" icon="sap-icon://sys-help-2" text="{i18n>Help}" press="onBtnHintPressed" ariaLabelledBy="defaultHint" ariaDescribedBy="defaultHint" visible="{= ${initModel>/bIsCriticalRel} ? false : true }">
                             <layoutData>
                                 <layout:GridData span="XL1 L1 M1 S1" />
                             </layoutData>
                         </Button>
                         <!-- Si fra om skade på miljø eller eiendom? -->
-                        <Label
-                            labelFor="inputIsMateriel"
-                            text="Si fra om skade på miljø eller eiendom?"
-                            visible="{= ${initModel>/bIsCriticalRel} ? false : true }"
-                        />
-                        <Switch
-                            id="inputIsMateriel"
-                            state="{initModel>/bIsEnvironmentEstate}"
-                            customTextOn="{i18n>Yes}"
-                            customTextOff="{i18n>No}"
-                            visible="{= ${initModel>/bIsCriticalRel} ? false : true }"
-                        >
+                        <Label labelFor="inputIsMateriel" text="Si fra om skade på miljø eller eiendom?" visible="{= ${initModel>/bIsCriticalRel} ? false : true }" />
+                        <Switch id="inputIsMateriel" state="{initModel>/bIsEnvironmentEstate}" customTextOn="{i18n>Yes}" customTextOff="{i18n>No}" visible="{= ${initModel>/bIsCriticalRel} ? false : true }">
                             <layoutData>
                                 <layout:GridData span="XL6 L6 M6 S11" />
                             </layoutData>
                         </Switch>
-                        <Button
-                            type="Transparent"
-                            icon="sap-icon://sys-help-2"
-                            text="{i18n>Help}"
-                            press="onBtnHintPressed"
-                            ariaLabelledBy="defaultHint"
-                            ariaDescribedBy="defaultHint"
-                            visible="{= ${initModel>/bIsCriticalRel} ? false : true }"
-                        >
+                        <Button type="Transparent" icon="sap-icon://sys-help-2" text="{i18n>Help}" press="onBtnHintPressed" ariaLabelledBy="defaultHint" ariaDescribedBy="defaultHint" visible="{= ${initModel>/bIsCriticalRel} ? false : true }">
                             <layoutData>
                                 <layout:GridData span="XL1 L1 M1 S1" />
                             </layoutData>
                         </Button>
                         <!-- Si fra om skade på  materiell
  -->
-                        <Label
-                            labelFor="inputIsEnvironmentEstate"
-                            text="Si fra om skade på  materiell?"
-                            visible="{= ${initModel>/bIsCriticalRel} ? false : true }"
-                        />
-                        <Switch
-                            id="inputIsEnvironmentEstate"
-                            state="{initModel>/bIsMateriel}"
-                            customTextOn="{i18n>Yes}"
-                            customTextOff="{i18n>No}"
-                            visible="{= ${initModel>/bIsCriticalRel} ? false : true }"
-                        >
+                        <Label labelFor="inputIsEnvironmentEstate" text="Si fra om skade på  materiell?" visible="{= ${initModel>/bIsCriticalRel} ? false : true }" />
+                        <Switch id="inputIsEnvironmentEstate" state="{initModel>/bIsMateriel}" customTextOn="{i18n>Yes}" customTextOff="{i18n>No}" visible="{= ${initModel>/bIsCriticalRel} ? false : true }">
                             <layoutData>
                                 <layout:GridData span="XL6 L6 M6 S11" />
                             </layoutData>
                         </Switch>
-                        <Button
-                            type="Transparent"
-                            icon="sap-icon://sys-help-2"
-                            text="{i18n>Help}"
-                            press="onBtnHintPressed"
-                            ariaLabelledBy="defaultHint"
-                            ariaDescribedBy="defaultHint"
-                            visible="{= ${initModel>/bIsCriticalRel} ? false : true }"
-                        >
+                        <Button type="Transparent" icon="sap-icon://sys-help-2" text="{i18n>Help}" press="onBtnHintPressed" ariaLabelledBy="defaultHint" ariaDescribedBy="defaultHint" visible="{= ${initModel>/bIsCriticalRel} ? false : true }">
                             <layoutData>
                                 <layout:GridData span="XL1 L1 M1 S1" />
                             </layoutData>
@@ -203,16 +98,9 @@
 
                         <!-- Segmented button different  -->
                         <Label text="Si ifra om" />
-                        <SegmentedButton
-                            selectedKey="1"
-                            visible="{= ${initModel>/bIsCriticalRel} ? false : true }"
-                        >
+                        <SegmentedButton selectedKey="1" visible="{= ${initModel>/bIsCriticalRel} ? false : true }">
                             <items>
-                                <SegmentedButtonItem
-                                    key="1"
-                                    text=""
-                                    visible="false"
-                                />
+                                <SegmentedButtonItem key="1" text="" visible="false" />
                                 <SegmentedButtonItem text="Nestenulykke" />
                                 <SegmentedButtonItem text="Avvik" />
                                 <SegmentedButtonItem text="Observasjon " />
@@ -220,130 +108,38 @@
                         </SegmentedButton>
 
                         <!-- Description of Events -->
-                        <Label
-                            id="labelDescription"
-                            labelFor="inputDescription"
-                            fieldGroupIds="incidentHeader,requiresValidation"
-                            text="{i18n>DescriptionOfEvents}"
-                            required="true"
-                        />
-                        <TextArea
-                            id="inputDescription"
-                            fieldGroupIds="incidentHeader"
-                            value="{DescText}"
-                            growingMaxLines="30"
-                            rows="6"
-                            cols="50"
-                            growing="true"
-                            width="100%"
-                            placeholder="{i18n>DescriptionOfEventsHelpDescription}"
-                        >
+                        <Label id="labelDescription" labelFor="inputDescription" fieldGroupIds="incidentHeader,requiresValidation" text="{i18n>DescriptionOfEvents}" required="true" />
+                        <TextArea id="inputDescription" fieldGroupIds="incidentHeader" value="{DescText}" growingMaxLines="30" rows="6" cols="50" growing="true" width="100%" placeholder="{i18n>DescriptionOfEventsHelpDescription}">
                             <layoutData>
                                 <layout:GridData span="XL6 L6 M6 S11" />
                             </layoutData>
                         </TextArea>
-                        <Button
-                            type="Transparent"
-                            icon="sap-icon://sys-help-2"
-                            text="{i18n>Help}"
-                            press="onBtnHintPressed"
-                            ariaLabelledBy="defaultHint"
-                            ariaDescribedBy="defaultHint"
-                        >
+                        <Button type="Transparent" icon="sap-icon://sys-help-2" text="{i18n>Help}" press="onBtnHintPressed" ariaLabelledBy="defaultHint" ariaDescribedBy="defaultHint">
                             <layoutData>
                                 <layout:GridData span="XL1 L1 M1 S1" />
                             </layoutData>
-                            <customData>
-                                <!-- Custom Data which controls the texts and element the popover help shall be displayed for -->
-                                <core:CustomData
-                                    key="elmentIdForPopoverHelp"
-                                    value="inputDescription"
-                                />
-                                <core:CustomData
-                                    key="i18nAliasForHintHeader"
-                                    value="DescriptionOfEventsHelpTitle"
-                                />
-                                <core:CustomData
-                                    key="i18nAliasForHintTextHtml"
-                                    value="DescriptionOfEventsHelpHtml"
-                                />
-                            </customData>
                         </Button>
-                        <core:InvisibleText
-                            id="defaultHint"
-                            text="{i18n>Help}"
-                        />
+                        <core:InvisibleText id="defaultHint" text="{i18n>Help}" />
                         <!-- Strakstiltak  -->
-                        <Label
-                            id="labelImDesc"
-                            labelFor="inputImDesc"
-                            fieldGroupIds="incidentHeader,requiresValidation"
-                            text="{i18n>ImDescOfEvents}"
-                            required="false"
-                        />
-                        <TextArea
-                            id="inputImDesc"
-                            fieldGroupIds="incidentHeader"
-                            value="{DescText}"
-                            growingMaxLines="30"
-                            rows="2"
-                            cols="50"
-                            growing="true"
-                            width="100%"
-                            placeholder=""
-                        >
+                        <Label id="labelImDesc" labelFor="inputImDesc" fieldGroupIds="incidentHeader,requiresValidation" text="{i18n>ImDescOfEvents}" required="false" />
+                        <TextArea id="inputImDesc" fieldGroupIds="incidentHeader" value="{DescText}" growingMaxLines="30" rows="2" cols="50" growing="true" width="100%" placeholder="">
                             <layoutData>
                                 <layout:GridData span="XL6 L6 M6 S11" />
                             </layoutData>
                         </TextArea>
-                        <Button
-                            type="Transparent"
-                            icon="sap-icon://sys-help-2"
-                            text="{i18n>Help}"
-                            press="onBtnHintPressed"
-                            ariaLabelledBy="defaultHint"
-                            ariaDescribedBy="defaultHint"
-                        >
+                        <Button type="Transparent" icon="sap-icon://sys-help-2" text="{i18n>Help}" press="onBtnHintPressed" ariaLabelledBy="defaultHint" ariaDescribedBy="defaultHint">
                             <layoutData>
                                 <layout:GridData span="XL1 L1 M1 S1" />
                             </layoutData>
-                            <customData>
-                                <!-- Custom Data which controls the texts and element the popover help shall be displayed for -->
-                                <core:CustomData
-                                    key="elmentIdForPopoverHelp"
-                                    value="inputDescription"
-                                />
-                                <core:CustomData
-                                    key="i18nAliasForHintHeader"
-                                    value="DescriptionOfEventsHelpTitle"
-                                />
-                                <core:CustomData
-                                    key="i18nAliasForHintTextHtml"
-                                    value="DescriptionOfEventsHelpHtml"
-                                />
-                            </customData>
                         </Button>
-                        <core:InvisibleText
-                            id="defaultHintImd"
-                            text="{i18n>Help}"
-                        />
+                        <core:InvisibleText id="defaultHintImd" text="{i18n>Help}" />
                         <!-- ENd Strakstiltak  -->
                         <!-- When did it happen ? -->
-                        <Label
-                            id="labelDateOrPeriod"
-                            labelFor="inputDateOrPeriod"
-                            text="{i18n>DateOrPeriod}"
-                            required="true"
-                        />
+                        <Label id="labelDateOrPeriod" labelFor="inputDateOrPeriod" text="{i18n>DateOrPeriod}" required="true" />
 
                         <!-- Date -->
                         <VBox>
-                            <DatePicker
-                                id="inputDate"
-                                fieldGroupIds="incidentHeader"
-                                value="{ path: 'StartDate', type: 'sap.ui.model.type.Date', formatOptions: { strictParsing: true, UTC: true } }"
-                                visible="{= ${initModel>/sDateOrPeriod} === 'date' ? true : false }"
-                            />
+                            <DatePicker id="inputDate" fieldGroupIds="incidentHeader" value="{ path: 'StartDate', type: 'sap.ui.model.type.Date', formatOptions: { strictParsing: true, UTC: true } }" visible="{= ${initModel>/sDateOrPeriod} === 'date' ? true : false }" />
                             <DateRangeSelection
                                 id="inputPeriod"
                                 fieldGroupIds="incidentHeader"
@@ -352,513 +148,69 @@
                                 visible="{= ${initModel>/sDateOrPeriod} === 'period' ? true : false }"
                             />
                         </VBox>
-                        <Button
-                            type="Ghost"
-                            icon="sap-icon://fob-watch"
-                            text="{i18n>Today}"
-                            press="onBtnTodayPressed"
-                            ariaLabelledBy="defaultHint"
-                            ariaDescribedBy="defaultHint"
-                        >
+                        <Button type="Ghost" icon="sap-icon://fob-watch" text="{i18n>Today}" press="onBtnTodayPressed" ariaLabelledBy="defaultHint" ariaDescribedBy="defaultHint">
                             <layoutData>
                                 <layout:GridData span="XL1 L1 M1 S1" />
                             </layoutData>
                             <customData>
                                 <!-- Custom Data which controls the texts and element the popover help shall be displayed for -->
-                                <core:CustomData
-                                    key="elmentIdForPopoverHelp"
-                                    value="inputDescription"
-                                />
-                                <core:CustomData
-                                    key="i18nAliasForHintHeader"
-                                    value="DescriptionOfEventsHelpTitle"
-                                />
-                                <core:CustomData
-                                    key="i18nAliasForHintTextHtml"
-                                    value="DescriptionOfEventsHelpHtml"
-                                />
+                                <core:CustomData key="elmentIdForPopoverHelp" value="inputDescription" />
+                                <core:CustomData key="i18nAliasForHintHeader" value="DescriptionOfEventsHelpTitle" />
+                                <core:CustomData key="i18nAliasForHintTextHtml" value="DescriptionOfEventsHelpHtml" />
                             </customData>
                         </Button>
-                        <SegmentedButton
-                            id="inputDateOrPeriod"
-                            width="100%"
-                            selectedKey="{initModel>/sDateOrPeriod}"
-                        >
+                        <SegmentedButton id="inputDateOrPeriod" width="100%" selectedKey="{initModel>/sDateOrPeriod}">
                             <items>
-                                <SegmentedButtonItem
-                                    text="{i18n>Date}"
-                                    key="date"
-                                />
-                                <SegmentedButtonItem
-                                    text="{i18n>Period}"
-                                    key="period"
-                                />
+                                <SegmentedButtonItem text="{i18n>Date}" key="date" />
+                                <SegmentedButtonItem text="{i18n>Period}" key="period" />
                             </items>
                             <layoutData>
                                 <layout:GridData span="XL2 L2 M2 S12" />
                             </layoutData>
                             <customData>
                                 <!-- Custom Data which controls the texts and element the popover help shall be displayed for -->
-                                <core:CustomData
-                                    key="elmentIdForPopoverHelp"
-                                    value="inputDescription"
-                                />
-                                <core:CustomData
-                                    key="i18nAliasForHintHeader"
-                                    value="DescriptionOfEventsHelpTitle"
-                                />
-                                <core:CustomData
-                                    key="i18nAliasForHintTextHtml"
-                                    value="DescriptionOfEventsHelpHtml"
-                                />
+                                <core:CustomData key="elmentIdForPopoverHelp" value="inputDescription" />
+                                <core:CustomData key="i18nAliasForHintHeader" value="DescriptionOfEventsHelpTitle" />
+                                <core:CustomData key="i18nAliasForHintTextHtml" value="DescriptionOfEventsHelpHtml" />
                             </customData>
                         </SegmentedButton>
 
                         <!-- On behalf of: No/Yes -->
-                        <Label
-                            id="labelIsOnBehalfOf"
-                            labelFor="inputIsOnBehalfOf"
-                            text="{i18n>OnBehalfOf}"
-                            visible="{initModel>/bIsCriticalRel}"
-                        />
-                        <Switch
-                            id="inputIsOnBehalfOf"
-                            state="{initModel>/bIsOnBehalfOf}"
-                            customTextOn="{i18n>Yes}"
-                            customTextOff="{i18n>No}"
-                            visible="{initModel>/bIsCriticalRel}"
-                        />
+                        <Label id="labelIsOnBehalfOf" labelFor="inputIsOnBehalfOf" text="{i18n>OnBehalfOf}" visible="{initModel>/bIsCriticalRel}" />
+                        <Switch id="inputIsOnBehalfOf" state="{initModel>/bIsOnBehalfOf}" customTextOn="{i18n>Yes}" customTextOff="{i18n>No}" visible="{initModel>/bIsCriticalRel}" />
 
-                        <Label
-                            id="labelIsInvolved"
-                            labelFor="inputIsInvolved"
-                            text="{i18n>OnInvolved}"
-                            visible="{initModel>/bIsCriticalRel}"
-                        />
-                        <Switch
-                            id="inputIsInvolved"
-                            state="{initModel>/bIsInvolved}"
-                            customTextOn="{i18n>Yes}"
-                            customTextOff="{i18n>No}"
-                            visible="{initModel>/bIsCriticalRel}"
-                        />
+                        <Label id="labelIsInvolved" labelFor="inputIsInvolved" text="{i18n>OnInvolved}" visible="{initModel>/bIsCriticalRel}" />
+                        <Switch id="inputIsInvolved" state="{initModel>/bIsInvolved}" customTextOn="{i18n>Yes}" customTextOff="{i18n>No}" visible="{initModel>/bIsCriticalRel}" />
 
-                        <Toolbar
-                            style="Clear"
-                            design="Solid"
-                            ariaLabelledBy="titleLocation,butGDPR"
-                            class="sapUiLargeMarginBottom borderBottom sapUiLargeMarginEnd"
-                            visible="{initModel>/bIsOnBehalfOf}"
-                        >
-                            <Title
-                                id="titleLocation"
-                                text="{i18n>OnBehalfOfTitle}"
-                                class="sapUiSmallMarginBottom"
-                            />
-                        </Toolbar>
+                        <core:Fragment fragmentName="no.mil.zehs.view.fragments.Form.OnBehalf" type="XML" />
 
-                        <Label
-                            id="labelOnBehalfOf"
-                            labelFor="inputOnBehalfOf"
-                            text="{i18n>OnBehalfOfPerson}"
-                            visible="{= (${initModel>/bIsOnBehalfOf})  &amp;&amp; !(${initModel>/bIsAnonymous}) }"
-                        />
-                        <Input
-                            id="inputOnBehalfOf2"
-                            value="{initModel>/sIncidentPersonOnBehalfOfIdCombined}"
-                            valueHelpOnly="true"
-                            showValueHelp="true"
-                            valueHelpRequest="onValueHelpRequestForPersonOnBehalfOf"
-                            placeholder="{i18n>SelectPerson}"
-                            visible="{= (${initModel>/bIsOnBehalfOf})  &amp;&amp; !(${initModel>/bIsAnonymous}) }"
-                        >
-                            <layoutData>
-                                <layout:GridData span="XL4 L4 M4 S12" />
-                            </layoutData>
-                        </Input>
-                        <Button
-                            id="btnCreatePersonOnBehalfOf"
-                            press="onBtnCreatePersonOnBehalfOf"
-                            type="Transparent"
-                            text="{i18n>OnBehalfOfPersonCreate}"
-                            visible="{= (${initModel>/bIsOnBehalfOf})  &amp;&amp; !(${initModel>/bIsAnonymous}) }"
-                        >
-                            <layoutData>
-                                <layout:GridData span="XL3 L3 M3 S12" />
-                            </layoutData>
-                        </Button>
-                        <List
-                            items="{appView>/aIncidentPersonOnBehalfOf}"
-                            mode="Delete"
-                            backgroundDesign="Transparent"
-                            showNoData="false"
-                            visible="{= (${initModel>/bIsOnBehalfOf})  &amp;&amp; !(${initModel>/bIsAnonymous}) }"
-                            delete="onBtnDeleteIncidentPersonOnBehalfOfPressed"
-                        >
-                            <DisplayListItem label="{appView>FullName}" />
-                            <layoutData>
-                                <layout:GridData
-                                    indent="L2 M3 S0"
-                                    linebreak="true"
-                                    span="XL7 L7 M7 S12"
-                                />
-                            </layoutData>
-                        </List>
                         <!-- Andre involverte , vitner mv -->
-                        <Toolbar
-                            style="Clear"
-                            design="Solid"
-                            ariaLabelledBy="titleInvolved,butGDPR"
-                            class="sapUiLargeMarginBottom borderBottom sapUiLargeMarginEnd"
-                            visible="{initModel>/bIsInvolved}"
-                        >
-                            <Title
-                                id="titleInvolved"
-                                text="{i18n>InvolvedTitle}"
-                                class="sapUiSmallMarginBottom"
-                            />
-                        </Toolbar>
 
-                        <Label
-                            id="labelInvolved"
-                            labelFor="inputInvolved"
-                            text="{i18n>OnBehalfOfPerson}"
-                            visible="{= (${initModel>/bIsInvolved})  &amp;&amp; !(${initModel>/bIsAnonymous}) }"
-                        />
-                        <Input
-                            id="inputInvolved"
-                            value="{initModel>/sIncidentPersonOnBehalfOfIdCombined}"
-                            valueHelpOnly="true"
-                            showValueHelp="true"
-                            valueHelpRequest="onValueHelpRequestForPersonOnBehalfOf"
-                            placeholder="{i18n>SelectPerson}"
-                            visible="{= (${initModel>/bIsInvolved})  &amp;&amp; !(${initModel>/bIsAnonymous}) }"
-                        >
-                            <layoutData>
-                                <layout:GridData span="XL4 L4 M4 S12" />
-                            </layoutData>
-                        </Input>
-                        <Button
-                            id="btnCreatePersonInvolved"
-                            press="onBtnCreatePersonOnBehalfOf"
-                            type="Transparent"
-                            text="{i18n>OnBehalfOfPersonCreate}"
-                            visible="{= (${initModel>/bIsInvolved})  &amp;&amp; !(${initModel>/bIsAnonymous}) }"
-                        >
-                            <layoutData>
-                                <layout:GridData span="XL3 L3 M3 S12" />
-                            </layoutData>
-                        </Button>
-                        <Label
-                            id="labelInvolvedRole"
-                            labelFor="selInvolvedRole"
-                            text="{i18n>InvolvedRole}"
-                            visible="{initModel>/bIsInvolved}"
-                        />
+                        <core:Fragment fragmentName="no.mil.zehs.view.fragments.Form.Involved" type="XML" />
 
-                        <Select
-                            id="selInvolvedRole"
-                            visible="{initModel>/bIsInvolved}"
-                        >
-                            <core:Item text="Involvert" />
-                            <core:Item text="Vitne" />
-                            <core:Item text="Sjåfør" />
-                            <core:Item text="Eier" />
-                            <layoutData>
-                                <layout:GridData span="XL4 L4 M4 S12" />
-                            </layoutData>
-                        </Select>
-                        <List
-                            items="{appView>/aIncidentPersonOnBehalfOf}"
-                            mode="Delete"
-                            backgroundDesign="Transparent"
-                            showNoData="false"
-                            visible="{= (${initModel>/bIsInvolved})  &amp;&amp; !(${initModel>/bIsAnonymous}) }"
-                            delete="onBtnDeleteIncidentPersonOnBehalfOfPressed"
-                        >
-                            <DisplayListItem label="{appView>FullName}" />
-                            <layoutData>
-                                <layout:GridData
-                                    indent="L2 M3 S0"
-                                    linebreak="true"
-                                    span="XL7 L7 M7 S12"
-                                />
-                            </layoutData>
-                        </List>
-                        <Toolbar
-                            style="Clear"
-                            design="Solid"
-                            ariaLabelledBy="titlePersonInjurie"
-                            class="borderBottom sapUiLargeMarginEnd sapUiLargeMarginBottom"
-                            visible="{initModel>/bIsPersonWound}"
-                        >
-                            <Title
-                                id="titlePersonInjurie"
-                                text="{i18n>PersonInjurie}"
-                            />
-                            <ToolbarSpacer />
-                            <Button
-                                press="onBtnCreatePersonOnBehalfOf"
-                                type="Transparent"
-                                text="{i18n>AddPerson}"
-                                visible="{initModel>/bIsPersonWound}"
-                            >
-                                <layoutData>
-                                    <layout:GridData span="XL3 L12 M3 S12" />
-                                </layoutData>
-                            </Button>
-                        </Toolbar>
-
-                        <Label text="Klassifisering" />
-                        <SegmentedButton visible="{initModel>/bIsPersonWound}">
-                            <items>
-                                <SegmentedButtonItem text="Eksponering" />
-                                <SegmentedButtonItem text="Sykdom" />
-                                <SegmentedButtonItem text="Skade " />
-                            </items>
-                        </SegmentedButton>
-                        <Label
-                            text="Skadens-/sykdommens art"
-                            visible="{initModel>/bIsPersonWound}"
-                        />
-                        <Input
-                            showValueHelp="true"
-                            visible="{initModel>/bIsPersonWound}"
-                        />
-                        <Label
-                            text="Kroppsdel"
-                            visible="{initModel>/bIsPersonWound}"
-                        />
-                        <Input
-                            showValueHelp="true"
-                            visible="{initModel>/bIsPersonWound}"
-                        />
-                        <Label
-                            text="Beskriv skaden/sykdommen"
-                            visible="{initModel>/bIsPersonWound}"
-                        />
-                        <TextArea visible="{initModel>/bIsPersonWound}" />
+                        <!-- Personskade -->
+                        <core:Fragment fragmentName="no.mil.zehs.view.fragments.Form.PersonWound" type="XML" />
 
                         <!-- Si fra om skade på miljø eller eiendom -->
-
-                        <Toolbar
-                            style="Clear"
-                            design="Solid"
-                            ariaLabelledBy="titlePersonInjurie"
-                            class="borderBottom sapUiLargeMarginEnd sapUiLargeMarginBottom"
-                            visible="{initModel>/bIsEnvironmentEstate}"
-                        >
-                            <Title text="{i18n>environmentAndProperty}" />
-                        </Toolbar>
-                        <Label
-                            text="Utslipp til"
-                            visible="{initModel>/bIsEnvironmentEstate}"
-                        />
-                        <Select
-                            forceSelection="false"
-                            visible="{initModel>/bIsEnvironmentEstate}"
-                        >
-                            <core:Item text="Annet" />
-                            <core:Item text="Drikkevann" />
-                            <core:Item text="Mange flere..." />
-                        </Select>
-                        <Label
-                            text="Utslippsbeskrivelse"
-                            visible="{initModel>/bIsEnvironmentEstate}"
-                        />
-                        <TextArea visible="{initModel>/bIsEnvironmentEstate}" />
-                        <Label
-                            text="Materialbeskrivelse"
-                            visible="{initModel>/bIsEnvironmentEstate}"
-                        />
-                        <TextArea visible="{initModel>/bIsEnvironmentEstate}" />
-                        <!-- Sammen med den over -->
-                        <Toolbar
-                            style="Clear"
-                            design="Solid"
-                            ariaLabelledBy="titlePersonInjurie"
-                            class="borderBottom sapUiLargeMarginEnd sapUiLargeMarginBottom"
-                            visible="{initModel>/bIsEnvironmentEstate}"
-                        >
-                            <Title text="{i18n>property}" />
-                            <ToolbarSpacer />
-                            <Button
-                                press="onBtnCreatePersonOnBehalfOf"
-                                type="Transparent"
-                                text="{i18n>AddProperty}"
-                                visible="{initModel>/bIsEnvironmentEstate}"
-                            >
-                                <layoutData>
-                                    <layout:GridData span="XL3 L12 M3 S12" />
-                                </layoutData>
-                            </Button>
-                        </Toolbar>
-                        <Label
-                            text="Eiendom"
-                            visible="{initModel>/bIsEnvironmentEstate}"
-                        />
-                        <Input
-                            showValueHelp="true"
-                            visible="{initModel>/bIsEnvironmentEstate}"
-                        />
-                        <Label
-                            text="Eiendomsbeskrivelse"
-                            visible="{initModel>/bIsEnvironmentEstate}"
-                        />
-                        <Input visible="{initModel>/bIsEnvironmentEstate}" />
-                        <Label
-                            text="Beskrivelse av skade"
-                            visible="{initModel>/bIsEnvironmentEstate}"
-                        />
-                        <Input visible="{initModel>/bIsEnvironmentEstate}" />
+                        <core:Fragment fragmentName="no.mil.zehs.view.fragments.Form.EstateEnvironmentDmg" type="XML" />
 
                         <!-- Si fra om skade på materiell -->
-                        <Toolbar
-                            style="Clear"
-                            design="Solid"
-                            ariaLabelledBy="titlePersonInjurie"
-                            class="borderBottom sapUiLargeMarginEnd sapUiLargeMarginBottom"
-                            visible="{initModel>/bIsMateriel}"
-                        >
-                            <Title text="{i18n>equipTitle}" />
-                            <ToolbarSpacer />
-                            <Button
-                                press="onBtnCreatePersonOnBehalfOf"
-                                type="Transparent"
-                                text="{i18n>AddMaterial}"
-                                visible="{initModel>/bIsPersonWound}"
-                            >
-                                <layoutData>
-                                    <layout:GridData span="XL3 L12 M3 S12" />
-                                </layoutData>
-                            </Button>
-                        </Toolbar>
-                        <Label
-                            text="{i18n>equip}"
-                            visible="{initModel>/bIsMateriel}"
-                        />
-                        <Input
-                            showValueHelp="true"
-                            visible="{initModel>/bIsMateriel}"
-                        />
-                        <Button
-                            visible="{initModel>/bIsMateriel}"
-                            press="onBtnCreatePersonOnBehalfOf"
-                            type="Ghost"
-                            text="{i18n>equipSearch}"
-                        >
-                            <layoutData>
-                                <layout:GridData span="XL3 L3 M3 S12" />
-                            </layoutData>
-                        </Button>
-                        <Label
-                            text="{i18n>equipDescrip}"
-                            visible="{initModel>/bIsMateriel}"
-                        />
-                        <Input visible="{initModel>/bIsMateriel}" />
-                        <Label
-                            text="{i18n>equipSerialNumber}"
-                            visible="{initModel>/bIsMateriel}"
-                        />
-                        <Text visible="{initModel>/bIsMateriel}" />
-                        <Label
-                            text="{i18n>equipTechnical}"
-                            visible="{initModel>/bIsMateriel}"
-                        />
-                        <Text visible="{initModel>/bIsMateriel}" />
-                        <Label
-                            text="{i18n>equipType}"
-                            visible="{initModel>/bIsMateriel}"
-                        />
-                        <Text visible="{initModel>/bIsMateriel}" />
-                        <Label
-                            text="{i18n>equipMaterialNumber}"
-                            visible="{initModel>/bIsMateriel}"
-                        />
-                        <Text visible="{initModel>/bIsMateriel}" />
-                        <Label
-                            text="{i18n>equipAdditionalInfo}"
-                            visible="{initModel>/bIsMateriel}"
-                        />
-                        <TextArea
-                            rows="3"
-                            visible="{initModel>/bIsMateriel}"
-                        />
-                        <Toolbar
-                            style="Clear"
-                            design="Solid"
-                            ariaLabelledBy="titleAttachment"
-                            class="borderBottom sapUiLargeMarginEnd"
-                        >
-                            <Title
-                                id="titleAttachment"
-                                text="{i18n>Attachment}"
-                            />
+                        <core:Fragment fragmentName="no.mil.zehs.view.fragments.Form.Material" type="XML" />
+
+                        <Toolbar style="Clear" design="Solid" ariaLabelledBy="titleAttachment" class="borderBottom sapUiLargeMarginEnd">
+                            <Title id="titleAttachment" text="{i18n>Attachment}" />
                         </Toolbar>
                     </f:content>
                 </f:SimpleForm>
                 <!-- Attachment Documents -->
-                <!--&nbsp;
-							We have to be a little creative in here. the incident is submitted and we can't add any documents after this happened. the
-							reason is that the workflow, etc., may have already started and exclusively lock the incident/whistleblowing case created.
-							so we have to send the attachment documents with the original payload of the incident data.
-						-->
-                <VBox class="sapUiSmallMarginBeginEnd">
-                    <UploadCollection
-                        noDataText="{i18n>AttachmentsNotUploadedYet}"
-                        class="sapUiResponsiveMargin"
-                        instantUpload="true"
-                        items="{ path: 'appView>/aAttachmentDocument' }"
-                        fileDeleted="onFileUploaderFileDeleted"
-                        change="onFileUploaderChanged"
-                        beforeUploadStarts="onBeforeUploadStarts"
-                    >
-                        <layoutData>
-                            <layout:GridData
-                                indent="L3 M3 S0"
-                                span="L12 M7 S12"
-                            />
-                        </layoutData>
-
-                        <toolbar>
-                            <OverflowToolbar>
-                                <ToolbarSpacer />
-                                <unified:FileUploader
-                                    id="btnFileUpload"
-                                    buttonOnly="true"
-                                    iconOnly="true"
-                                    icon="sap-icon://add"
-                                    change="onFileUploaderChanged"
-                                    typeMissmatch="onFileUploaderTypeMissmatch"
-                                    fileType="jpeg,png,jpg,pdf,msg"
-                                />
-                            </OverflowToolbar>
-                        </toolbar>
-                        <items>
-                            <UploadCollectionItem
-                                documentId="{appView>}"
-                                fileName="{appView>sFileName}"
-                                mimeType="{appView>sMimeType}"
-                                visibleEdit="false"
-                            />
-                        </items>
-                    </UploadCollection>
-                </VBox>
+                <core:Fragment fragmentName="no.mil.zehs.view.fragments.Form.Attachment" type="XML" />
             </VBox>
         </content>
         <footer>
             <Toolbar>
                 <ToolbarSpacer />
-                <Button
-                    type="Ghost"
-                    text="{i18n>Abort}"
-                    press="onPressAbort"
-                />
-                <Button
-                    type="Emphasized"
-                    text="{i18n>Send}"
-                    class="sapUiTinyMarginEnd"
-                />
+                <Button type="Ghost" text="{i18n>Abort}" press="onPressAbort" />
+                <Button type="Emphasized" text="{i18n>Send}" class="sapUiTinyMarginEnd" />
             </Toolbar>
         </footer>
     </Page>
