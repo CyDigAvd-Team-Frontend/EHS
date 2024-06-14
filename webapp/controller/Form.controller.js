@@ -51,6 +51,18 @@ sap.ui.define([
             onBtnTodayPressed:function(evt){
                 this.byId("inputPeriod").setDateValue(new Date());
                 this.byId("inputDate").setDateValue(new Date());
+            },
+
+            onSelChangeRegIncident:function(evt){
+                let oSelect  = evt.getSource(),
+                    oSelItem = evt.getParameter("item"),
+                    sKey = oSelItem.getKey(),
+                    oInitModel = this.getModel("initModel");
+debugger;
+                 if(sKey === oInitModel){
+
+                }
+
             }
         });
     });
