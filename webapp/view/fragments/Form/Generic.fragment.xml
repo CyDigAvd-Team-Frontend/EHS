@@ -10,15 +10,46 @@
     <Label id="labelTitle" labelFor="inputTitle" fieldGroupIds="incidentHeader,requiresValidation" text="{i18n>Title}" required="true" />
     <Input id="inputTitle" fieldGroupIds="incidentHeader" value="{Title}" maxLength="80" />
     <Label text="{i18n>RegAbout}" labelFor="segRegA" />
-    <SegmentedButton id="segRegA" class="hovWidthChange" selectionChange="onSelChangeRegIncident" items="{initModel>/regIncidentCat/}">
+    <SegmentedButton id="segRegA" class="hovWidthChange" selectedKey="{initModel>/sregIncidentCat}" selectionChange="onSelChangeRegIncident" items="{initModel>/regIncidentCat/}">
         <items>
-            <SegmentedButtonItem icon="{initModel>icon}" text="{path: 'initModel>text', formatter: '.formatter.getI18Txt'}" key="{initModel>code}" tooltip="{path: 'initModel>text', formatter: '.formatter.getI18Txt'}" width="{initModel>width}" />
+            <SegmentedButtonItem icon="{initModel>icon}" text="{path: 'initModel>text', formatter: '.formatter.getI18Txt'}" key="{initModel>code}" tooltip="{path: 'initModel>text', formatter: '.formatter.getI18Txt'}" width="{initModel>width}" visible="{initModel>visible}" />
         </items>
     </SegmentedButton>
+    <Label text="Hva ble skadet?" visible="{= ${initModel>/sregIncidentCat} === '1'  ? true : false}" />
+    <HBox  alignItems="Center" visible="{= ${initModel>/sregIncidentCat} === '1'  ? true : false}">
+        <!-- Si fra om personskade? -->
+        <HBox class="sapUiMediumMarginEnd">
+            <Label labelFor="inputIsPersonWound" text="Person:" class="sapUiTinyMarginTop sapUiTinyMarginEnd" />
+            <Switch id="inputIsPersonWound" state="{initModel>/bIsPersonWound}" customTextOn="{i18n>Yes}" customTextOff="{i18n>No}">
+                <layoutData>
+                    <layout:GridData span="XL6 L6 M6 S11" />
+                </layoutData>
+            </Switch>
+        </HBox>
+
+        <!-- Si fra om skade på miljø eller eiendom? -->
+        <HBox class="sapUiMediumMarginEnd">
+            <Label labelFor="inputIsEnvironmentEstate" text="Miljø:" class="sapUiTinyMarginTop sapUiTinyMarginBeginEnd" />
+            <Switch id="inputIsEnvironmentEstate" state="{initModel>/bIsEnvironmentEstate}" customTextOn="{i18n>Yes}" customTextOff="{i18n>No}">
+                <layoutData>
+                    <layout:GridData span="XL6 L6 M6 S11" />
+                </layoutData>
+            </Switch>
+        </HBox>
+        <!-- Si fra om skade på  materiell-->
+        <HBox>
+            <Label labelFor="inputIsMateriel" text="Materiell:" class="sapUiTinyMarginTop sapUiTinyMarginBeginEnd" />
+            <Switch id="inputIsMateriel" state="{initModel>/bIsMateriel}" customTextOn="{i18n>Yes}" customTextOff="{i18n>No}">
+                <layoutData>
+                    <layout:GridData span="XL6 L6 M6 S11" />
+                </layoutData>
+            </Switch>
+        </HBox>
+    </HBox>
 
     <!-- Segmented button different  -->
     <Label text="Si ifra om" />
-    <SegmentedButton selectedKey="1" visible="{= ${initModel>/bIsCriticalRel} ? false : true }">
+    <SegmentedButton selectedKey="1" visible="{= ${initModel>/bIncWithOutDMG} ? true : false }"  width="100%">
         <items>
             <SegmentedButtonItem key="1" text="" visible="false" />
             <SegmentedButtonItem text="Nestenulykke" />
