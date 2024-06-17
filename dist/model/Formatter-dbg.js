@@ -2,12 +2,19 @@ sap.ui.define([], function () {
 	"use strict";
 	return {
 		status: function (sStatus) {
-			if(sStatus === "Avsluttet"){
-                return "Success"
-            }else if(sStatus === "Ny"){
-                return "Error"
-            }
-            return "Warning"
+			if (sStatus === "Avsluttet") {
+				return "Success"
+			} else if (sStatus === "Ny") {
+				return "Error"
+			}
+			return "Warning"
+		},
+
+		getI18Txt: function (sValue) {
+			let oI18nModel = this.getOwnerComponent().getModel("i18n"),
+				oI18Bundle = oI18nModel.getResourceBundle();
+
+			return oI18Bundle.getText(sValue);
 		}
 	};
 });

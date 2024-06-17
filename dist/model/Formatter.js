@@ -1,2 +1,2 @@
-sap.ui.define([],function(){"use strict";return{status:function(r){if(r==="Avsluttet"){return"Success"}else if(r==="Ny"){return"Error"}return"Warning"}}});
+sap.ui.define([],function(){"use strict";return{status:function(e){if(e==="Avsluttet"){return"Success"}else if(e==="Ny"){return"Error"}return"Warning"},getI18Txt:function(e){let t=this.getOwnerComponent().getModel("i18n"),n=t.getResourceBundle();return n.getText(e)}}});
 //# sourceMappingURL=Formatter.js.map

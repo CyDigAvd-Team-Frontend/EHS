@@ -1,0 +1,116 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:layout="sap.ui.layout">
+    <Toolbar style="Clear" design="Solid" ariaLabelledBy="titleHeader,butGDPR" class="sapUiLargeMarginBottom borderBottom sapUiLargeMarginEnd">
+        <Title id="titleHeader" text="{i18n>InformationTitle}" class="sapUiSmallMarginBottom" />
+        <ToolbarSpacer />
+        <Link href="{i18n>LinkToDataPrivacy}" id="butGDPR" text="{i18n>LinkToDataPrivacyText}" target="_blank" class="sapUiSmallMarginBottom" />
+        <ToolbarSpacer width="0%" />
+    </Toolbar>
+    <!-- Header for Section: Information -->
+    <!-- Title -->
+    <Label id="labelTitle" labelFor="inputTitle" fieldGroupIds="incidentHeader,requiresValidation" text="{i18n>Title}" required="true" />
+    <Input id="inputTitle" fieldGroupIds="incidentHeader" value="{Title}" maxLength="80" />
+    <Label text="{i18n>RegAbout}" labelFor="segRegA" />
+    <SegmentedButton id="segRegA" class="hovWidthChange" selectedKey="{initModel>/sregIncidentCat}" selectionChange="onSelChangeRegIncident" items="{initModel>/regIncidentCat/}">
+        <items>
+            <SegmentedButtonItem icon="{initModel>icon}" text="{path: 'initModel>text', formatter: '.formatter.getI18Txt'}" key="{initModel>code}" tooltip="{path: 'initModel>text', formatter: '.formatter.getI18Txt'}" width="{initModel>width}" visible="{initModel>visible}" />
+        </items>
+    </SegmentedButton>
+    <Label text="Hva ble skadet?" visible="{= ${initModel>/sregIncidentCat} === '1'  ? true : false}" />
+    <HBox  alignItems="Center" visible="{= ${initModel>/sregIncidentCat} === '1'  ? true : false}">
+        <!-- Si fra om personskade? -->
+        <HBox class="sapUiMediumMarginEnd">
+            <Label labelFor="inputIsPersonWound" text="Person:" class="sapUiTinyMarginTop sapUiTinyMarginEnd" />
+            <Switch id="inputIsPersonWound" state="{initModel>/bIsPersonWound}" customTextOn="{i18n>Yes}" customTextOff="{i18n>No}">
+                <layoutData>
+                    <layout:GridData span="XL6 L6 M6 S11" />
+                </layoutData>
+            </Switch>
+        </HBox>
+
+        <!-- Si fra om skade på miljø eller eiendom? -->
+        <HBox class="sapUiMediumMarginEnd">
+            <Label labelFor="inputIsEnvironmentEstate" text="Miljø:" class="sapUiTinyMarginTop sapUiTinyMarginBeginEnd" />
+            <Switch id="inputIsEnvironmentEstate" state="{initModel>/bIsEnvironmentEstate}" customTextOn="{i18n>Yes}" customTextOff="{i18n>No}">
+                <layoutData>
+                    <layout:GridData span="XL6 L6 M6 S11" />
+                </layoutData>
+            </Switch>
+        </HBox>
+        <!-- Si fra om skade på  materiell-->
+        <HBox>
+            <Label labelFor="inputIsMateriel" text="Materiell:" class="sapUiTinyMarginTop sapUiTinyMarginBeginEnd" />
+            <Switch id="inputIsMateriel" state="{initModel>/bIsMateriel}" customTextOn="{i18n>Yes}" customTextOff="{i18n>No}">
+                <layoutData>
+                    <layout:GridData span="XL6 L6 M6 S11" />
+                </layoutData>
+            </Switch>
+        </HBox>
+    </HBox>
+
+    <!-- Segmented button different  -->
+    <Label text="Si ifra om" />
+    <SegmentedButton selectedKey="1" visible="{= ${initModel>/bIncWithOutDMG} ? true : false }"  width="100%">
+        <items>
+            <SegmentedButtonItem key="1" text="" visible="false" />
+            <SegmentedButtonItem text="Nestenulykke" />
+            <SegmentedButtonItem text="Avvik" />
+            <SegmentedButtonItem text="Observasjon " />
+        </items>
+    </SegmentedButton>
+
+    <!-- Description of Events -->
+    <Label id="labelDescription" labelFor="inputDescription" fieldGroupIds="incidentHeader,requiresValidation" text="{i18n>DescriptionOfEvents}" required="true" />
+    <TextArea id="inputDescription" fieldGroupIds="incidentHeader" value="{DescText}" growingMaxLines="30" rows="6" cols="50" growing="true" width="100%" placeholder="{i18n>DescriptionOfEventsHelpDescription}">
+        <layoutData>
+            <layout:GridData span="XL6 L7 M6 S11" />
+        </layoutData>
+    </TextArea>
+    <Button type="Transparent" icon="sap-icon://sys-help-2" text="{i18n>Help}" press="onBtnHintPressed" ariaLabelledBy="defaultHint" ariaDescribedBy="defaultHint">
+        <layoutData>
+            <layout:GridData span="XL1 L1 M1 S1" />
+        </layoutData>
+    </Button>
+    <core:InvisibleText id="defaultHint" text="{i18n>Help}" />
+    <!-- Strakstiltak  -->
+    <Label id="labelImDesc" labelFor="inputImDesc" fieldGroupIds="incidentHeader,requiresValidation" text="{i18n>ImDescOfEvents}" required="false" />
+    <TextArea id="inputImDesc" fieldGroupIds="incidentHeader" value="{DescText}" growingMaxLines="30" rows="2" cols="50" growing="true" width="100%" placeholder="">
+        <layoutData>
+            <layout:GridData span="XL6 L7 M6 S11" />
+        </layoutData>
+    </TextArea>
+    <Button type="Transparent" icon="sap-icon://sys-help-2" text="{i18n>Help}" press="onBtnHintPressed" ariaLabelledBy="defaultHint" ariaDescribedBy="defaultHint">
+        <layoutData>
+            <layout:GridData span="XL1 L1 M1 S1" />
+        </layoutData>
+    </Button>
+    <core:InvisibleText id="defaultHintImd" text="{i18n>Help}" />
+    <!-- ENd Strakstiltak  -->
+    <!-- When did it happen ? -->
+    <Label id="labelDateOrPeriod" labelFor="inputDateOrPeriod" text="{i18n>DateOrPeriod}" required="true" />
+
+    <!-- Date -->
+    <VBox>
+        <DatePicker id="inputDate" fieldGroupIds="incidentHeader" value="{ path: 'StartDate', type: 'sap.ui.model.type.Date', formatOptions: { strictParsing: true, UTC: true } }" visible="{= ${initModel>/sDateOrPeriod} === 'date' ? true : false }" />
+        <DateRangeSelection
+            id="inputPeriod"
+            fieldGroupIds="incidentHeader"
+            dateValue="{ path: 'StartDate', formatOptions: { strictParsing: true, UTC: false } }"
+            secondDateValue="{ path: 'EndDate', formatOptions: { strictParsing: true, UTC: false } }"
+            visible="{= ${initModel>/sDateOrPeriod} === 'period' ? true : false }"
+        />
+    </VBox>
+    <Button type="Ghost" icon="sap-icon://fob-watch" text="{i18n>Today}" press="onBtnTodayPressed" ariaLabelledBy="defaultHint" ariaDescribedBy="defaultHint">
+        <layoutData>
+            <layout:GridData span="XL1 L1 M1 S1" />
+        </layoutData>
+    </Button>
+    <SegmentedButton id="inputDateOrPeriod" width="100%" selectedKey="{initModel>/sDateOrPeriod}">
+        <items>
+            <SegmentedButtonItem text="{i18n>Date}" key="date" />
+            <SegmentedButtonItem text="{i18n>Period}" key="period" />
+        </items>
+        <layoutData>
+            <layout:GridData span="XL2 L2 M2 S12" />
+        </layoutData>
+    </SegmentedButton>
+</core:FragmentDefinition>

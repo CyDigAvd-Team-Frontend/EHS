@@ -4,13 +4,42 @@
     "sDateOrPeriod": "date",
     "bIsOnBehalfOf": false,
     "bIsAnonymous": false,
-    "bIsInvolved": false, 
+    "bIsInvolved": false,
     "Personskade": false,
     "bIsCriticalRel": false,
     "bIsPersonWound": false,
     "bIsEnvironmentEstate": false,
     "bIsMateriel": false,
     "bIsAllmostAccident": false,
+    "bIncWithOutDMG": false,
     "Path": 0,
-    "UrlID": ""
+    "UrlID": "",
+    "sregIncidentCat": 0,
+    "regIncidentCat": [
+        {
+            "code": 0,
+            "text": "seg.0",
+            "icon": "sap-icon://home",
+            "width": "40px",
+            "visible": false
+        },
+        {
+            "code": 1,
+            "text": "seg.1",
+            "icon": "sap-icon://wounds-doc",
+            "visible": true
+        },
+        {
+            "code": 2,
+            "text": "seg.2",
+            "icon": "sap-icon://accidental-leave",
+            "visible": true
+        },
+        {
+            "code": 3,
+            "text": "seg.3",
+            "icon": "sap-icon://hide",
+            "visible": true
+        }
+    ]
 }
