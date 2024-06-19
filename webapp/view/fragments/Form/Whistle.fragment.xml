@@ -1,0 +1,34 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:layout="sap.ui.layout" >
+    <Toolbar style="Clear" design="Solid" ariaLabelledBy="titleHeader,butGDPR" class="sapUiLargeMarginBottom borderBottom sapUiLargeMarginEnd" visible="{initModel>/bIsCriticalRel}">
+        <Title text="Si ifra til" class="sapUiSmallMarginBottom" />
+        <ToolbarSpacer />
+        <ToolbarSpacer width="0%" />
+    </Toolbar>
+    <Label text="Hvem vil du varsle?" visible="{initModel>/bIsCriticalRel}"/>
+    <!-- <SegmentedButton  width="100%">
+        <items>
+            <SegmentedButtonItem text="Forsvarets sentrale varslingsenhet" />
+            <SegmentedButtonItem text="Velg varslingsmottak (DIF)" />
+            <SegmentedButtonItem text="Observasjon " />
+        </items>
+    </SegmentedButton> -->
+    <RadioButtonGroup visible="{initModel>/bIsCriticalRel}">
+        <RadioButton text="Forsvarets sentrale varslingsenhet" />
+        <RadioButton text="Velg varslingsmottak (DIF)" />
+        <RadioButton text="Nærmeste leder" />
+    </RadioButtonGroup>
+
+    <!-- Annonym -->
+    <Label id="labIsAnonymous" labelFor="inIsAnonymous" text="{i18n>ReporterIsAnonymous}" visible="{initModel>/bIsCriticalRel}" />
+    <Switch id="inIsAnonymous" state="{initModel>/bIsAnonymous}" customTextOn="{i18n>Yes}" customTextOff="{i18n>No}" visible="{initModel>/bIsCriticalRel}" />
+
+    <!-- On behalf of: No/Yes -->
+    <Label id="labelIsOnBehalfOf" labelFor="inputIsOnBehalfOf" text="{i18n>OnBehalfOf}" visible="{initModel>/bIsCriticalRel}" />
+    <Switch id="inputIsOnBehalfOf" state="{initModel>/bIsOnBehalfOf}" customTextOn="{i18n>Yes}" customTextOff="{i18n>No}" visible="{initModel>/bIsCriticalRel}" />
+
+    <!-- Involved parties: No/Yes -->
+    <!-- <Label id="labelIsInvolved" labelFor="inputIsInvolved" text="{i18n>OnInvolved}" visible="{initModel>/bIsCriticalRel}" />
+    <Switch id="inputIsInvolved" state="{initModel>/bIsInvolved}" customTextOn="{i18n>Yes}" customTextOff="{i18n>No}" visible="{initModel>/bIsCriticalRel}" /> -->
+
+    
+</core:FragmentDefinition>

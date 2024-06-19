@@ -25,19 +25,14 @@
                         <!-- Generic Start of form -->
                         <core:Fragment fragmentName="no.mil.zehs.view.fragments.Form.Generic" type="XML" />
 
-                        <!-- On behalf of: No/Yes -->
-                        <Label id="labelIsOnBehalfOf" labelFor="inputIsOnBehalfOf" text="{i18n>OnBehalfOf}" visible="{initModel>/bIsCriticalRel}" />
-                        <Switch id="inputIsOnBehalfOf" state="{initModel>/bIsOnBehalfOf}" customTextOn="{i18n>Yes}" customTextOff="{i18n>No}" visible="{initModel>/bIsCriticalRel}" />
-
-                        <!-- Involved parties: No/Yes -->
-                        <Label id="labelIsInvolved" labelFor="inputIsInvolved" text="{i18n>OnInvolved}" visible="{initModel>/bIsCriticalRel}" />
-                        <Switch id="inputIsInvolved" state="{initModel>/bIsInvolved}" customTextOn="{i18n>Yes}" customTextOff="{i18n>No}" visible="{initModel>/bIsCriticalRel}" />
+                        <!-- Kritikkverig forhold -->
+                        <core:Fragment fragmentName="no.mil.zehs.view.fragments.Form.Whistle" type="XML" />
 
                         <!-- Onbehalf -->
                         <core:Fragment fragmentName="no.mil.zehs.view.fragments.Form.OnBehalf" type="XML" />
 
                         <!-- Andre involverte , vitner mv -->
-                        <core:Fragment fragmentName="no.mil.zehs.view.fragments.Form.Involved" type="XML" />
+                        <!-- <core:Fragment fragmentName="no.mil.zehs.view.fragments.Form.Involved" type="XML" /> -->
 
                         <!-- Personskade -->
                         <core:Fragment fragmentName="no.mil.zehs.view.fragments.Form.PersonWound" type="XML" />
