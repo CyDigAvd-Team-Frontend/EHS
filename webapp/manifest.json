@@ -1,11 +1,11 @@
 {
-  "_version": "1.60.0",
+  "_version": "1.9.0",
   "sap.app": {
     "id": "no.mil.zehs",
     "type": "application",
     "i18n": "i18n/i18n.properties",
     "applicationVersion": {
-      "version": "1.8"
+      "version": "1.9"
     },
     "title": "{{appTitle}}",
     "description": "{{appDescription}}",

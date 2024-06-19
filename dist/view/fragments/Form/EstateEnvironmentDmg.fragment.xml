@@ -10,7 +10,7 @@
         class="borderBottom sapUiLargeMarginEnd sapUiLargeMarginBottom"
         visible="{initModel>/bIsEnvironmentEstate}"
     >
-        <Title text="{i18n>environmentAndProperty}" />
+        <Title text="{i18n>ENV.Dmg} - {i18n>environmentAndProperty}" />
     </Toolbar>
     <Label
         text="Utslipp til"
@@ -42,7 +42,7 @@
         class="borderBottom sapUiLargeMarginEnd sapUiLargeMarginBottom"
         visible="{initModel>/bIsEnvironmentEstate}"
     >
-        <Title text="{i18n>property}" />
+        <Title text="{i18n>ENV.Dmg} - {i18n>property}" />
         <ToolbarSpacer />
         <Button
             press="onBtnCreatePersonOnBehalfOf"
