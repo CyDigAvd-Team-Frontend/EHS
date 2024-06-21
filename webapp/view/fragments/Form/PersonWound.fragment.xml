@@ -46,12 +46,13 @@
         text="Kroppsdel"
         visible="{initModel>/bIsPersonWound}"
     />
+    <Button icon="sap-icon://wounds-doc" text="Velg fra bilde" type="Ghost" visible="{initModel>/bIsPersonWound}" press="onRequestWoundLoc"/>
     <Input
         id="inWoundLoc"
         showValueHelp="true"
         showTableSuggestionValueHelp="true"
         valueHelpOnly="true"
-        valueHelpRequest="onValueHelpRequestWoundLoc"
+        valueHelpRequest="onRequestWoundLoc"
         visible="{initModel>/bIsPersonWound}"
     />
     <Label

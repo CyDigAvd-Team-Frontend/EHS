@@ -16,7 +16,7 @@ sap.ui.define([
                 this.oRouter.attachPatternMatched(this.onRouteMatched, this);
             },
 
-            onValueHelpRequestWoundLoc: function () {
+            onRequestWoundLoc: function () {
                 // create dialog lazily
                 if (!this._diaHumanBody) {
                     this._diaHumanBody = sap.ui.xmlfragment(this.getView().getId(), "no.mil.zehs.view.fragments.dialogs.HumanMap", this);
@@ -46,6 +46,8 @@ sap.ui.define([
                     this._diaHumanBody.close();
                     this.byId("inWoundLoc").setValue(evt.getParameter("arguments").injury);
                     console.log(evt.getParameter("arguments").injury);
+
+                    this.getRouter().initialize(true);
                 }
             },
 
