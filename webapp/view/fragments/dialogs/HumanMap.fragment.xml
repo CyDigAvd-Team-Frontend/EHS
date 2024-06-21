@@ -1,0 +1,18 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:html="http://www.w3.org/1999/xhtml">
+    <Dialog id="diaHumanMap" title="Hvor i kroppen er du skadet?" contentWidth="800px"  resizable="true">
+        <content>
+            <Image id="imgHumanBody" src="{initModel>/ModulePath}/images/humanBody.png" densityAware="false" useMap="MapHumanBody" width="100%" height="100%">
+                <layoutData>
+                    <FlexItemData growFactor="1" />
+                </layoutData>
+            </Image>
+            <html:map name="MapHumanBody" id="MapHumanBody">
+                <html:area target="" alt="Hode" title="Hode" href="#/Form/Hode" coords="401,75,504,30,557,88,546,146,513,124,484,136,477,168,488,197,436,196,406,178,388,157,387,117" shape="poly" />
+                <html:area target="" alt="Finger" title="Finger" href="#/Form/Finger" coords="595,507,28" shape="circle" />
+                <html:area target="" alt="Rygg" title="Rygg" href="#/Form/Rygg" coords="640,180,641,208,705,210,710,186" shape="poly" />
+                <html:area target="" alt="Bryst" title="Bryst" href="#/Form/Bryst" coords="276,204,280,230,345,233,347,202" shape="poly" />
+                <html:area target="" alt="Bryst" title="Bryst" href="#/Form/Bryst" coords="414,279,416,319,448,336,501,345,534,314,533,283,523,258,492,243,465,237,447,239" shape="poly" />
+            </html:map>
+        </content>
+    </Dialog>
+</core:FragmentDefinition>

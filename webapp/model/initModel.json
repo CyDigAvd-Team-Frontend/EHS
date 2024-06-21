@@ -15,6 +15,8 @@
     "Path": 0,
     "UrlID": "",
     "sregIncidentCat": 0,
+    "ModulePath": "",
+    "AppUrl": "",
     "regIncidentCat": [
         {
             "code": 0,

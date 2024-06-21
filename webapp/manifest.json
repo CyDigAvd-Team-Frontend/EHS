@@ -115,7 +115,7 @@
         },
         {
           "name": "Form",
-          "pattern": "Form",
+          "pattern": "Form/:injury:",
           "target": [
             "Form"
           ]

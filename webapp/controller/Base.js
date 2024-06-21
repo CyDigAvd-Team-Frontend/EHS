@@ -2,14 +2,20 @@ sap.ui.define(
     [
         "sap/ui/core/mvc/Controller",
         "sap/ui/Device",
-        "no/mil/zehs/model/Formatter"
+        "no/mil/zehs/model/Formatter",
+        "sap/ui/core/ResizeHandler",
+        "no/mil/zehs/utils/imageMapResizer.min"
     ],
-    function (Base, Device, Formatter) {
+    function (Base, Device, Formatter, ResizeHandler, ImageMapResizer) {
         "use strict";
 
         return Base.extend("no.mil.zehs.controller.Base", {
 
             formatter: Formatter,
+
+            ResizeHandler:ResizeHandler,
+
+            imageMapResizer: ImageMapResizer,
 
             getContentDensityClass: function () {
                 if (!this._sContentDensityClass) {
