@@ -1,2 +1,2 @@
-sap.ui.define(["no/mil/zehs/controller/Base"],function(e){"use strict";return e.extend("no.mil.zehs.controller.App",{})});
+sap.ui.define(["no/mil/zehs/controller/Base"],function(e){"use strict";return e.extend("no.mil.zehs.controller.App",{onInit:function(){this.getModel("initModel").dataLoaded().then(function(){this.getModel("initModel").setProperty("/ModulePath",sap.ui.require.toUrl("no/mil/zehs"));this.getModel("initModel").setProperty("/AppUrl",window.location.href)}.bind(this))}})});
 //# sourceMappingURL=App.controller.js.map

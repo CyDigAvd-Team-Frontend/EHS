@@ -1,5 +1,5 @@
 {
-  "_version": "1.9.0",
+  "_version": "1.10.0",
   "sap.app": {
     "id": "no.mil.zehs",
     "type": "application",
@@ -115,7 +115,7 @@
         },
         {
           "name": "Form",
-          "pattern": "Form",
+          "pattern": "Form/:injury:",
           "target": [
             "Form"
           ]

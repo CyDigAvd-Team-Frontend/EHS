@@ -64,7 +64,7 @@ sap.ui.define([
                 // create popover
                 if (!this._oPopover) {
                     Fragment.load({
-                        name: "no.mil.zehs.view.fragments.InfoPopover",
+                        name: "no.mil.zehs.view.fragments.popovers.InfoPopover",
                         controller: this
                     }).then(function(pPopover) {
                         this._oPopover = pPopover;

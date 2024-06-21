@@ -4,19 +4,49 @@ sap.ui.define([
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller) {
+    function (Base) {
         "use strict";
 
-        return Controller.extend("no.mil.zehs.controller.Form", {
+        return Base.extend("no.mil.zehs.controller.Form", {
 
             onInit: function () {
+
                 this.getView().addStyleClass(this.getContentDensityClass());
                 this.oRouter = this.getRouter().getRoute("Form");
                 this.oRouter.attachPatternMatched(this.onRouteMatched, this);
             },
 
+            onValueHelpRequestWoundLoc: function () {
+                // create dialog lazily
+                if (!this._diaHumanBody) {
+                    this._diaHumanBody = sap.ui.xmlfragment(this.getView().getId(), "no.mil.zehs.view.fragments.dialogs.HumanMap", this);
+                    this.getView().addDependent(this._diaHumanBody);
+                    // Attach resize event to the dialog
+                    this.resizeHandlerId = this.ResizeHandler.register(this._diaHumanBody, this.onDialogResize.bind(this));
+                }
+                this._diaHumanBody.open();
+
+            },
+
+            onExit: function () {
+                if (this.resizeHandlerId) {
+                    this.ResizeHandler.deregister(this.resizeHandlerId);
+                }
+            },
+
+            onDialogResize: function (oEvent) {
+                imageMapResize()
+            },
+
             onRouteMatched: function (evt) {
+
                 this.getModel("layoutModel").setProperty("/layout", "OneColumn");
+
+                if(this._diaHumanBody && this._diaHumanBody.isOpen()){
+                    this._diaHumanBody.close();
+                    this.byId("inWoundLoc").setValue(evt.getParameter("arguments").injury);
+                    console.log(evt.getParameter("arguments").injury);
+                }
             },
 
             handleClose: function () {

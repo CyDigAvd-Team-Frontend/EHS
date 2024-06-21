@@ -47,7 +47,11 @@
         visible="{initModel>/bIsPersonWound}"
     />
     <Input
+        id="inWoundLoc"
         showValueHelp="true"
+        showTableSuggestionValueHelp="true"
+        valueHelpOnly="true"
+        valueHelpRequest="onValueHelpRequestWoundLoc"
         visible="{initModel>/bIsPersonWound}"
     />
     <Label
