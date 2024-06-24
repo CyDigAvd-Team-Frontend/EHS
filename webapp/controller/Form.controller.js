@@ -29,20 +29,26 @@ sap.ui.define([
             },
 
             onExit: function () {
-                if (this.resizeHandlerId) {
-                    this.ResizeHandler.deregister(this.resizeHandlerId);
-                }
+
             },
 
             onDialogResize: function (oEvent) {
                 imageMapResize()
             },
 
+            onAfterCloseHumanMap: function () {
+                this._diaHumanBody.destroy();
+                this._diaHumanBody = null;
+                if (this.resizeHandlerId) {
+                    this.ResizeHandler.deregister(this.resizeHandlerId);
+                }
+            },
+
             onRouteMatched: function (evt) {
 
                 this.getModel("layoutModel").setProperty("/layout", "OneColumn");
 
-                if(this._diaHumanBody && this._diaHumanBody.isOpen()){
+                if (this._diaHumanBody && this._diaHumanBody.isOpen()) {
                     this._diaHumanBody.close();
                     this.byId("inWoundLoc").setValue(evt.getParameter("arguments").injury);
                     console.log(evt.getParameter("arguments").injury);
@@ -93,7 +99,7 @@ sap.ui.define([
                     oCategories = oInitModel.getProperty("/regIncidentCat/");
 
                 oInitModel.setProperty("/bIncWithOutDMG", false);
-                oInitModel.setProperty("/bIsCriticalRel", false);
+               // oInitModel.setProperty("/bIsCriticalRel", false);
                 oInitModel.setProperty("/bIsMateriel", false);
                 oInitModel.setProperty("/bIsPersonWound", false);
                 oInitModel.setProperty("/bIsEnvironmentEstate", false);
@@ -105,7 +111,7 @@ sap.ui.define([
                 } else if (Number(sKey) === oCategories[2].code) {
                     oInitModel.setProperty("/bIncWithOutDMG", true)
                 } else if (Number(sKey) === oCategories[3].code) {
-                    oInitModel.setProperty("/bIsCriticalRel", true);
+                    
                 }
 
             }
