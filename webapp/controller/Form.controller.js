@@ -111,6 +111,7 @@ sap.ui.define([
                                         oInitModel.setProperty("/bIsEnvironmentEstate", true)  */
                 } else if (Number(sKey) === oCategories[2].code) {
                     oInitModel.setProperty("/bIncSickEks", true)
+                    oInitModel.setProperty("/selClassification", 0);
                 } else if (Number(sKey) === oCategories[3].code) {
                     oInitModel.setProperty("/bIncWithOutDMG", true)
                 }
@@ -132,6 +133,24 @@ sap.ui.define([
                 var oInitModel = this.getModel("initModel");
 
                 oInitModel.setProperty("/selClassification", 3);
+            },
+
+            onChangeCrit:function(evt){
+
+                var bState = evt.getSource().getState(),
+                oInitModel = this.getModel("initModel");
+                if(bState){
+                    oInitModel.setProperty("/bregIncidentCatShow", false);
+                }else{
+                    oInitModel.setProperty("/bregIncidentCatShow", true);
+                }
+                oInitModel.setProperty("/bIncWithOutDMG", false);
+                // oInitModel.setProperty("/bIsCriticalRel", false);
+                oInitModel.setProperty("/bIsMateriel", false);
+            
+                oInitModel.setProperty("/bIsPersonWound", false);
+                oInitModel.setProperty("/bIsEnvironmentEstate", false);
+                oInitModel.setProperty("/bIncSickEks", false)
             }
         });
     });

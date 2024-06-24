@@ -10,9 +10,9 @@
     <Label id="labelTitle" labelFor="inputTitle" fieldGroupIds="incidentHeader,requiresValidation" text="{i18n>Title}" required="true" />
     <Input id="inputTitle" fieldGroupIds="incidentHeader" value="{Title}" maxLength="80" />
     <Label text="Er dette kritikkverdig forhold?" />
-    <Switch state="{initModel>/bIsCriticalRel}" />
+    <Switch state="{initModel>/bIsCriticalRel}" change="onChangeCrit" />
     <Label text="{i18n>RegAbout} {initModel>/0/regIncidentCat/0/icon}" labelFor="segRegA" />
-    <SegmentedButton id="segRegA" class="hovWidthChange" selectedKey="{initModel>/sregIncidentCat}" selectionChange="onSelChangeRegIncident" items="{initModel>/regIncidentCat/}" width="100%">
+    <SegmentedButton id="segRegA" class="hovWidthChange" selectedKey="{initModel>/sregIncidentCat}" selectionChange="onSelChangeRegIncident" items="{initModel>/regIncidentCat/}" width="100%" visible="{initModel>/bregIncidentCatShow}">
         <items>
             <SegmentedButtonItem icon="{initModel>icon}" text="{path: 'initModel>text', formatter: '.formatter.getI18Txt'}" key="{initModel>code}" tooltip="{path: 'initModel>text', formatter: '.formatter.getI18Txt'}" width="{initModel>width}" visible="{initModel>visible}" />
         </items>
@@ -124,4 +124,6 @@
             <layout:GridData span="XL2 L2 M2 S12" />
         </layoutData>
     </SegmentedButton>
+    <Label text="Hvor skjedde det?" />
+    <Input showValueHelp="true" />
 </core:FragmentDefinition>

@@ -9,18 +9,21 @@
     <!-- Title -->
     <Label id="labelTitle" labelFor="inputTitle" fieldGroupIds="incidentHeader,requiresValidation" text="{i18n>Title}" required="true" />
     <Input id="inputTitle" fieldGroupIds="incidentHeader" value="{Title}" maxLength="80" />
+    <Label text="Er dette kritikkverdig forhold?" />
+    <Switch state="{initModel>/bIsCriticalRel}" change="onChangeCrit" />
     <Label text="{i18n>RegAbout} {initModel>/0/regIncidentCat/0/icon}" labelFor="segRegA" />
-    <SegmentedButton id="segRegA" class="hovWidthChange" selectedKey="{initModel>/sregIncidentCat}" selectionChange="onSelChangeRegIncident" items="{initModel>/regIncidentCat/}">
+    <SegmentedButton id="segRegA" class="hovWidthChange" selectedKey="{initModel>/sregIncidentCat}" selectionChange="onSelChangeRegIncident" items="{initModel>/regIncidentCat/}" width="100%" visible="{initModel>/bregIncidentCatShow}">
         <items>
             <SegmentedButtonItem icon="{initModel>icon}" text="{path: 'initModel>text', formatter: '.formatter.getI18Txt'}" key="{initModel>code}" tooltip="{path: 'initModel>text', formatter: '.formatter.getI18Txt'}" width="{initModel>width}" visible="{initModel>visible}" />
         </items>
     </SegmentedButton>
+
     <Label text="Hva ble skadet?" visible="{= ${initModel>/sregIncidentCat} === '1'  ? true : false}" />
-    <HBox width="100%"  alignItems="Center" visible="{= ${initModel>/sregIncidentCat} === '1'  ? true : false}">
+    <HBox width="100%" alignItems="Center" visible="{= ${initModel>/sregIncidentCat} === '1'  ? true : false}">
         <!-- Si fra om personskade? -->
         <HBox class="sapUiMediumMarginEnd">
             <Label labelFor="inputIsPersonWound" text="{i18n>Person}:" class="sapUiTinyMarginTop sapUiTinyMarginEnd" />
-            <Switch id="inputIsPersonWound" state="{initModel>/bIsPersonWound}" customTextOn="{i18n>Yes}" customTextOff="{i18n>No}">
+            <Switch id="inputIsPersonWound" state="{initModel>/bIsPersonWound}" customTextOn="{i18n>Yes}" customTextOff="{i18n>No}" change="onChangePersonWound">
                 <layoutData>
                     <layout:GridData span="XL6 L6 M6 S11" />
                 </layoutData>
@@ -48,13 +51,21 @@
     </HBox>
 
     <!-- Segmented button different  -->
-    <Label text="Si ifra om" />
-    <SegmentedButton selectedKey="1" visible="{= ${initModel>/bIncWithOutDMG} ? true : false }"  width="100%">
+    <Label text="Si ifra om" visible="{= ${initModel>/bIncWithOutDMG} ? true : false }" />
+    <SegmentedButton selectedKey="1" visible="{= ${initModel>/bIncWithOutDMG} ? true : false }" width="100%">
         <items>
             <SegmentedButtonItem key="1" text="" visible="false" />
             <SegmentedButtonItem text="Nestenulykke" />
             <SegmentedButtonItem text="Avvik" />
             <SegmentedButtonItem text="Observasjon " />
+        </items>
+    </SegmentedButton>
+    <Label text="Si ifra om" visible="{= ${initModel>/bIncSickEks} ? true : false }" />
+    <SegmentedButton selectedKey="{initModel>/selClassification}" visible="{= ${initModel>/bIncSickEks} ? true : false }" width="100%" selectionChange="onSelChangeRegSickEks">
+        <items>
+            <SegmentedButtonItem key="0" text="" visible="false" />
+            <SegmentedButtonItem key="1" text="Sykdom" />
+            <SegmentedButtonItem key="2" text="Eksponering" />
         </items>
     </SegmentedButton>
 
@@ -113,4 +124,6 @@
             <layout:GridData span="XL2 L2 M2 S12" />
         </layoutData>
     </SegmentedButton>
+    <Label text="Hvor skjedde det?" />
+    <Input showValueHelp="true" />
 </core:FragmentDefinition>

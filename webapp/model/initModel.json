@@ -14,6 +14,7 @@
     "bIncWithOutDMG": false,
     "bIncSickEks": false,
     "selClassification": 0,
+    "bregIncidentCatShow": true,
     "Path": 0,
     "UrlID": "",
     "sregIncidentCat": 0,
