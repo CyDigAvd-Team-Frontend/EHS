@@ -12,6 +12,8 @@
     "bIsMateriel": false,
     "bIsAllmostAccident": false,
     "bIncWithOutDMG": false,
+    "bIncSickEks": false,
+    "selClassification": 0,
     "Path": 0,
     "UrlID": "",
     "sregIncidentCat": 0,

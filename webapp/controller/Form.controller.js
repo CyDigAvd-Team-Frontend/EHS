@@ -99,21 +99,39 @@ sap.ui.define([
                     oCategories = oInitModel.getProperty("/regIncidentCat/");
 
                 oInitModel.setProperty("/bIncWithOutDMG", false);
-               // oInitModel.setProperty("/bIsCriticalRel", false);
+                // oInitModel.setProperty("/bIsCriticalRel", false);
                 oInitModel.setProperty("/bIsMateriel", false);
                 oInitModel.setProperty("/bIsPersonWound", false);
                 oInitModel.setProperty("/bIsEnvironmentEstate", false);
+                oInitModel.setProperty("/bIncSickEks", false)
 
                 if (Number(sKey) === oCategories[1].code) {
-                    /* oInitModel.setProperty("/bIsMateriel", true);
-                    oInitModel.setProperty("/bIsPersonWound", true);
-                    oInitModel.setProperty("/bIsEnvironmentEstate", true) */
+                    /*                      oInitModel.setProperty("/bIsMateriel", true);
+                                        oInitModel.setProperty("/bIsPersonWound", true);
+                                        oInitModel.setProperty("/bIsEnvironmentEstate", true)  */
                 } else if (Number(sKey) === oCategories[2].code) {
-                    oInitModel.setProperty("/bIncWithOutDMG", true)
+                    oInitModel.setProperty("/bIncSickEks", true)
                 } else if (Number(sKey) === oCategories[3].code) {
-                    
+                    oInitModel.setProperty("/bIncWithOutDMG", true)
                 }
 
+            },
+            onSelChangeRegSickEks: function (evt) {
+                let oSelect = evt.getSource(),
+                    oSelItem = evt.getParameter("item"),
+                    sKey = oSelItem.getKey(),
+                    oInitModel = this.getModel("initModel"),
+                    oCategories = oInitModel.getProperty("/regIncidentCat/");
+
+
+                debugger;
+                oInitModel.setProperty("/bIsPersonWound", true);
+            },
+
+            onChangePersonWound:function(){
+                var oInitModel = this.getModel("initModel");
+
+                oInitModel.setProperty("/selClassification", 3);
             }
         });
     });

@@ -1,63 +1,27 @@
-<core:FragmentDefinition
-    xmlns="sap.m"
-    xmlns:core="sap.ui.core"
-    xmlns:layout="sap.ui.layout"
->
-    <Toolbar
-        style="Clear"
-        design="Solid"
-        ariaLabelledBy="titlePersonInjurie"
-        class="borderBottom sapUiLargeMarginEnd sapUiLargeMarginBottom"
-        visible="{initModel>/bIsPersonWound}"
-    >
-        <Title
-            id="titlePersonInjurie"
-            text="{i18n>PersonInjurie}"
-        />
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:layout="sap.ui.layout">
+    <Toolbar style="Clear" design="Solid" ariaLabelledBy="titlePersonInjurie" class="borderBottom sapUiLargeMarginEnd sapUiLargeMarginBottom" visible="{initModel>/bIsPersonWound}">
+        <Title id="titlePersonInjurie" text="{i18n>PersonInjurie}" />
         <ToolbarSpacer />
-        <Button
-            press="onBtnCreatePersonOnBehalfOf"
-            type="Transparent"
-            text="{i18n>AddPerson}"
-            visible="{initModel>/bIsPersonWound}"
-        >
+        <Button press="onBtnCreatePersonOnBehalfOf" type="Transparent" text="{i18n>AddPerson}" visible="{initModel>/bIsPersonWound}">
             <layoutData>
                 <layout:GridData span="XL3 L12 M3 S12" />
             </layoutData>
         </Button>
     </Toolbar>
     <Label text="Klassifisering" />
-    <SegmentedButton visible="{initModel>/bIsPersonWound}">
+    <SegmentedButton selectedKey="{initModel>/selClassification}" visible="{initModel>/bIsPersonWound}">
         <items>
-            <SegmentedButtonItem text="Eksponering" />
-            <SegmentedButtonItem text="Sykdom" />
-            <SegmentedButtonItem text="Skade " />
+            <SegmentedButtonItem key="0" text="" visible="false" />
+            <SegmentedButtonItem key="1" text="Sykdom" />
+            <SegmentedButtonItem key="2" text="Eksponering" />
+            <SegmentedButtonItem key="3" text="Skade " />
         </items>
     </SegmentedButton>
-    <Label
-        text="Skadens-/sykdommens art"
-        visible="{initModel>/bIsPersonWound}"
-    />
-    <Input
-        showValueHelp="true"
-        visible="{initModel>/bIsPersonWound}"
-    />
-    <Label
-        text="Kroppsdel"
-        visible="{initModel>/bIsPersonWound}"
-    />
-    <Button icon="sap-icon://wounds-doc" text="Velg fra bilde" type="Ghost" visible="{initModel>/bIsPersonWound}" press="onRequestWoundLoc"/>
-    <Input
-        id="inWoundLoc"
-        showValueHelp="true"
-        showTableSuggestionValueHelp="true"
-        valueHelpOnly="true"
-        valueHelpRequest="onRequestWoundLoc"
-        visible="{initModel>/bIsPersonWound}"
-    />
-    <Label
-        text="Beskriv skaden/sykdommen"
-        visible="{initModel>/bIsPersonWound}"
-    />
+    <Label text="Skadens-/sykdommens art" visible="{initModel>/bIsPersonWound}" />
+    <Input showValueHelp="true" visible="{initModel>/bIsPersonWound}" />
+    <Label text="Kroppsdel" visible="{initModel>/bIsPersonWound}" />
+    <Button icon="sap-icon://wounds-doc" text="Velg fra bilde" type="Ghost" visible="{initModel>/bIsPersonWound}" press="onRequestWoundLoc" />
+    <Input id="inWoundLoc" showValueHelp="true" showTableSuggestionValueHelp="true" valueHelpOnly="true" valueHelpRequest="onRequestWoundLoc" visible="{initModel>/bIsPersonWound}" />
+    <Label text="Beskriv skaden/sykdommen" visible="{initModel>/bIsPersonWound}" />
     <TextArea visible="{initModel>/bIsPersonWound}" />
 </core:FragmentDefinition>
