@@ -25,12 +25,7 @@
         <core:Item text="Mange flere..." />
     </Select>
     <Label
-        text="Utslippsbeskrivelse"
-        visible="{initModel>/bIsEnvironmentEstate}"
-    />
-    <TextArea visible="{initModel>/bIsEnvironmentEstate}" />
-    <Label
-        text="Materialbeskrivelse"
+        text="Beskriv miljøskade"
         visible="{initModel>/bIsEnvironmentEstate}"
     />
     <TextArea visible="{initModel>/bIsEnvironmentEstate}" />

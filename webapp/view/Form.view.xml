@@ -55,7 +55,6 @@
         </content>
         <footer>
             <Toolbar>
-                <Button icon="sap-icons://refresh" press="onPressDia" />
                 <ToolbarSpacer />
                 <Button type="Ghost" text="{i18n>Abort}" press="onPressAbort" />
                 <Button type="Emphasized" text="{i18n>Send}" class="sapUiTinyMarginEnd" />

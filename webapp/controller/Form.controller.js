@@ -106,8 +106,9 @@ sap.ui.define([
                 oInitModel.setProperty("/bIncSickEks", false)
 
                 if (Number(sKey) === oCategories[1].code) {
+                    oInitModel.setProperty("/bIsPersonWound", true);
                     /*                      oInitModel.setProperty("/bIsMateriel", true);
-                                        oInitModel.setProperty("/bIsPersonWound", true);
+                                        
                                         oInitModel.setProperty("/bIsEnvironmentEstate", true)  */
                 } else if (Number(sKey) === oCategories[2].code) {
                     oInitModel.setProperty("/bIncSickEks", true)

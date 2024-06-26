@@ -10,7 +10,15 @@
     <Label id="labelTitle" labelFor="inputTitle" fieldGroupIds="incidentHeader,requiresValidation" text="{i18n>Title}" required="true" />
     <Input id="inputTitle" fieldGroupIds="incidentHeader" value="{Title}" maxLength="80" />
     <Label text="Er dette kritikkverdig forhold?" />
+    <VBox width="100%">
     <Switch state="{initModel>/bIsCriticalRel}" change="onChangeCrit" />
+    </VBox>
+    
+    <Button type="Transparent" icon="sap-icon://sys-help-2" text="{i18n>Help}" press="onBtnHintPressed" ariaLabelledBy="defaultHint" ariaDescribedBy="defaultHint">
+        <layoutData>
+            <layout:GridData span="XL1 L1 M1 S1" />
+        </layoutData>
+    </Button>
     <Label text="{i18n>RegAbout} {initModel>/0/regIncidentCat/0/icon}" labelFor="segRegA" />
     <SegmentedButton id="segRegA" class="hovWidthChange" selectedKey="{initModel>/sregIncidentCat}" selectionChange="onSelChangeRegIncident" items="{initModel>/regIncidentCat/}" width="100%" visible="{initModel>/bregIncidentCatShow}">
         <items>
@@ -51,7 +59,7 @@
     </HBox>
 
     <!-- Segmented button different  -->
-    <Label text="Si ifra om" visible="{= ${initModel>/bIncWithOutDMG} ? true : false }" />
+    <Label text="" visible="{= ${initModel>/bIncWithOutDMG} ? true : false }" />
     <SegmentedButton selectedKey="1" visible="{= ${initModel>/bIncWithOutDMG} ? true : false }" width="100%">
         <items>
             <SegmentedButtonItem key="1" text="" visible="false" />
@@ -60,7 +68,7 @@
             <SegmentedButtonItem text="Observasjon " />
         </items>
     </SegmentedButton>
-    <Label text="Si ifra om" visible="{= ${initModel>/bIncSickEks} ? true : false }" />
+    <Label text="" visible="{= ${initModel>/bIncSickEks} ? true : false }" />
     <SegmentedButton selectedKey="{initModel>/selClassification}" visible="{= ${initModel>/bIncSickEks} ? true : false }" width="100%" selectionChange="onSelChangeRegSickEks">
         <items>
             <SegmentedButtonItem key="0" text="" visible="false" />
@@ -124,6 +132,6 @@
             <layout:GridData span="XL2 L2 M2 S12" />
         </layoutData>
     </SegmentedButton>
-    <Label text="Hvor skjedde det?" />
+    <Label text="Hvor skjedde det?"  required="true"/>
     <Input showValueHelp="true" />
 </core:FragmentDefinition>
