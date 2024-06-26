@@ -33,7 +33,10 @@
                         visibleInFilterBar="true"
                     >
                         <fb:control>
-                            <DatePicker id="_IDGenDatePicker1" />
+                            <DateRangeSelection
+                                dateValue="{ path: 'StartDate', formatOptions: { strictParsing: true, UTC: false } }"
+                                secondDateValue="{ path: 'EndDate', formatOptions: { strictParsing: true, UTC: false } }"
+                            />
                         </fb:control>
                     </fb:FilterGroupItem>
                     <fb:FilterGroupItem
@@ -45,12 +48,8 @@
                         visibleInFilterBar="true"
                     >
                         <fb:control>
-                            <Select id="_IDGenSelect1">
+                            <MultiComboBox id="_IDGenSelect1">
                                 <items>
-                                    <core:Item
-                                        id="_IDGenItem1"
-                                        text="{i18n>SelectAll}"
-                                    />
                                     <core:Item
                                         id="_IDGenItem2"
                                         text="{i18n>SelectDone}"
@@ -68,7 +67,7 @@
                                         text="{i18n>SelectReopen}"
                                     />
                                 </items>
-                            </Select>
+                            </MultiComboBox>
                         </fb:control>
                     </fb:FilterGroupItem>
                     <fb:FilterGroupItem

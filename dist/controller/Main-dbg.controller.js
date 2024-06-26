@@ -41,21 +41,21 @@ sap.ui.define([
                     }
                 
             },
-            onSearch: function (oEvent) {
-                var items = this.getView().byId("_IDGenTable1").getBinding("items");
-                var sStatus = oEvent.getParameter("selectionSet")[1].getSelectedItem().getText();
-                var aFilter = [];
-                if (sStatus !== "Alle") {
-                aFilter.push(new sap.ui.model.Filter("Status", sap.ui.model.FilterOperator.EQ, sStatus))
-                }
-                var sType =  oEvent.getParameter("selectionSet")[2].getSelectedItem().getText();
-                aFilter.push(new sap.ui.model.Filter("Type", sap.ui.model.FilterOperator.EQ, sType))
-                // var aTokens = oEvent.getParameter("selectionSet")[3].getSelectedItems();
-                // aTokens.forEach(function(token){
-                //     aFilter.push(new sap.ui.model.Filter("Rolle", sap.ui.model.FilterOperator.Contains, token.getText()));
-                // });
-                items.filter(aFilter);
-            },
+            // onSearch: function (oEvent) {
+            //     var items = this.getView().byId("_IDGenTable1").getBinding("items");
+            //     var sStatus = oEvent.getParameter("selectionSet")[1].getSelectedItem().getText();
+            //     var aFilter = [];
+            //     if (sStatus !== "Alle") {
+            //     aFilter.push(new sap.ui.model.Filter("Status", sap.ui.model.FilterOperator.EQ, sStatus))
+            //     }
+            //     var sType =  oEvent.getParameter("selectionSet")[2].getSelectedItem().getText();
+            //     aFilter.push(new sap.ui.model.Filter("Type", sap.ui.model.FilterOperator.EQ, sType))
+            //     // var aTokens = oEvent.getParameter("selectionSet")[3].getSelectedItems();
+            //     // aTokens.forEach(function(token){
+            //     //     aFilter.push(new sap.ui.model.Filter("Rolle", sap.ui.model.FilterOperator.Contains, token.getText()));
+            //     // });
+            //     items.filter(aFilter);
+            // },
 
             onPressOpenInfo: function(oEvent){
                 var oButton = oEvent.getSource();
