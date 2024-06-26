@@ -106,8 +106,9 @@ sap.ui.define([
                 oInitModel.setProperty("/bIncSickEks", false)
 
                 if (Number(sKey) === oCategories[1].code) {
+                    oInitModel.setProperty("/bIsPersonWound", true);
                     /*                      oInitModel.setProperty("/bIsMateriel", true);
-                                        oInitModel.setProperty("/bIsPersonWound", true);
+                                        
                                         oInitModel.setProperty("/bIsEnvironmentEstate", true)  */
                 } else if (Number(sKey) === oCategories[2].code) {
                     oInitModel.setProperty("/bIncSickEks", true)
@@ -140,17 +141,25 @@ sap.ui.define([
                 var bState = evt.getSource().getState(),
                 oInitModel = this.getModel("initModel");
                 if(bState){
-                    oInitModel.setProperty("/bregIncidentCatShow", false);
+                    oInitModel.setProperty("/bIncWithOutDMG", false);
                 }else{
-                    oInitModel.setProperty("/bregIncidentCatShow", true);
+                    oInitModel.setProperty("/bIncWithOutDMG", true);
                 }
-                oInitModel.setProperty("/bIncWithOutDMG", false);
+
+                // var bState = evt.getSource().getState(),
+                // oInitModel = this.getModel("initModel");
+                // if(bState){
+                //     oInitModel.setProperty("/bregIncidentCatShow", false);
+                // }else{
+                //     oInitModel.setProperty("/bregIncidentCatShow", true);
+                // }
+                // oInitModel.setProperty("/bIncWithOutDMG", false);
                 // oInitModel.setProperty("/bIsCriticalRel", false);
-                oInitModel.setProperty("/bIsMateriel", false);
+                // oInitModel.setProperty("/bIsMateriel", false);
             
-                oInitModel.setProperty("/bIsPersonWound", false);
-                oInitModel.setProperty("/bIsEnvironmentEstate", false);
-                oInitModel.setProperty("/bIncSickEks", false)
+                // oInitModel.setProperty("/bIsPersonWound", false);
+                // oInitModel.setProperty("/bIsEnvironmentEstate", false);
+                // oInitModel.setProperty("/bIncSickEks", false)
             }
         });
     });

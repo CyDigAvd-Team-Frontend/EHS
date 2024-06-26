@@ -141,17 +141,25 @@ sap.ui.define([
                 var bState = evt.getSource().getState(),
                 oInitModel = this.getModel("initModel");
                 if(bState){
-                    oInitModel.setProperty("/bregIncidentCatShow", false);
+                    oInitModel.setProperty("/bIncWithOutDMG", false);
                 }else{
-                    oInitModel.setProperty("/bregIncidentCatShow", true);
+                    oInitModel.setProperty("/bIncWithOutDMG", true);
                 }
-                oInitModel.setProperty("/bIncWithOutDMG", false);
+
+                // var bState = evt.getSource().getState(),
+                // oInitModel = this.getModel("initModel");
+                // if(bState){
+                //     oInitModel.setProperty("/bregIncidentCatShow", false);
+                // }else{
+                //     oInitModel.setProperty("/bregIncidentCatShow", true);
+                // }
+                // oInitModel.setProperty("/bIncWithOutDMG", false);
                 // oInitModel.setProperty("/bIsCriticalRel", false);
-                oInitModel.setProperty("/bIsMateriel", false);
+                // oInitModel.setProperty("/bIsMateriel", false);
             
-                oInitModel.setProperty("/bIsPersonWound", false);
-                oInitModel.setProperty("/bIsEnvironmentEstate", false);
-                oInitModel.setProperty("/bIncSickEks", false)
+                // oInitModel.setProperty("/bIsPersonWound", false);
+                // oInitModel.setProperty("/bIsEnvironmentEstate", false);
+                // oInitModel.setProperty("/bIncSickEks", false)
             }
         });
     });

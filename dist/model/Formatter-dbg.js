@@ -4,10 +4,7 @@ sap.ui.define([], function () {
 		status: function (sStatus) {
 			if (sStatus === "Avsluttet") {
 				return "Success"
-			} else if (sStatus === "Ny") {
-				return "Error"
-			}
-			return "Warning"
+			} 
 		},
 
 		getI18Txt: function (sValue) {

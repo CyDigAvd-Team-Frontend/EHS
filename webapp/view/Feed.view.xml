@@ -7,6 +7,8 @@
     xmlns:tnt="sap.tnt"
     xmlns:com="sap.suite.ui.commons"
     xmlns:f="sap.f"
+    xmlns:uxap="sap.uxap"
+    xmlns:upload="sap.m.upload"
 >
     <NavContainer id="navCon">
         <Page
@@ -63,6 +65,7 @@
                 </ColumnListItem>
             </Table>
         </Page>
+
         <Page
             id="page"
             title="{i18n>Communication}"
@@ -81,35 +84,86 @@
                     />
                 </Toolbar>
             </headerContent>
-            <FeedInput
-                id="_IDGenFeedInput1"
-                post="onPostFeed"
-                class="sapUiSmallMarginTopBottom"
-                placeholder="{i18n>InputPlaceholder}"
-            />
-
-            <com:Timeline
-                id="idTimeline"
-                enableDoubleSided="true"
-                groupBy="HireDate"
-                growingThreshold="0"
-                filterTitle="Job Title"
-                sortOldestFirst="false"
-                content="{TimelineModel>/Kommentar}"
-                showHeaderBar="false"
-                noDataText="{i18n>TimelineNoData}"
+            <IconTabBar
+                id="idIconTabBarFiori2"
+                upperCase="true"
+                expanded="{device>/isNoPhone}"
+                class="sapUiNoContentPadding"
             >
-                <com:content>
-                    <com:TimelineItem
-                        id="idTemplateItem"
-                        text="{TimelineModel>text}"
-                        userName="{TimelineModel>Author}"
-                        title="{TimelineModel>Title}"
-                        icon="{TimelineModel>icon}"
-                        dateTime="{TimelineModel>Date}"
-                    />
-                </com:content>
-            </com:Timeline>
+                <items>
+                    <IconTabFilter text="{i18n>Communication}">
+                        <VBox>
+                            <FeedInput
+                                id="_IDGenFeedInput1"
+                                post="onPostFeed"
+                                class="sapUiSmallMarginTopBottom"
+                                placeholder="{i18n>InputPlaceholder}"
+                            />
+
+                            <com:Timeline
+                                id="idTimeline"
+                                enableDoubleSided="true"
+                                groupBy="HireDate"
+                                growingThreshold="0"
+                                filterTitle="Job Title"
+                                sortOldestFirst="false"
+                                content="{TimelineModel>/Kommentar}"
+                                showHeaderBar="false"
+                                noDataText="{i18n>TimelineNoData}"
+                                enableScroll="false"
+                            >
+                                <com:content>
+                                    <com:TimelineItem
+                                        id="idTemplateItem"
+                                        text="{TimelineModel>text}"
+                                        userName="{TimelineModel>Author}"
+                                        title="{TimelineModel>Title}"
+                                        icon="{TimelineModel>icon}"
+                                        dateTime="{TimelineModel>Date}"
+                                    />
+                                </com:content>
+                            </com:Timeline>
+                        </VBox>
+                    </IconTabFilter>
+                    <IconTabFilter text="Dokumentasjon">
+                        <VBox>
+                            <upload:UploadSet
+                                id="UploadSet"
+                                instantUpload="true"
+                                showIcons="false"
+                                uploadEnabled="true"
+                                terminationEnabled="false"
+                                fileTypes="txt,doc,png"
+                                maxFileNameLength="30"
+                                maxFileSize="200"
+                            >
+                                <!-- <upload:toolbar>
+                                    <OverflowToolbar>
+                                        <ToolbarSpacer />
+                                        <core:Icon src="sap-icon://edit" />
+                                    </OverflowToolbar>
+                                </upload:toolbar> -->
+                                <upload:items>
+                                    <upload:UploadSetItem
+                                        url="{initModel>/ModulePath}/utils/File/Test.pdf"
+                                        visibleEdit="false"
+                                        fileName="Test pdf"
+                                    />
+                                </upload:items>
+
+                                <upload:items>
+                                    <upload:UploadSetItem
+                                        url="{initModel>/ModulePath}/utils/File/Test.docx"
+                                        visibleEdit="false"
+                                        fileName="Test docx"
+                                    />
+                                </upload:items>
+                            </upload:UploadSet>
+                        </VBox>
+                    </IconTabFilter>
+                </items>
+            </IconTabBar>
+
             <content />
         </Page>
     </NavContainer>

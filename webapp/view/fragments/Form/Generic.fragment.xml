@@ -1,37 +1,119 @@
-<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:layout="sap.ui.layout">
-    <Toolbar style="Clear" design="Solid" ariaLabelledBy="titleHeader,butGDPR" class="sapUiLargeMarginBottom borderBottom sapUiLargeMarginEnd">
-        <Title id="titleHeader" text="{i18n>InformationTitle}" class="sapUiSmallMarginBottom" />
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:layout="sap.ui.layout"
+>
+    <Toolbar
+        style="Clear"
+        design="Solid"
+        ariaLabelledBy="titleHeader,butGDPR"
+        class="sapUiLargeMarginBottom borderBottom sapUiLargeMarginEnd"
+    >
+        <Title
+            id="titleHeader"
+            text="{i18n>InformationTitle}"
+            class="sapUiSmallMarginBottom"
+        />
         <ToolbarSpacer />
-        <Link href="{i18n>LinkToDataPrivacy}" id="butGDPR" text="{i18n>LinkToDataPrivacyText}" target="_blank" class="sapUiSmallMarginBottom" />
+        <Link
+            href="{i18n>LinkToDataPrivacy}"
+            id="butGDPR"
+            text="{i18n>LinkToDataPrivacyText}"
+            target="_blank"
+            class="sapUiSmallMarginBottom"
+        />
         <ToolbarSpacer width="0%" />
     </Toolbar>
     <!-- Header for Section: Information -->
     <!-- Title -->
-    <Label id="labelTitle" labelFor="inputTitle" fieldGroupIds="incidentHeader,requiresValidation" text="{i18n>Title}" required="true" />
-    <Input id="inputTitle" fieldGroupIds="incidentHeader" value="{Title}" maxLength="80" />
-    <Label text="Er dette kritikkverdig forhold?" />
-    <VBox width="100%">
-    <Switch state="{initModel>/bIsCriticalRel}" change="onChangeCrit" />
+    <Label
+        id="labelTitle"
+        labelFor="inputTitle"
+        fieldGroupIds="incidentHeader,requiresValidation"
+        text="{i18n>Title}"
+        required="true"
+    />
+    <Input
+        id="inputTitle"
+        fieldGroupIds="incidentHeader"
+        value="{Title}"
+        maxLength="80"
+    />
+    <Label
+        text="{i18n>RegAbout} {initModel>/0/regIncidentCat/0/icon}"
+        labelFor="segRegA"
+    />
+    <SegmentedButton
+        id="segRegA"
+        class="hovWidthChange"
+        selectedKey="{initModel>/sregIncidentCat}"
+        selectionChange="onSelChangeRegIncident"
+        items="{initModel>/regIncidentCat/}"
+        width="100%"
+    >
+        <!-- visible="{initModel>/bregIncidentCatShow}" -->
+        <items>
+            <SegmentedButtonItem
+                icon="{initModel>icon}"
+                text="{path: 'initModel>text', formatter: '.formatter.getI18Txt'}"
+                key="{initModel>code}"
+                tooltip="{path: 'initModel>text', formatter: '.formatter.getI18Txt'}"
+                width="{initModel>width}"
+                visible="{initModel>visible}"
+            />
+        </items>
+    </SegmentedButton>
+    <Label
+        text="Er dette kritikkverdig forhold?"
+        visible="{= ${initModel>/sregIncidentCat} === '3'  ? true : false}"
+    />
+    <VBox
+        width="100%"
+        visible="{= ${initModel>/sregIncidentCat} === '3'  ? true : false}"
+    >
+        <Switch
+            state="{initModel>/bIsCriticalRel}"
+            change="onChangeCrit"
+        />
     </VBox>
-    
-    <Button type="Transparent" icon="sap-icon://sys-help-2" text="{i18n>Help}" press="onBtnHintPressed" ariaLabelledBy="defaultHint" ariaDescribedBy="defaultHint">
+
+    <Button
+        visible="{= ${initModel>/sregIncidentCat} === '3'  ? true : false}"
+        type="Transparent"
+        icon="sap-icon://sys-help-2"
+        text="{i18n>Help}"
+        press="onBtnHintPressed"
+        ariaLabelledBy="defaultHint"
+        ariaDescribedBy="defaultHint"
+    >
         <layoutData>
             <layout:GridData span="XL1 L1 M1 S1" />
         </layoutData>
     </Button>
-    <Label text="{i18n>RegAbout} {initModel>/0/regIncidentCat/0/icon}" labelFor="segRegA" />
-    <SegmentedButton id="segRegA" class="hovWidthChange" selectedKey="{initModel>/sregIncidentCat}" selectionChange="onSelChangeRegIncident" items="{initModel>/regIncidentCat/}" width="100%" visible="{initModel>/bregIncidentCatShow}">
-        <items>
-            <SegmentedButtonItem icon="{initModel>icon}" text="{path: 'initModel>text', formatter: '.formatter.getI18Txt'}" key="{initModel>code}" tooltip="{path: 'initModel>text', formatter: '.formatter.getI18Txt'}" width="{initModel>width}" visible="{initModel>visible}" />
-        </items>
-    </SegmentedButton>
 
-    <Label text="Hva ble skadet?" visible="{= ${initModel>/sregIncidentCat} === '1'  ? true : false}" />
-    <HBox width="100%" alignItems="Center" visible="{= ${initModel>/sregIncidentCat} === '1'  ? true : false}">
+    <Label
+        text="Hva ble skadet?"
+        visible="{= ${initModel>/sregIncidentCat} === '1'  ? true : false}"
+    />
+    <HBox
+        width="100%"
+        alignItems="Center"
+        visible="{= ${initModel>/sregIncidentCat} === '1'  ? true : false}"
+    >
         <!-- Si fra om personskade? -->
         <HBox class="sapUiMediumMarginEnd">
-            <Label labelFor="inputIsPersonWound" text="{i18n>Person}:" class="sapUiTinyMarginTop sapUiTinyMarginEnd" />
-            <Switch id="inputIsPersonWound" state="{initModel>/bIsPersonWound}" customTextOn="{i18n>Yes}" customTextOff="{i18n>No}" change="onChangePersonWound">
+            <Label
+                labelFor="inputIsPersonWound"
+                text="{i18n>Person}:"
+                class="sapUiTinyMarginTop sapUiTinyMarginEnd"
+            />
+            <Switch
+                id="inputIsPersonWound"
+                state="{initModel>/bIsPersonWound}"
+                customTextOn="{i18n>Yes}"
+                customTextOff="{i18n>No}"
+                change="onChangePersonWound"
+            >
                 <layoutData>
                     <layout:GridData span="XL6 L6 M6 S11" />
                 </layoutData>
@@ -40,8 +122,17 @@
 
         <!-- Si fra om skade på miljø eller eiendom? -->
         <HBox class="sapUiMediumMarginEnd">
-            <Label labelFor="inputIsEnvironmentEstate" text="{i18n>ENV}:" class="sapUiTinyMarginTop sapUiTinyMarginBeginEnd" />
-            <Switch id="inputIsEnvironmentEstate" state="{initModel>/bIsEnvironmentEstate}" customTextOn="{i18n>Yes}" customTextOff="{i18n>No}">
+            <Label
+                labelFor="inputIsEnvironmentEstate"
+                text="{i18n>ENV}:"
+                class="sapUiTinyMarginTop sapUiTinyMarginBeginEnd"
+            />
+            <Switch
+                id="inputIsEnvironmentEstate"
+                state="{initModel>/bIsEnvironmentEstate}"
+                customTextOn="{i18n>Yes}"
+                customTextOff="{i18n>No}"
+            >
                 <layoutData>
                     <layout:GridData span="XL6 L6 M6 S11" />
                 </layoutData>
@@ -49,8 +140,17 @@
         </HBox>
         <!-- Si fra om skade på  materiell-->
         <HBox>
-            <Label labelFor="inputIsMateriel" text="{i18n>Material}:" class="sapUiTinyMarginTop sapUiTinyMarginBeginEnd" />
-            <Switch id="inputIsMateriel" state="{initModel>/bIsMateriel}" customTextOn="{i18n>Yes}" customTextOff="{i18n>No}">
+            <Label
+                labelFor="inputIsMateriel"
+                text="{i18n>Material}:"
+                class="sapUiTinyMarginTop sapUiTinyMarginBeginEnd"
+            />
+            <Switch
+                id="inputIsMateriel"
+                state="{initModel>/bIsMateriel}"
+                customTextOn="{i18n>Yes}"
+                customTextOff="{i18n>No}"
+            >
                 <layoutData>
                     <layout:GridData span="XL6 L6 M6 S11" />
                 </layoutData>
@@ -59,57 +159,148 @@
     </HBox>
 
     <!-- Segmented button different  -->
-    <Label text="" visible="{= ${initModel>/bIncWithOutDMG} ? true : false }" />
-    <SegmentedButton selectedKey="1" visible="{= ${initModel>/bIncWithOutDMG} ? true : false }" width="100%">
+    <Label
+        text=""
+        visible="{= ${initModel>/bIncWithOutDMG} ? true : false }"
+    />
+    <SegmentedButton
+        selectedKey="1"
+        visible="{= ${initModel>/bIncWithOutDMG} ? true : false }"
+        width="100%"
+    >
         <items>
-            <SegmentedButtonItem key="1" text="" visible="false" />
+            <SegmentedButtonItem
+                key="1"
+                text=""
+                visible="false"
+            />
             <SegmentedButtonItem text="Nestenulykke" />
             <SegmentedButtonItem text="Avvik" />
             <SegmentedButtonItem text="Observasjon " />
         </items>
     </SegmentedButton>
-    <Label text="" visible="{= ${initModel>/bIncSickEks} ? true : false }" />
-    <SegmentedButton selectedKey="{initModel>/selClassification}" visible="{= ${initModel>/bIncSickEks} ? true : false }" width="100%" selectionChange="onSelChangeRegSickEks">
+    <Label
+        text=""
+        visible="{= ${initModel>/bIncSickEks} ? true : false }"
+    />
+    <SegmentedButton
+        selectedKey="{initModel>/selClassification}"
+        visible="{= ${initModel>/bIncSickEks} ? true : false }"
+        width="100%"
+        selectionChange="onSelChangeRegSickEks"
+    >
         <items>
-            <SegmentedButtonItem key="0" text="" visible="false" />
-            <SegmentedButtonItem key="1" text="Sykdom" />
-            <SegmentedButtonItem key="2" text="Eksponering" />
+            <SegmentedButtonItem
+                key="0"
+                text=""
+                visible="false"
+            />
+            <SegmentedButtonItem
+                key="1"
+                text="Sykdom"
+            />
+            <SegmentedButtonItem
+                key="2"
+                text="Eksponering"
+            />
         </items>
     </SegmentedButton>
 
     <!-- Description of Events -->
-    <Label id="labelDescription" labelFor="inputDescription" fieldGroupIds="incidentHeader,requiresValidation" text="{i18n>DescriptionOfEvents}" required="true" />
-    <TextArea id="inputDescription" fieldGroupIds="incidentHeader" value="{DescText}" growingMaxLines="30" rows="6" cols="50" growing="true" width="100%" placeholder="{i18n>DescriptionOfEventsHelpDescription}">
+    <Label
+        id="labelDescription"
+        labelFor="inputDescription"
+        fieldGroupIds="incidentHeader,requiresValidation"
+        text="{i18n>DescriptionOfEvents}"
+        required="true"
+    />
+    <TextArea
+        id="inputDescription"
+        fieldGroupIds="incidentHeader"
+        value="{DescText}"
+        growingMaxLines="30"
+        rows="6"
+        cols="50"
+        growing="true"
+        width="100%"
+        placeholder="{i18n>DescriptionOfEventsHelpDescription}"
+    >
         <layoutData>
             <layout:GridData span="XL6 L7 M6 S11" />
         </layoutData>
     </TextArea>
-    <Button type="Transparent" icon="sap-icon://sys-help-2" text="{i18n>Help}" press="onBtnHintPressed" ariaLabelledBy="defaultHint" ariaDescribedBy="defaultHint">
+    <Button
+        type="Transparent"
+        icon="sap-icon://sys-help-2"
+        text="{i18n>Help}"
+        press="onBtnHintPressed"
+        ariaLabelledBy="defaultHint"
+        ariaDescribedBy="defaultHint"
+    >
         <layoutData>
             <layout:GridData span="XL1 L1 M1 S1" />
         </layoutData>
     </Button>
-    <core:InvisibleText id="defaultHint" text="{i18n>Help}" />
+    <core:InvisibleText
+        id="defaultHint"
+        text="{i18n>Help}"
+    />
     <!-- Strakstiltak  -->
-    <Label id="labelImDesc" labelFor="inputImDesc" fieldGroupIds="incidentHeader,requiresValidation" text="{i18n>ImDescOfEvents}" required="false" />
-    <TextArea id="inputImDesc" fieldGroupIds="incidentHeader" value="{DescText}" growingMaxLines="30" rows="2" cols="50" growing="true" width="100%" placeholder="">
+    <Label
+        id="labelImDesc"
+        labelFor="inputImDesc"
+        fieldGroupIds="incidentHeader,requiresValidation"
+        text="{i18n>ImDescOfEvents}"
+        required="false"
+    />
+    <TextArea
+        id="inputImDesc"
+        fieldGroupIds="incidentHeader"
+        value="{DescText}"
+        growingMaxLines="30"
+        rows="2"
+        cols="50"
+        growing="true"
+        width="100%"
+        placeholder=""
+    >
         <layoutData>
             <layout:GridData span="XL6 L7 M6 S11" />
         </layoutData>
     </TextArea>
-    <Button type="Transparent" icon="sap-icon://sys-help-2" text="{i18n>Help}" press="onBtnHintPressed" ariaLabelledBy="defaultHint" ariaDescribedBy="defaultHint">
+    <Button
+        type="Transparent"
+        icon="sap-icon://sys-help-2"
+        text="{i18n>Help}"
+        press="onBtnHintPressed"
+        ariaLabelledBy="defaultHint"
+        ariaDescribedBy="defaultHint"
+    >
         <layoutData>
             <layout:GridData span="XL1 L1 M1 S1" />
         </layoutData>
     </Button>
-    <core:InvisibleText id="defaultHintImd" text="{i18n>Help}" />
+    <core:InvisibleText
+        id="defaultHintImd"
+        text="{i18n>Help}"
+    />
     <!-- ENd Strakstiltak  -->
     <!-- When did it happen ? -->
-    <Label id="labelDateOrPeriod" labelFor="inputDateOrPeriod" text="{i18n>DateOrPeriod}" required="true" />
+    <Label
+        id="labelDateOrPeriod"
+        labelFor="inputDateOrPeriod"
+        text="{i18n>DateOrPeriod}"
+        required="true"
+    />
 
     <!-- Date -->
     <VBox>
-        <DatePicker id="inputDate" fieldGroupIds="incidentHeader" value="{ path: 'StartDate', type: 'sap.ui.model.type.Date', formatOptions: { strictParsing: true, UTC: true } }" visible="{= ${initModel>/sDateOrPeriod} === 'date' ? true : false }" />
+        <DatePicker
+            id="inputDate"
+            fieldGroupIds="incidentHeader"
+            value="{ path: 'StartDate', type: 'sap.ui.model.type.Date', formatOptions: { strictParsing: true, UTC: true } }"
+            visible="{= ${initModel>/sDateOrPeriod} === 'date' ? true : false }"
+        />
         <DateRangeSelection
             id="inputPeriod"
             fieldGroupIds="incidentHeader"
@@ -118,20 +309,40 @@
             visible="{= ${initModel>/sDateOrPeriod} === 'period' ? true : false }"
         />
     </VBox>
-    <Button type="Ghost" icon="sap-icon://fob-watch" text="{i18n>Today}" press="onBtnTodayPressed" ariaLabelledBy="defaultHint" ariaDescribedBy="defaultHint">
+    <Button
+        type="Ghost"
+        icon="sap-icon://fob-watch"
+        text="{i18n>Today}"
+        press="onBtnTodayPressed"
+        ariaLabelledBy="defaultHint"
+        ariaDescribedBy="defaultHint"
+    >
         <layoutData>
             <layout:GridData span="XL1 L1 M1 S1" />
         </layoutData>
     </Button>
-    <SegmentedButton id="inputDateOrPeriod" width="100%" selectedKey="{initModel>/sDateOrPeriod}">
+    <SegmentedButton
+        id="inputDateOrPeriod"
+        width="100%"
+        selectedKey="{initModel>/sDateOrPeriod}"
+    >
         <items>
-            <SegmentedButtonItem text="{i18n>Date}" key="date" />
-            <SegmentedButtonItem text="{i18n>Period}" key="period" />
+            <SegmentedButtonItem
+                text="{i18n>Date}"
+                key="date"
+            />
+            <SegmentedButtonItem
+                text="{i18n>Period}"
+                key="period"
+            />
         </items>
         <layoutData>
             <layout:GridData span="XL2 L2 M2 S12" />
         </layoutData>
     </SegmentedButton>
-    <Label text="Hvor skjedde det?"  required="true"/>
+    <Label
+        text="Hvor skjedde det?"
+        required="true"
+    />
     <Input showValueHelp="true" />
 </core:FragmentDefinition>

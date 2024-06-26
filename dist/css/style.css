@@ -8,7 +8,7 @@
 .hovWidthChange {
     display: flex;
     width: 100% !important;
-    overflow: hidden; /* Ensure content doesn't overflow */
+    overflow: hidden; /* Ensure content doesn't overflow 
 }
 
 .hovWidthChange > * {
@@ -17,6 +17,20 @@
 }
 
 .hovWidthChange > *:hover {
-    flex: 4; /* Increase the flex grow for the hovered item */
+    flex: 4; /* Increase the flex grow for the hovered item 
 } */
+
+.sapMUSProgressBox{
+    min-width: 0 !important; 
+    width: 0 !important;
+    padding: 0;
+}
+
+.sapMUCItemIcon{
+    display: none;
+}
+
+.feedClass{
+    padding: 0 !important;
+}
 
