@@ -134,6 +134,14 @@
             "TargetMain",
             "Feed"
           ]
+        },
+        {
+          "name": "Doc",
+          "pattern": "Feed/{ID}/Doc",
+          "target": [
+            "TargetMain",
+            "Feed"
+          ]
         }
       ],
       "targets": {

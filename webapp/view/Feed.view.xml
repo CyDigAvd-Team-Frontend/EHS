@@ -91,7 +91,10 @@
                 class="sapUiNoContentPadding"
             >
                 <items>
-                    <IconTabFilter text="{i18n>Communication}">
+                    <IconTabFilter
+                        text="{i18n>Communication}"
+                        key="chatFilter"
+                    >
                         <VBox>
                             <FeedInput
                                 id="_IDGenFeedInput1"
@@ -125,7 +128,11 @@
                             </com:Timeline>
                         </VBox>
                     </IconTabFilter>
-                    <IconTabFilter text="Dokumentasjon">
+                    <IconTabFilter
+                        text="Dokumentasjon"
+                        id="documentationFilter"
+                        key="documentationFilter"
+                    >
                         <VBox>
                             <upload:UploadSet
                                 id="UploadSet"

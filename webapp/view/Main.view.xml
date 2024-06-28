@@ -22,6 +22,7 @@
                 search="onSearch"
                 showRestoreButton="true"
                 showClearButton="true"
+                filterBarExpanded="false"
             >
                 <fb:filterGroupItems>
                     <fb:FilterGroupItem
@@ -206,7 +207,7 @@
 
                         <Column
                             id="_IDGenColumn4"
-                            width="5em"
+                            width="10rem"
                         />
                     </columns>
                     <items>
@@ -253,7 +254,7 @@
 
                                 <FlexBox
                                     id="_IDGenFlexBox1"
-                                    justifyContent="SpaceBetween"
+                                    justifyContent="SpaceAround"
                                 >
                                     <!-- <tnt:InfoLabel
                                     id="il1"
@@ -268,20 +269,37 @@
                                     text="Melding til saksbehandler"
                                     press="onPressNavToFeed"
                                 /> -->
+                                    <HBox
+                                        width="4rem"
+                                        justifyContent="End"
+                                    >
+                                        <Button
+                                            icon="sap-icon://discussion"
+                                            press="onPressNavToFeed"
+                                            type="{= ${ListModel>ID} === 1234 ? 'Emphasized' : 'Ghost'}"
+                                            tooltip="Melding til saksbehandler"
+                                            text="{= ${ListModel>ID} === 1234 ? 'Ny' : ''}"
+                                            iconFirst="false"
+                                        />
+                                    </HBox>
+                                    <HBox
+                                        justifyContent="End"
+                                        width="3rem"
+                                    >
+                                        <Button
+                                            type="Ghost"
+                                            icon="sap-icon://attachment"
+                                            press="onPressOpenDocument"
+                                            class="sapUiTinyMarginEnd"
+                                            tooltip="Informasjon"
+                                        />
+                                    </HBox>
                                     <Button
                                         type="Ghost"
                                         icon="sap-icon://hint"
                                         press="onPressOpenInfo"
                                         class="sapUiTinyMarginEnd"
                                         tooltip="Informasjon"
-                                    />
-                                    <Button
-                                        icon="sap-icon://discussion"
-                                        press="onPressNavToFeed"
-                                        type="{= ${ListModel>ID} === 1234 ? 'Emphasized' : 'Ghost'}"
-                                        tooltip="Melding til saksbehandler"
-                                        text="{= ${ListModel>ID} === 1234 ? 'Ny' : ''}"
-                                        iconFirst="false"
                                     />
                                 </FlexBox>
                             </cells>

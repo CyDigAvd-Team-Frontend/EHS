@@ -39,7 +39,12 @@ sap.ui.define([
                     } else {
                         window.location.href = "https://cydigavd-team-frontend.github.io/FLP/";
                     }
-                
+            },
+
+            onPressOpenDocument: function(oEvent){
+                var oObject = oEvent.getSource().getBindingContext("ListModel").getObject();
+                this.getRouter().navTo("Doc", { ID: oObject.ID });
+                debugger;
             },
             // onSearch: function (oEvent) {
             //     var items = this.getView().byId("_IDGenTable1").getBinding("items");

@@ -12,7 +12,14 @@ sap.ui.define([
                 this.getView().addStyleClass(this.getContentDensityClass());
                 this.oRouter = this.getRouter().getRoute("Feed");
                 this.oRouter.attachPatternMatched(this.onRouteMatched, this);
+                this.oRouter = this.getRouter().getRoute("Doc");
+                this.oRouter.attachPatternMatched(this.onRouteMatchedDoc, this);
                 //this.getOwnerComponent().getModel("layoutModel").setProperty("/layout", "TwoColumnsBeginExpanded"); 
+            },
+
+            onRouteMatchedDoc: function(evt){
+                this.onRouteMatched(evt)
+                this.getView().byId("idIconTabBarFiori2").setSelectedKey("documentationFilter")
             },
 
             onRouteMatched: function (evt) {
@@ -32,6 +39,7 @@ sap.ui.define([
                 } else{
                     this.byId("navCon").to(this.byId("page2"))
                 }
+                this.getView().byId("idIconTabBarFiori2").setSelectedKey("chatFilter");
             },
 
             onPostFeed: function (evt) {
