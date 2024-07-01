@@ -8,10 +8,24 @@
             </layoutData>
         </Button>
     </Toolbar>
-    <Label text="{i18n>equip}" visible="{initModel>/bIsMateriel}" />
+    <!-- <Label text="{i18n>equip}" visible="{initModel>/bIsMateriel}" />
     <VBox>
         <Input width="100%" showValueHelp="true" visible="{initModel>/bIsMateriel}" />
-    </VBox>
+    </VBox> -->
+    
+    <Label text="{i18n>equipDescrip}" visible="{initModel>/bIsMateriel}" />
+    <TextArea visible="{initModel>/bIsMateriel}" />
+   <!--  <Label text="{i18n>equipSerialNumber}" visible="{initModel>/bIsMateriel}" />
+    <Text visible="{initModel>/bIsMateriel}" />
+    <Label text="{i18n>equipTechnical}" visible="{initModel>/bIsMateriel}" />
+    <Text visible="{initModel>/bIsMateriel}" />
+    <Label text="{i18n>equipType}" visible="{initModel>/bIsMateriel}" />
+    <Text visible="{initModel>/bIsMateriel}" />
+    <Label text="{i18n>equipMaterialNumber}" visible="{initModel>/bIsMateriel}" />
+    <Text visible="{initModel>/bIsMateriel}" /> -->
+    <!-- <Label text="{i18n>equipAdditionalInfo}" visible="{initModel>/bIsMateriel}" />
+    <TextArea rows="3" visible="{initModel>/bIsMateriel}" /> -->
+     <Label text="" visible="{initModel>/bIsMateriel}" />
     <Button type="Ghost" icon="sap-icon://hint" press="onPressOpenInfo" class="sapUiTinyMarginEnd" tooltip="Informasjon" width="30px" visible="{initModel>/bIsMateriel}">
         <layoutData>
             <layout:GridData span="XL1 L1 M1 S1" />
@@ -23,16 +37,4 @@
             <layout:GridData span="XL2 L2 M2 S12" />
         </layoutData>
     </Button>
-    <Label text="{i18n>equipDescrip}" visible="{initModel>/bIsMateriel}" />
-    <TextArea visible="{initModel>/bIsMateriel}" />
-    <Label text="{i18n>equipSerialNumber}" visible="{initModel>/bIsMateriel}" />
-    <Text visible="{initModel>/bIsMateriel}" />
-    <Label text="{i18n>equipTechnical}" visible="{initModel>/bIsMateriel}" />
-    <Text visible="{initModel>/bIsMateriel}" />
-    <Label text="{i18n>equipType}" visible="{initModel>/bIsMateriel}" />
-    <Text visible="{initModel>/bIsMateriel}" />
-    <Label text="{i18n>equipMaterialNumber}" visible="{initModel>/bIsMateriel}" />
-    <Text visible="{initModel>/bIsMateriel}" />
-    <Label text="{i18n>equipAdditionalInfo}" visible="{initModel>/bIsMateriel}" />
-    <TextArea rows="3" visible="{initModel>/bIsMateriel}" />
 </core:FragmentDefinition>

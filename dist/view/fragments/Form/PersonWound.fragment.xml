@@ -9,19 +9,20 @@
         </Button>
     </Toolbar>
     <Label text="Klassifisering" />
-    <SegmentedButton selectedKey="{initModel>/selClassification}" visible="{initModel>/bIsPersonWound}">
+    <!-- <SegmentedButton selectedKey="{initModel>/selClassification}" visible="{initModel>/bIsPersonWound}">
         <items>
             <SegmentedButtonItem key="0" text="" visible="false" />
             <SegmentedButtonItem key="1" text="Sykdom" />
             <SegmentedButtonItem key="2" text="Eksponering" />
             <SegmentedButtonItem key="3" text="Skade " />
         </items>
-    </SegmentedButton>
-    <Label text="Skadens-/sykdommens art" visible="{initModel>/bIsPersonWound}" />
-    <Input showValueHelp="true" visible="{initModel>/bIsPersonWound}" />
+    </SegmentedButton> -->
+    
+    <Label text="Beskriv skaden/sykdommen" required="true" visible="{initModel>/bIsPersonWound}" />
+    <TextArea visible="{initModel>/bIsPersonWound}" />
     <Label text="Kroppsdel" visible="{initModel>/bIsPersonWound}" />
     <Button icon="sap-icon://wounds-doc" text="Velg fra bilde" type="Ghost" visible="{initModel>/bIsPersonWound}" press="onRequestWoundLoc" />
     <Input id="inWoundLoc" showValueHelp="true" showTableSuggestionValueHelp="true" valueHelpOnly="true" valueHelpRequest="onRequestWoundLoc" visible="{initModel>/bIsPersonWound}" />
-    <Label text="Beskriv skaden/sykdommen" visible="{initModel>/bIsPersonWound}" />
-    <TextArea visible="{initModel>/bIsPersonWound}" />
+    <Label text="Skadens-/sykdommens art" visible="{initModel>/bIsPersonWound}" />
+    <Input showValueHelp="true" visible="{initModel>/bIsPersonWound}" />
 </core:FragmentDefinition>
